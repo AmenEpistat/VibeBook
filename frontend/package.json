@@ -16,6 +16,8 @@
     "lint": "eslint . --ext .ts,.js,.vue --fix"
   },
   "dependencies": {
+    "@vueuse/motion": "^3.0.3",
+    "motion": "^12.23.24",
     "pinia": "^3.0.3",
     "vue": "^3.5.22",
     "vue-router": "^4.6.3",
