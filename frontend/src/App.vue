@@ -1,11 +1,21 @@
-<script setup lang="ts"></script>
-
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+    <Header />
+    <router-view />
+    <Footer />
 </template>
 
-<style scoped></style>
+<script setup lang="ts">
+import Footer from '@/components/footer/Footer.vue';
+import Header from '@/components/header/Header.vue';
+</script>
+
+<style lang="scss">
+@use '@/assets/styles/main' as *;
+@use '@/assets/styles/overrides' as *;
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    padding-inline: 20px;
+}
+</style>
