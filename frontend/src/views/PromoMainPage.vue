@@ -38,7 +38,6 @@
                 v-motion
                 :initial="{ opacity: 0, y: 100 }"
                 :visible="{ opacity: 1, y: 0 }"
-                :transition="{ delay: 0.3, duration: 1.8 }"
                 tag="li"
                 class="features__item"
             >
@@ -54,9 +53,10 @@
                 <img
                     class="features__img"
                     src="@/assets/img/featureMoods.png"
-                    width=""
+                    width="1995"
                     height="628"
                     alt=""
+                    loading="lazy"
                 />
             </Motion>
             <Motion
@@ -65,7 +65,6 @@
                 class="features__item"
                 :initial="{ opacity: 0, y: 100 }"
                 :visible="{ opacity: 1, y: 0 }"
-                :transition="{ delay: 0.3, duration: 0.8 }"
             >
                 <img
                     class="features__img"
@@ -73,8 +72,16 @@
                     width="2323"
                     height="628"
                     alt=""
+                    loading="lazy"
                 />
-                <div class="features__text-wrapper">
+                <Motion
+                    v-motion
+                    tag="div"
+                    :initial="{ opacity: 0, y: 100 }"
+                    :visible="{ opacity: 1, y: 0 }"
+                    :transition="{ delay: 3, duration: 1 }"
+                    class="features__text-wrapper"
+                >
                     <h2 class="features__title">Get smart personalised recommendations</h2>
                     <p class="features__description">
                         Наш <b>искусственный интеллект</b> с машинным обучением - это ваш надежный друг, к которому
@@ -82,7 +89,7 @@
                         <br />
                         Он поймет ваши предпочтения в чтении и <b>подберет для вас лучшие книги</b>.
                     </p>
-                </div>
+                </Motion>
             </Motion>
         </ul>
     </section>
@@ -95,6 +102,7 @@
 
 .promo {
     position: relative;
+    z-index: 1;
 
     min-height: 700px;
     padding: 0 100px;
@@ -113,7 +121,7 @@
         height: 100%;
         min-height: 800px;
 
-        background-image: linear-gradient(to left, rgba($primary-color, 0.6), $primary-color);
+        background-color: $primary-color;
         background-position: center;
     }
 }
