@@ -1,0 +1,25 @@
+@use '@/assets/styles/variables' as *;
+
+.primary-button {
+    color: $light-color !important;
+
+    background: $dark-color !important;
+
+    transition: all 0.7s ease !important;
+
+    &:hover {
+        color: $dark-color !important;
+
+        background: $light-color !important;
+    }
+}
+
+.v-btn.v-btn--variant-plain {
+    color: $dark-color !important;
+
+    transition: all 0.7s ease !important;
+
+    &:hover {
+        color: $light-color !important;
+    }
+}
