@@ -1,6 +1,6 @@
 @use '@/assets/styles/variables' as *;
 
-.primary-button {
+.dark-button {
     color: $light-color !important;
 
     background: $dark-color !important;
@@ -14,6 +14,18 @@
     }
 }
 
+.primary-button {
+    background: $primary-color !important;
+
+    color: $light-color !important;
+
+    transition: all 0.7s ease !important;
+
+    &:hover {
+        background: darken($primary-color, 10%) !important;
+    }
+}
+
 .v-btn.v-btn--variant-plain {
     color: $dark-color !important;
 
@@ -22,4 +34,24 @@
     &:hover {
         color: $light-color !important;
     }
+}
+
+.plain-button.v-btn--variant-plain {
+    color: $primary-color !important;
+
+    transition: all 0.7s ease !important;
+
+    &:hover {
+        color: $dark-color !important;
+    }
+}
+
+.v-input--focused .v-field__outline__start,
+.v-input--focused .v-field__outline__notch,
+.v-input--focused .v-field__outline__end {
+    border-color: $primary-color !important;
+}
+
+.v-field__append-inner {
+    width: 25px !important;
 }

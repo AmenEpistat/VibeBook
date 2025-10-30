@@ -18,13 +18,14 @@
                 <v-btn
                     rounded="lg"
                     class="dark-button"
+                    to="/signIn"
                 >
                     Войти
                 </v-btn>
                 <v-btn
                     rounded="lg"
                     variant="plain"
-                    to="/login"
+                    to="/signUp"
                 >
                     Зарегистрироваться
                 </v-btn>
@@ -310,9 +311,5 @@
         rgba(0, 0, 0, 0.1) 0 20px 25px -5px,
         rgba(0, 0, 0, 0.1) 0 8px 10px -6px;
     border-radius: 20px;
-
-    @media (max-width: $laptop) {
-        //width: 800px;
-    }
 }
 </style>
