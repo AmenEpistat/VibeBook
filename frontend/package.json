@@ -19,6 +19,7 @@
     "@vueuse/motion": "^3.0.3",
     "motion": "^12.23.24",
     "pinia": "^3.0.3",
+    "vite-plugin-vuetify": "^2.1.2",
     "vue": "^3.5.22",
     "vue-router": "^4.6.3",
     "vuetify": "^3.10.7"
