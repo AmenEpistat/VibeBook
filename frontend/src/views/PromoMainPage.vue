@@ -1,97 +1,104 @@
 <template>
     <section class="promo">
-        <div class="promo__text-wrapper">
-            <h1 class="promo__title">
-                <span>The <br /></span> VibeBook
-            </h1>
-            <p class="promo__description">Because life's too short for a book you're not in the mood for.</p>
-        </div>
-        <div class="promo__img-wrapper">
-            <img
-                class="promo__img"
-                src="@/assets/img/promoBackground.jpg"
-                alt=""
-            />
-        </div>
-        <div class="promo__sign-buttons-wrapper">
-            <v-btn
-                rounded="lg"
-                class="primary-button"
-            >
-                Войти
-            </v-btn>
-            <v-btn
-                rounded="lg"
-                variant="plain"
-            >
-                Зарегистрироваться
-            </v-btn>
+        <div class="promo__wrapper container">
+            <div class="promo__text-wrapper">
+                <h1 class="promo__title">
+                    <span>The <br /></span> VibeBook
+                </h1>
+                <p class="promo__description">Because life's too short for a book you're not in the mood for.</p>
+            </div>
+            <div class="promo__img-wrapper">
+                <img
+                    class="promo__img"
+                    src="@/assets/img/promoBackground.jpg"
+                    alt=""
+                />
+            </div>
+            <div class="promo__sign-buttons-wrapper">
+                <v-btn
+                    rounded="lg"
+                    class="dark-button"
+                    to="/signIn"
+                >
+                    Войти
+                </v-btn>
+                <v-btn
+                    rounded="lg"
+                    variant="plain"
+                    to="/signUp"
+                >
+                    Зарегистрироваться
+                </v-btn>
+            </div>
         </div>
     </section>
     <section class="features">
-        <p class="features__text">
-            Мы поможем выбрать следующую книгу, опираясь на <b>ваши интересы</b> и настроение.<br />Давай
-            <b>искусственный интеллект</b> сделает это.
-        </p>
-        <ul class="features__list">
-            <Motion
-                v-motion
-                :initial="{ opacity: 0, y: 100 }"
-                :visible="{ opacity: 1, y: 0 }"
-                tag="li"
-                class="features__item"
-            >
-                <div class="features__text-wrapper">
-                    <h2 class="features__title">Discover books by mood</h2>
-                    <p class="features__description">
-                        Вам хочется чего-нибудь авантюрного, веселого и динамичного? Как насчет более мрачного,
-                        медленного и эмоционального чтения?
-                        <br />
-                        Комбинируйте <b>наш обширный набор фильтров</b>, чтобы выбрать свою следующую идеальную книгу.
-                    </p>
-                </div>
-                <img
-                    class="features__img"
-                    src="@/assets/img/featureMoods.png"
-                    width="1995"
-                    height="628"
-                    alt=""
-                    loading="lazy"
-                />
-            </Motion>
-            <Motion
-                v-motion
-                tag="li"
-                class="features__item"
-                :initial="{ opacity: 0, y: 100 }"
-                :visible="{ opacity: 1, y: 0 }"
-            >
-                <img
-                    class="features__img"
-                    src="@/assets/img/featureRecommendations.png"
-                    width="2323"
-                    height="628"
-                    alt=""
-                    loading="lazy"
-                />
+        <div class="features__wrapper container">
+            <p class="features__text">
+                Мы поможем выбрать следующую книгу, опираясь на <b>ваши интересы</b> и настроение.<br />Давай
+                <b>искусственный интеллект</b> сделает это.
+            </p>
+            <ul class="features__list">
                 <Motion
                     v-motion
-                    tag="div"
                     :initial="{ opacity: 0, y: 100 }"
                     :visible="{ opacity: 1, y: 0 }"
-                    :transition="{ delay: 3, duration: 1 }"
-                    class="features__text-wrapper"
+                    tag="li"
+                    class="features__item"
                 >
-                    <h2 class="features__title">Get smart personalised recommendations</h2>
-                    <p class="features__description">
-                        Наш <b>искусственный интеллект</b> с машинным обучением - это ваш надежный друг, к которому
-                        можно обратиться за рекомендациями по книгам.
-                        <br />
-                        Он поймет ваши предпочтения в чтении и <b>подберет для вас лучшие книги</b>.
-                    </p>
+                    <div class="features__text-wrapper">
+                        <h2 class="features__title">Discover books by mood</h2>
+                        <p class="features__description">
+                            Вам хочется чего-нибудь авантюрного, веселого и динамичного? Как насчет более мрачного,
+                            медленного и эмоционального чтения?
+                            <br />
+                            Комбинируйте <b>наш обширный набор фильтров</b>, чтобы выбрать свою следующую идеальную
+                            книгу.
+                        </p>
+                    </div>
+                    <img
+                        class="features__img"
+                        src="@/assets/img/featureMoods.png"
+                        width="1995"
+                        height="628"
+                        alt=""
+                        loading="lazy"
+                    />
                 </Motion>
-            </Motion>
-        </ul>
+                <Motion
+                    v-motion
+                    tag="li"
+                    class="features__item"
+                    :initial="{ opacity: 0, y: 100 }"
+                    :visible="{ opacity: 1, y: 0 }"
+                >
+                    <img
+                        class="features__img"
+                        src="@/assets/img/featureRecommendations.png"
+                        width="2323"
+                        height="628"
+                        alt=""
+                        loading="lazy"
+                    />
+                    <Motion
+                        v-motion
+                        tag="div"
+                        :initial="{ opacity: 0, y: 100 }"
+                        :visible="{ opacity: 1, y: 0 }"
+                        :transition="{ delay: 3, duration: 1 }"
+                        class="features__text-wrapper"
+                    >
+                        <h2 class="features__title">Get smart personalised recommendations</h2>
+                        <p class="features__description">
+                            Наш <b>искусственный интеллект</b> с машинным обучением - это ваш надежный друг, к которому
+                            можно обратиться за рекомендациями по книгам.
+                            <br />
+                            Он поймет ваши предпочтения в чтении и <b>подберет для вас лучшие книги</b>.
+                        </p>
+                    </Motion>
+                </Motion>
+            </ul>
+        </div>
     </section>
 </template>
 
@@ -119,10 +126,13 @@
 
         width: 100%;
         height: 100%;
-        min-height: 800px;
 
         background-color: $primary-color;
         background-position: center;
+    }
+
+    @media (max-width: $laptop) {
+        min-height: 500px;
     }
 }
 
@@ -130,6 +140,12 @@
     max-width: 480px;
 
     padding-top: 180px;
+
+    @media (max-width: $laptop) {
+        max-width: 280px;
+
+        padding-top: 70px;
+    }
 }
 
 .promo__title {
@@ -143,6 +159,16 @@
     span {
         font-size: 18px;
         line-height: 28px;
+
+        @media (max-width: $laptop) {
+            font-size: 16px;
+            line-height: 24px;
+        }
+    }
+
+    @media (max-width: $laptop) {
+        font-size: 40px;
+        line-height: 40px;
     }
 }
 
@@ -153,6 +179,11 @@
     font-weight: 500;
     color: $light-color;
     line-height: 40px;
+
+    @media (max-width: $laptop) {
+        font-size: 24px;
+        line-height: 32px;
+    }
 }
 
 .promo__img-wrapper::before {
@@ -160,10 +191,10 @@
 
     position: absolute;
     bottom: 0;
-    left: 650px;
+    left: 50%;
     z-index: 2;
 
-    width: 60%;
+    width: 100%;
     min-height: 800px;
 
     background-color: rgba($primary-color, 0.3);
@@ -173,7 +204,7 @@
 .promo__img {
     position: absolute;
     bottom: 0;
-    left: 650px;
+    left: 50%;
 }
 
 .features__text {
@@ -183,6 +214,13 @@
     text-align: center;
     font-size: 24px;
     line-height: 32px;
+
+    @media (max-width: $laptop) {
+        margin: 60px auto;
+
+        font-size: 18px;
+        line-height: 28px;
+    }
 }
 
 .features__item {
@@ -192,15 +230,19 @@
     align-items: center;
 
     min-height: 800px;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
 
     overflow: hidden;
 
-    &:first-child {
+    &:first-of-type {
         .features__img {
-            left: unset;
-            right: -50%;
+            margin-left: unset;
+            margin-right: -50%;
         }
+    }
+
+    @media (max-width: $laptop) {
+        min-height: 600px;
     }
 }
 
@@ -210,6 +252,10 @@
 
     &:last-child {
         margin-left: auto;
+    }
+
+    @media (max-width: $laptop) {
+        max-width: 400px;
     }
 }
 
@@ -238,17 +284,26 @@
         background: $primary-color;
         border-radius: 6px;
     }
+
+    @media (max-width: $laptop) {
+        font-size: 28px;
+        line-height: 32px;
+    }
 }
 
 .features__description {
     font-size: 20px;
     line-height: 28px;
+
+    @media (max-width: $laptop) {
+        font-size: 16px;
+        line-height: 24px;
+    }
 }
 
 .features__img {
-    position: absolute;
-    top: 0;
-    left: -45%;
+    position: relative;
+    margin-left: -50%;
 
     box-shadow:
         rgb(255, 255, 255) 0 0 0 0,

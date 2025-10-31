@@ -14,8 +14,7 @@ import Header from '@/components/header/Header.vue';
 @use '@/assets/styles/overrides' as *;
 
 .container {
-    width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding-inline: 20px;
 }
 </style>
