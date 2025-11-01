@@ -20,17 +20,16 @@ export class authController {
       if (!errors.isEmpty()) {
         return res.status(400).json({ message: errors });
       }
-      console.log('BODY:', req.body);
       const { email, username, password } = req.body;
       const candidate = await User.findOne({ email });
       if (candidate) {
         return res.status(400).json({ message: `Пользователь с таким email ${email} уже есть` });
       }
       const hashPassword = bcrypt.hashSync(password, 7);
-      const userRole = await Role.findOne({ value: "USER" });
+      const userRole = await Role.findOne({ value: "ADMIN" });
       const user = new User ({ email, password: hashPassword, username, roles: [userRole.value] });
       await user.save();
-      res.json('f');
+      res.json({ message: 'Успешно зарегистрирован!'});
     } catch (e) {
       console.error(e);
       res.status(400).json({ message: 'registrstion error' });

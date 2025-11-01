@@ -1,6 +1,8 @@
 import { Router } from 'express';
 import { authController } from './authController.js';
 import { check } from 'express-validator';
+import { authMiddleware } from './middleware/authMiddleware.js';
+import { roleMiddleware } from './middleware/roleMiddleware.js';
 
 export const router = new Router();
 const controller = new authController();
@@ -10,4 +12,4 @@ router.post('/registration',[
   check('password', 'Пароль не может быть меньше 5 символов').isLength({ min: 5 })
 ] ,controller.registration);
 router.post('/login', controller.login);
-router.get('/user', controller.getUser);
+router.get('/user', roleMiddleware(['ADMIN']) ,controller.getUser);
