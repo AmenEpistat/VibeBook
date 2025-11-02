@@ -13,5 +13,5 @@ router.post('/registration',[
 ] ,controller.registration);
 router.post('/login', controller.login);
 router.post('/logout', controller.login);
-router.post('/activate/:link', controller.login);
-router.get('/user', roleMiddleware(['ADMIN']) ,controller.getUser);
+router.get('/activate/:link', controller.activate);
+router.get('/user', roleMiddleware(['ADMIN']), controller.getUser);

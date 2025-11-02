@@ -4,6 +4,7 @@ import { Role } from './model/Role.js';
 import { validationResult } from 'express-validator';
 import jwt from 'jsonwebtoken';
 import { secret } from '../config.js';
+import authService from './services/authService.js'
 
 const generateAccessToken = (id, roles) => {{
 	const payload = {
@@ -16,23 +17,23 @@ const generateAccessToken = (id, roles) => {{
 export class authController {
 	async registration (req, res) {
 		try {
-			const errors = validationResult(req);
-			if (!errors.isEmpty()) {
-				return res.status(400).json({ message: errors });
-			}
-			const { email, username, password } = req.body;
-			const candidate = await User.findOne({ email });
-			if (candidate) {
-				return res.status(400).json({ message: `Пользователь с таким email ${email} уже есть` });
-			}
-			const hashPassword = bcrypt.hashSync(password, 7);
-			const userRole = await Role.findOne({ value: "ADMIN" });
-			const user = new User ({ email, password: hashPassword, username, roles: [userRole.value] });
-			await user.save();
-			res.json({ message: 'Успешно зарегистрирован!'});
+			const { email, password, username } = req.body;
+			const userData = await authService.reqistration(email, password, username);
+			res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true })
+			return res.json(userData);
 		} catch (e) {
 			console.error(e);
 			res.status(400).json({ message: 'registrstion error' });
+		}
+	}
+
+	async activate (req, res, next) {
+		try {
+			const activatedLink = req.params.link;
+			await authService.activate(activatedLink);
+			return res.redirect(process.env.CLIENT_URL);
+		} catch (e) {
+			console.log(e);
 		}
 	}
 
