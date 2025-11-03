@@ -1,67 +1,75 @@
 import { User } from './model/User.js';
-import bcrypt from 'bcrypt';
-import { Role } from './model/Role.js';
-import { validationResult } from 'express-validator';
-import jwt from 'jsonwebtoken';
-import { secret } from '../config.js';
-
-const generateAccessToken = (id, roles) => {{
-  const payload = {
-    id,
-    roles
-  }
-  return jwt.sign(payload, secret.secret, { expiresIn: '24h' });
-}}
+import authService from './services/authService.js'
+import ApiError from '../common/exceptions/apiError.js'
+import { validationResult } from 'express-validator'
 
 export class authController {
-  async registration (req, res) {
-    try {
-      const errors = validationResult(req);
-      if (!errors.isEmpty()) {
-        return res.status(400).json({ message: errors });
-      }
-      console.log('BODY:', req.body);
-      const { email, username, password } = req.body;
-      const candidate = await User.findOne({ email });
-      if (candidate) {
-        return res.status(400).json({ message: `Пользователь с таким email ${email} уже есть` });
-      }
-      const hashPassword = bcrypt.hashSync(password, 7);
-      const userRole = await Role.findOne({ value: "USER" });
-      const user = new User ({ email, password: hashPassword, username, roles: [userRole.value] });
-      await user.save();
-      res.json('f');
-    } catch (e) {
-      console.error(e);
-      res.status(400).json({ message: 'registrstion error' });
-    }
-  }
+	async registration (req, res, next) {
+		try {
+			const errors = validationResult(req);
+			if (!errors.isEmpty()) {
+				return next(ApiError.BadRequest('Оштбка при валидации', errors.array()));
+			}
+			const { email, password, username } = req.body;
+			const userData = await authService.reqistration(email, password, username);
+			res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true })
+			return res.json(userData);
+		} catch (e) {
+			next(e);
+		}
+	}
 
-  async login (req, res) {
-    try {
-      const { email, password } = req.body;
-      const user = await User.findOne({ email });
-      if (!user) {
-        return res.status(400).json({ message: `Аккаунт с такими данными ${ email } не найден` });
-      }
-      const validPassword = bcrypt.compareSync(password, user.password);
-      if (!validPassword) {
-        return res.status(400).json({ message: 'Пароль неправильный' });
-      }
-      const token = generateAccessToken(user._id, user.roles);
-      return res.json({ token });
-    } catch (e) {
-      console.log(e);
-      res.status(400).json({ message: 'login error' });
-    }
-  }
+	async activate (req, res, next) {
+		try {
+			const activatedLink = req.params.link;
+			await authService.activate(activatedLink);
+			return res.redirect(process.env.CLIENT_URL);
+		} catch (e) {
+			next(e);
+		}
+	}
 
-  async getUser (req, res) {
-    try {
-      const users = await User.find();
-      res.json({ users });
-    } catch (e) {
-      console.log(e)
-    }
-  }
+	async login (req, res, next) {
+		try {
+			const { email, password } = req.body;
+			const userData = await authService.login(email, password);
+			res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true })
+			return res.json(userData);
+		} catch (e) {
+			next(e);
+		}
+	}
+
+	async logout (req, res, next) {
+		try {
+			const { refreshToken } = req.cookies;
+			const token = await authService.logout(refreshToken);
+			res.clearCookie(token);
+			return res.status(200);
+		} catch (e) {
+			next();
+		}
+	}
+
+	async refresh (req, res, next) {
+		try {
+			console.log('gggggg');
+			const { refreshToken } = req.cookies;
+			console.log(refreshToken);
+			const userData = await authService.refresh(refreshToken);
+			res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true })
+			return res.json(userData);
+		} catch (e) {
+			next(e);
+		}
+	}
+
+	async getUser (req, res) {
+		try {
+			const users = await User.find();
+			res.json({ users });
+		} catch (e) {
+			console.log(e)
+		}
+	}
 }
