@@ -7,6 +7,16 @@
 <script setup lang="ts">
 import Footer from '@/components/footer/Footer.vue';
 import Header from '@/components/header/Header.vue';
+import { useAuthStore } from '@/stores/authStore.ts';
+import { onMounted } from 'vue';
+
+const authStore = useAuthStore();
+
+onMounted(() => {
+    if (localStorage.getItem('token')) {
+        authStore.checkAuth();
+    }
+});
 </script>
 
 <style lang="scss">
@@ -16,5 +26,6 @@ import Header from '@/components/header/Header.vue';
 .container {
     max-width: 1400px;
     margin: 0 auto;
+    padding: 20px;
 }
 </style>

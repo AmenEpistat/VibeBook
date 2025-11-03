@@ -14,7 +14,10 @@
                     alt=""
                 />
             </div>
-            <div class="promo__sign-buttons-wrapper">
+            <div
+                v-if="!isLogin"
+                class="promo__sign-buttons-wrapper"
+            >
                 <v-btn
                     rounded="lg"
                     class="dark-button"
@@ -102,7 +105,11 @@
     </section>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { computed } from 'vue';
+
+const isLogin = computed(() => localStorage.getItem('token'));
+</script>
 
 <style scoped lang="scss">
 @use '@/assets/styles/variables' as *;

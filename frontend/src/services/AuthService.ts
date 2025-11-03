@@ -1,0 +1,23 @@
+import type { IAuth, IAuthResponse } from '@/types/auth.ts';
+import { $api } from '@/http/apiConfig.ts';
+
+export default class AuthService {
+    static async login(user: IAuth) {
+        return $api.post<IAuthResponse>('/auth/login', {
+            email: user.email,
+            password: user.password,
+        });
+    }
+
+    static async registration(user: IAuth) {
+        return $api.post<IAuthResponse>('/auth/registration', {
+            email: user.email,
+            password: user.password,
+            username: user.username,
+        });
+    }
+
+    static async logout(): Promise<void> {
+        return $api.post('/auth/logout');
+    }
+}

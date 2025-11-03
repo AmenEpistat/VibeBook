@@ -1,5 +1,6 @@
 <template>
     <section class="login container">
+        <Logo size="l" />
         <form class="login__form">
             <v-text-field
                 v-model="formData.email"
@@ -7,7 +8,7 @@
                 variant="outlined"
             />
             <v-text-field
-                v-if="!isSignIn"
+                v-if="!isRegister"
                 v-model="formData.username"
                 label="Имя пользователя"
                 maxlength="30"
@@ -31,8 +32,8 @@
                 </template>
             </v-text-field>
             <v-text-field
-                v-if="!isSignIn"
-                v-model="formData.password_confirm"
+                v-if="!isRegister"
+                v-model="passwordConfirm"
                 label="Повторите пароль"
                 variant="outlined"
                 :type="isVisiblePassword ? 'text' : 'password'"
@@ -53,6 +54,7 @@
                 <v-btn
                     rounded="xs"
                     class="primary-button"
+                    @click="onFormSubmit"
                 >
                     {{ buttonPrimaryText }}
                 </v-btn>
@@ -71,35 +73,48 @@
 
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue';
-import type { Sign } from '@/types/auth.ts';
 import visibilityOn from '@/assets/icons/visibilityOn.svg';
 import visibilityOff from '@/assets/icons/visibilityOff.svg';
 import { useRoute, useRouter } from 'vue-router';
+import type { IAuth } from '@/types/auth.ts';
+import { useAuthStore } from '@/stores/authStore.ts';
+import Logo from '@/components/Logo.vue';
 
-const formData = reactive<Sign>({
+const formData = reactive<IAuth>({
     email: '',
     password: null,
-    password_confirm: null,
     username: '',
 });
+
+const passwordConfirm = ref('');
 
 const isVisiblePassword = ref(false);
 
 const route = useRoute();
 const router = useRouter();
 
-const isSignIn = computed(() => route.name === 'signIn');
+const isRegister = computed(() => route.name === 'signIn');
 
 const imgSrc = computed(() => (isVisiblePassword.value ? visibilityOn : visibilityOff));
-const buttonPrimaryText = computed(() => (isSignIn.value ? 'Войти' : 'Зарегистрироваться'));
-const buttonSecondaryText = computed(() => (isSignIn.value ? 'Аккаунта нет' : 'Уже есть аккаунт'));
+const buttonPrimaryText = computed(() => (isRegister.value ? 'Войти' : 'Зарегистрироваться'));
+const buttonSecondaryText = computed(() => (isRegister.value ? 'Аккаунта нет' : 'Уже есть аккаунт'));
+
+const authStore = useAuthStore();
 
 const toggleRouterName = () => {
-    router.push({ name: isSignIn.value ? 'signUp' : 'signIn' });
+    router.push({ name: isRegister.value ? 'signUp' : 'signIn' });
 };
 
 const togglePasswordVisibility = () => {
     isVisiblePassword.value = !isVisiblePassword.value;
+};
+
+const onFormSubmit = async () => {
+    if (!isRegister.value) {
+        await authStore.registration(formData);
+    } else {
+        await authStore.login(formData);
+    }
 };
 </script>
 
@@ -108,6 +123,8 @@ const togglePasswordVisibility = () => {
 
 .login {
     display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
 .login__form {
