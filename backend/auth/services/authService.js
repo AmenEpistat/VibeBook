@@ -31,12 +31,12 @@ class authService {
 	async login (email, password) {
 		const user = await User.findOne({ email });
 		if (!user) {
-			return throw ApiError.BadRequest(`Аккаунт с логином ${ email } не найден`);
+			throw  ApiError.BadRequest(`Аккаунт с логином ${ email } не найден`);
 		}
 
 		const validPassword = bcrypt.compare(password, user.password);
 		if (!validPassword) {
-			return throw ApiError.BadRequest('Пароль неправильный');
+			throw ApiError.BadRequest('Пароль неправильный');
 		}
 
 		const userDto = new AuthDto(user);
@@ -54,6 +54,7 @@ class authService {
 	}
 
 	async refresh (refreshToken) {
+		console.log('gg');
 		if (!refreshToken) {
 			throw ApiError.UnauthorizedError();
 		}

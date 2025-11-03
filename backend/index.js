@@ -11,7 +11,10 @@ const PORT = process.env.PORT;
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+	origin: 'http://localhost:5173', // ← конкретный адрес фронтенда
+	credentials: true,                // ← разрешаем куки/заголовки авторизации
+}));
 app.use(express.json());
 app.use(cookieParser());
 app.use('/auth', router);

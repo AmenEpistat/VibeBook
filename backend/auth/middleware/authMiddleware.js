@@ -1,6 +1,4 @@
-import jwt from 'jsonwebtoken';
 import ApiError from '../../common/exceptions/apiError.js'
-import { Token } from '../model/Token.js'
 import tokenService from '../services/tokenService.js'
 
 export const authMiddleware = (req, res, next) => {
