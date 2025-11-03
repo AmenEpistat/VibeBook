@@ -1,19 +1,26 @@
 import jwt from 'jsonwebtoken';
+import ApiError from '../../common/exceptions/apiError.js'
+import { Token } from '../model/Token.js'
+import tokenService from '../services/tokenService.js'
 
 export const authMiddleware = (req, res, next) => {
 	if (req.method === "OPTIONS") {
 		next();
 	}
-
 	try {
 		const token = req.headers.authorization.split(' ')[1];
 		if (!token) {
-			res.status(403).json({ message: 'Пользователь не авторизован'});
+			next(ApiError.UnauthorizedError());
 		}
-		req.user = jwt.verify(token, process.env.SECRET_KEY);
+
+		const userData = tokenService.validateAccessToken(token);
+		if (!userData) {
+			next(ApiError.UnauthorizedError());
+		}
+
+		req.user = userData;
 		next();
 	} catch (e) {
-		console.log(e);
-		res.status(403).json({ message: 'Пользователь не авторизован'});
+		next(ApiError.UnauthorizedError());
 	}
 }

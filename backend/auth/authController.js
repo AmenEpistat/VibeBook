@@ -1,29 +1,21 @@
 import { User } from './model/User.js';
-import bcrypt from 'bcrypt';
-import { Role } from './model/Role.js';
-import { validationResult } from 'express-validator';
-import jwt from 'jsonwebtoken';
-import { secret } from '../config.js';
 import authService from './services/authService.js'
-
-const generateAccessToken = (id, roles) => {{
-	const payload = {
-		id,
-		roles
-	}
-	return jwt.sign(payload, secret.secret, { expiresIn: '24h' });
-}}
+import ApiError from '../common/exceptions/apiError.js'
+import { validationResult } from 'express-validator'
 
 export class authController {
-	async registration (req, res) {
+	async registration (req, res, next) {
 		try {
+			const errors = validationResult(req);
+			if (!errors.isEmpty()) {
+				return next(ApiError.BadRequest('Оштбка при валидации', errors.array()));
+			}
 			const { email, password, username } = req.body;
 			const userData = await authService.reqistration(email, password, username);
 			res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true })
 			return res.json(userData);
 		} catch (e) {
-			console.error(e);
-			res.status(400).json({ message: 'registrstion error' });
+			next(e);
 		}
 	}
 
@@ -33,26 +25,40 @@ export class authController {
 			await authService.activate(activatedLink);
 			return res.redirect(process.env.CLIENT_URL);
 		} catch (e) {
-			console.log(e);
+			next(e);
 		}
 	}
 
-	async login (req, res) {
+	async login (req, res, next) {
 		try {
 			const { email, password } = req.body;
-			const user = await User.findOne({ email });
-			if (!user) {
-				return res.status(400).json({ message: `Аккаунт с такими данными ${ email } не найден` });
-			}
-			const validPassword = bcrypt.compareSync(password, user.password);
-			if (!validPassword) {
-				return res.status(400).json({ message: 'Пароль неправильный' });
-			}
-			const token = generateAccessToken(user._id, user.roles);
-			return res.json({ token });
+			const userData = await authService.login(email, password);
+			res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true })
+			return res.json(userData);
 		} catch (e) {
-			console.log(e);
-			res.status(400).json({ message: 'login error' });
+			next(e);
+		}
+	}
+
+	async logout (req, res, next) {
+		try {
+			const { refreshToken } = req.cookies;
+			const token = await authService.logout(refreshToken);
+			res.clearCookie(token);
+			return res.status(200);
+		} catch (e) {
+			next();
+		}
+	}
+
+	async refresh (req, res, next) {
+		try {
+			const { refreshToken } = req.cookies;
+			const userData = await authService.refresh(refreshToken);
+			res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true })
+			return res.json(userData);
+		} catch (e) {
+
 		}
 	}
 

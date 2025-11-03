@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import 'dotenv/config';
 import { router } from './auth/authRouter.js';
 import cookieParser from 'cookie-parser';
+import errorMiddleware from './common/middleware/errorMiddleware.js'
 
 const PORT = process.env.PORT;
 
@@ -13,8 +14,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
-
 app.use('/auth', router);
+app.use(errorMiddleware);
 
 app.get("/", (req, res) => {
 	res.json({ message: "Привет изf Exprhhesrs!" });
