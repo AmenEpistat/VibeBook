@@ -8,15 +8,12 @@
 import Footer from '@/components/footer/Footer.vue';
 import Header from '@/components/header/Header.vue';
 import { useAuthStore } from '@/stores/authStore.ts';
-import { onMounted } from 'vue';
+import { provide } from 'vue';
 
 const authStore = useAuthStore();
 
-onMounted(() => {
-    if (localStorage.getItem('token')) {
-        authStore.checkAuth();
-    }
-});
+authStore.checkAuth();
+provide('auth', authStore.isAuth);
 </script>
 
 <style lang="scss">

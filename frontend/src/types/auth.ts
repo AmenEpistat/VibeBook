@@ -12,5 +12,5 @@ export interface IToken {
 }
 
 export interface IAuthResponse extends IToken {
-    user: IAuth;
+    userDto: IAuth;
 }

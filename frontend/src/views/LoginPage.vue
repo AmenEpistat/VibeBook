@@ -72,7 +72,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, reactive, ref } from 'vue';
+import { computed, reactive, ref, watch } from 'vue';
 import visibilityOn from '@/assets/icons/visibilityOn.svg';
 import visibilityOff from '@/assets/icons/visibilityOff.svg';
 import { useRoute, useRouter } from 'vue-router';
@@ -116,6 +116,13 @@ const onFormSubmit = async () => {
         await authStore.login(formData);
     }
 };
+
+watch(
+    () => authStore.isAuth,
+    (value) => {
+        if (value) router.push('/profile');
+    },
+);
 </script>
 
 <style scoped lang="scss">
