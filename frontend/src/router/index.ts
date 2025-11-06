@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import PromoMainPage from '@/views/PromoMainPage.vue';
 import LoginPage from '@/views/LoginPage.vue';
 import ProfilePage from '@/views/ProfilePage.vue';
+import PreferencesPage from '@/views/PreferencesPage.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -25,6 +26,11 @@ const router = createRouter({
             path: '/profile',
             name: 'profile',
             component: ProfilePage,
+        },
+        {
+            path: '/preference',
+            name: 'preference',
+            component: PreferencesPage,
         },
     ],
 });
