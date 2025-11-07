@@ -15,7 +15,7 @@
                 />
             </div>
             <div
-                v-if="!isAuth"
+                v-if="isAuth"
                 class="promo__sign-buttons-wrapper"
             >
                 <v-btn

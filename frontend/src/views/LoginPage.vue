@@ -1,6 +1,9 @@
 <template>
     <section class="login container">
-        <Logo size="l" />
+        <Logo
+            size="l"
+            is-visible-text
+        />
         <form class="login__form">
             <v-text-field
                 v-model="formData.email"

@@ -1,5 +1,5 @@
 <template>
-    <Header />
+    <Header v-if="authStore.isAuth" />
     <router-view />
     <Footer />
 </template>
