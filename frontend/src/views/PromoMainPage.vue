@@ -15,7 +15,7 @@
                 />
             </div>
             <div
-                v-if="isAuth"
+                v-if="!isAuth"
                 class="promo__sign-buttons-wrapper"
             >
                 <v-btn
@@ -106,10 +106,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject } from 'vue';
+import { inject } from 'vue';
 
-const isAuth = computed(() => inject('auth'));
-console.log(isAuth.value);
+const isAuth = inject('auth');
 </script>
 
 <style scoped lang="scss">

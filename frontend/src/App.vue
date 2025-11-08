@@ -1,5 +1,5 @@
 <template>
-    <Header v-if="authStore.isAuth" />
+    <Header v-if="auth" />
     <router-view />
     <Footer />
 </template>
@@ -8,12 +8,14 @@
 import Footer from '@/components/footer/Footer.vue';
 import Header from '@/components/header/Header.vue';
 import { useAuthStore } from '@/stores/authStore.ts';
-import { provide } from 'vue';
+import { computed, provide } from 'vue';
 
 const authStore = useAuthStore();
 
 authStore.checkAuth();
-provide('auth', authStore.isAuth);
+
+const auth = computed(() => authStore.isAuth);
+provide('auth', auth);
 </script>
 
 <style lang="scss">

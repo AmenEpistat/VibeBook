@@ -1,8 +1,5 @@
 <template>
-    <nav
-        v-if="isAuth"
-        class="nav"
-    >
+    <nav class="nav">
         <div class="nav__wrapper container">
             <Logo
                 size="xs"
@@ -25,17 +22,16 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject } from 'vue';
 import Logo from '@/components/Logo.vue';
 import { useAuthStore } from '@/stores/authStore.ts';
+import { useRouter } from 'vue-router';
 
 const authStore = useAuthStore();
-
-const isAuth = computed(() => inject('auth'));
-console.log(isAuth.value);
+const router = useRouter();
 
 const logout = async () => {
     await authStore.logout();
+    await router.push('/');
 };
 </script>
 

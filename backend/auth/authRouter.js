@@ -12,7 +12,7 @@ router.post('/registration',[
 	check('password', 'Пароль не может быть меньше 5 символов').isLength({ min: 5 })
 ] ,controller.registration);
 router.post('/login', controller.login);
-router.post('/logout', controller.logout);
+router.get('/logout', controller.logout);
 router.get('/activate/:link', controller.activate);
 router.post('/refresh', controller.refresh);
 router.get('/user', roleMiddleware(['ADMIN']), controller.getUser);

@@ -37,11 +37,11 @@ class tokenService {
 	}
 
 	async removeToken (refreshToken) {
-		return await Token.deleteOne({ refreshToken });
+		return Token.deleteOne({ refreshToken });
 	}
 
 	async findToken (refreshToken) {
-		return await Token.findOne({ refreshToken });
+		return Token.findOne({ refreshToken });
 	}
 }
 
