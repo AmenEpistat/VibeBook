@@ -13,12 +13,15 @@ export const useAuthStore = defineStore('auth', () => {
         username: '',
         isActivated: false,
     });
+    const isAuth = ref(false);
 
     const login = async (userAuth: IAuth) => {
         try {
             const response = await AuthService.login(userAuth);
-            user.value = response.data.user;
+            console.log(response.data);
+            user.value = response.data.userDto;
             localStorage.setItem('token', response.data.accessToken);
+            isAuth.value = true;
         } catch (e) {
             console.log(e.response?.data?.message);
         }
@@ -35,6 +38,7 @@ export const useAuthStore = defineStore('auth', () => {
                 isActivated: false,
             };
             localStorage.removeItem('token');
+            isAuth.value = false;
         } catch (e) {
             console.log(e.response?.data?.message);
         }
@@ -43,9 +47,9 @@ export const useAuthStore = defineStore('auth', () => {
     const registration = async (newUser: IAuth) => {
         try {
             const response = await AuthService.registration(newUser);
-            user.value = response.data.user;
-            console.log(response.data.user);
+            user.value = response.data.userDto;
             localStorage.setItem('token', response.data.accessToken);
+            isAuth.value = true;
         } catch (e) {
             console.log(e.response?.data?.message);
         }
@@ -54,14 +58,14 @@ export const useAuthStore = defineStore('auth', () => {
     const checkAuth = async () => {
         try {
             const response = await axios.post<IAuthResponse>(`${API_URL}/auth/refresh`, {}, { withCredentials: true });
-            user.value = response.data.user;
+            user.value = response.data?.userDto;
             localStorage.setItem('token', response.data.accessToken);
-            console.log(response);
-            console.log(document.cookie);
+            isAuth.value = true;
         } catch (e) {
             console.log(e.response?.data?.message);
+            isAuth.value = false;
         }
     };
 
-    return { user, login, logout, registration, checkAuth };
+    return { user, login, logout, registration, checkAuth, isAuth };
 });
