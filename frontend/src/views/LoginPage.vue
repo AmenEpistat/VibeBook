@@ -9,6 +9,7 @@
                 v-model="formData.email"
                 label="Email"
                 variant="outlined"
+                :rules="[rules.required, rules.isEmail]"
             />
             <v-text-field
                 v-if="!isRegister"
@@ -16,12 +17,14 @@
                 label="Имя пользователя"
                 maxlength="30"
                 variant="outlined"
+                :rules="[rules.required]"
             />
             <v-text-field
                 v-model="formData.password"
                 label="Пароль"
                 variant="outlined"
                 :type="isVisiblePassword ? 'text' : 'password'"
+                :rules="[rules.required, rules.minPassword]"
             >
                 <template #append-inner>
                     <img
@@ -40,7 +43,7 @@
                 label="Повторите пароль"
                 variant="outlined"
                 :type="isVisiblePassword ? 'text' : 'password'"
-                maxlength="100"
+                :rules="[rules.required, rules.passwordsMatch]"
             >
                 <template #append-inner>
                     <img
@@ -85,7 +88,7 @@ import Logo from '@/components/Logo.vue';
 
 const formData = reactive<IAuth>({
     email: '',
-    password: null,
+    password: '',
     username: '',
 });
 
@@ -102,6 +105,13 @@ const imgSrc = computed(() => (isVisiblePassword.value ? visibilityOn : visibili
 const buttonPrimaryText = computed(() => (isRegister.value ? 'Войти' : 'Зарегистрироваться'));
 const buttonSecondaryText = computed(() => (isRegister.value ? 'Аккаунта нет' : 'Уже есть аккаунт'));
 
+const rules = {
+    required: (v: string | null | undefined) => !!v || 'Поле обязательно для заполнения',
+    isEmail: (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) || 'Введите корректную почту',
+    minPassword: (v: string) => v.length >= 5 || 'Не менее 5 символов для пароля',
+    passwordsMatch: (v: string) => v === computed(() => formData.password).value || 'Пароли не совпадают',
+};
+
 const authStore = useAuthStore();
 
 const toggleRouterName = () => {
@@ -113,7 +123,20 @@ const togglePasswordVisibility = () => {
 };
 
 const onFormSubmit = async () => {
-    if (!isRegister.value) {
+    const isValid = [
+        rules.isEmail(formData.email),
+        rules.minPassword(formData.password),
+        rules.required(formData.password),
+        isRegister.value ? rules.required(formData.username) : true,
+        isRegister.value ? rules.required(passwordConfirm.value) : true,
+        isRegister.value ? rules.passwordsMatch(passwordConfirm.value) : true,
+    ].every((r) => r === true);
+
+    if (!isValid) {
+        return;
+    }
+
+    if (isRegister.value) {
         await authStore.registration(formData);
     } else {
         await authStore.login(formData);
@@ -138,6 +161,10 @@ watch(
 }
 
 .login__form {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
     width: clamp(300px, 50%, 500px);
     margin: 0 auto;
     padding: 60px 30px;
