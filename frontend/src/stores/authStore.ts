@@ -14,6 +14,7 @@ export const useAuthStore = defineStore('auth', () => {
         isActivated: false,
     });
     const isAuth = ref(false);
+    const errorMessage = ref('');
 
     const login = async (userAuth: IAuth) => {
         try {
@@ -24,6 +25,7 @@ export const useAuthStore = defineStore('auth', () => {
             isAuth.value = true;
         } catch (e) {
             console.log(e.response?.data?.message);
+            errorMessage.value = e.response?.data?.message;
         }
     };
 
@@ -41,6 +43,7 @@ export const useAuthStore = defineStore('auth', () => {
             isAuth.value = false;
         } catch (e) {
             console.log(e.response?.data?.message);
+            errorMessage.value = e.response?.data?.message;
         }
     };
 
@@ -52,6 +55,7 @@ export const useAuthStore = defineStore('auth', () => {
             isAuth.value = true;
         } catch (e) {
             console.log(e.response?.data?.message);
+            errorMessage.value = e.response?.data?.message;
         }
     };
 
@@ -67,5 +71,5 @@ export const useAuthStore = defineStore('auth', () => {
         }
     };
 
-    return { user, login, logout, registration, checkAuth, isAuth };
+    return { user, login, logout, registration, checkAuth, isAuth, errorMessage };
 });

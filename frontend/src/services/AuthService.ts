@@ -1,5 +1,5 @@
 import type { IAuth, IAuthResponse } from '@/types/auth.ts';
-import { $api } from '@/http/apiConfig.ts';
+import { $api, apiReqistration } from '@/http/apiConfig.ts';
 
 export default class AuthService {
     static async login(user: IAuth) {
@@ -10,7 +10,7 @@ export default class AuthService {
     }
 
     static async registration(user: IAuth) {
-        return $api.post<IAuthResponse>('/auth/registration', {
+        return apiReqistration.post<IAuthResponse>('/auth/registration', {
             email: user.email,
             password: user.password,
             username: user.username,

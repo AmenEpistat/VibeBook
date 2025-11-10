@@ -74,6 +74,30 @@
                 </v-btn>
             </div>
         </form>
+        <v-dialog
+            v-model="isErrorModalVisible"
+            max-width="400"
+            persistent
+            transition="dialog-bottom-transition"
+        >
+            <v-card>
+                <v-card-title class="text-h6 text-center"> Ошибка </v-card-title>
+
+                <v-card-text class="text-center">
+                    {{ authStore.errorMessage }}
+                </v-card-text>
+
+                <v-card-actions class="justify-center">
+                    <v-btn
+                        color="primary"
+                        rounded="xs"
+                        @click="authStore.errorMessage = ''"
+                    >
+                        извини меня, пожалуйста
+                    </v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
     </section>
 </template>
 
@@ -91,7 +115,6 @@ const formData = reactive<IAuth>({
     password: '',
     username: '',
 });
-
 const passwordConfirm = ref('');
 
 const isVisiblePassword = ref(false);
@@ -113,6 +136,8 @@ const rules = {
 };
 
 const authStore = useAuthStore();
+
+const isErrorModalVisible = computed(() => authStore.errorMessage.length > 0);
 
 const toggleRouterName = () => {
     router.push({ name: isRegister.value ? 'signUp' : 'signIn' });
@@ -136,7 +161,7 @@ const onFormSubmit = async () => {
         return;
     }
 
-    if (isRegister.value) {
+    if (!isRegister.value) {
         await authStore.registration(formData);
     } else {
         await authStore.login(formData);
