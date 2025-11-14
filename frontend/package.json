@@ -16,6 +16,8 @@
     "lint": "eslint . --ext .ts,.js,.vue --fix"
   },
   "dependencies": {
+    "@tsparticles/slim": "^3.9.1",
+    "@tsparticles/vue3": "^3.0.1",
     "@vueuse/motion": "^3.0.3",
     "axios": "^1.13.1",
     "motion": "^12.23.24",

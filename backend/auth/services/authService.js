@@ -12,6 +12,12 @@ class authService {
 		if (candidate){
 			throw ApiError.BadRequest('Пользователь с таким email есть');
 		}
+
+    const candidateName = await User.findOne({ username });
+    if (candidateName){
+      throw ApiError.BadRequest('Пользователь с таким username есть');
+    }
+
 		const hashPassword = await bcrypt.hash(password, 7);
 		const activatedLink = uuid.v4();
 
@@ -34,7 +40,7 @@ class authService {
 			throw  ApiError.BadRequest(`Аккаунт с логином ${ email } не найден`);
 		}
 
-		const validPassword = bcrypt.compare(password, user.password);
+		const validPassword = await bcrypt.compare(password, user.password);
 		if (!validPassword) {
 			throw ApiError.BadRequest('Пароль неправильный');
 		}

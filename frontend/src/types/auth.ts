@@ -1,7 +1,7 @@
 export interface IAuth {
     id?: string;
     email: string;
-    password: string | null;
+    password: string;
     username?: string;
     isActivated?: boolean;
 }

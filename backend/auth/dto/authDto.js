@@ -3,11 +3,13 @@ export default class AuthDto {
 	id;
 	username;
 	isActivated;
+  roles;
 
 	constructor(model) {
 		this.email = model.email;
 		this.id = model._id;
 		this.username = model.username;
 		this.isActivated = model.isActivated;
+    this.roles = model.roles;
 	}
 }

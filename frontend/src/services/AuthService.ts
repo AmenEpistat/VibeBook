@@ -1,5 +1,5 @@
 import type { IAuth, IAuthResponse } from '@/types/auth.ts';
-import { $api } from '@/http/apiConfig.ts';
+import { $api, apiReqistration } from '@/http/apiConfig.ts';
 
 export default class AuthService {
     static async login(user: IAuth) {
