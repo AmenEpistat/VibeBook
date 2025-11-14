@@ -4,14 +4,18 @@ import { Author } from '../../author/model/Author.js';
 import { Genre } from '../../genre/model/Genre.js';
 
 class BookService {
-    async createBook(title, description, author_id, genre_id) {
-        const author = await Author.findById({ author_id });
-        const genre = await Genre.findById({ genre_id });
-        if (!genre || !author) {
-            throw ApiError.BadRequest('Ошибка! Проверьте данные');
+    async createBook(title, description, author_id, genres_id) {
+        const author = await Author.findById(author_id);
+        if (!author) {
+            throw ApiError.BadRequest('Автор не найден');
         }
 
-        await Book.create({ title, description, author, genre });
+        const genres = await Genre.find({ _id: { $in: genres_id } });
+        if (genres.length !== genres_id.length) {
+            throw ApiError.BadRequest('Некоторые жанры не найдены');
+        }
+
+        await Book.create({ title, description, author_id, genres_id });
     }
 
     async deleteBook(_id) {

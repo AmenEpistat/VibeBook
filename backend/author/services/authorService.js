@@ -2,12 +2,13 @@ import { Author } from '../model/Author.js';
 import ApiError from '../../common/exceptions/apiError.js';
 
 class AuthorService {
-  async createAuthor(name) {
-    const candidate = await Author.findOne({ name });
-    if (candidate) {
-      throw ApiError.BadRequest('Такой автор уже есть в списке!');
-    }
-    await Author.create({ name });
+  async createAuthor(name, surname) {
+      const candidate = await Author.findOne({ name, surname });
+      if (candidate) {
+          throw ApiError.BadRequest('Такой автор уже есть в списке!');
+      }
+
+      return await Author.create({ name, surname })
   }
 
   async deleteAuthor(_id) {
@@ -15,7 +16,7 @@ class AuthorService {
     if (!candidate) {
       throw ApiError.BadRequest('Такого авторы нет и в помине!');
     }
-    await Author.deleteOne({ _id });
+    return await Author.deleteOne({ _id });
   }
 
   async getAllAuthors () {

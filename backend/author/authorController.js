@@ -3,9 +3,9 @@ import authorService from './services/authorService.js';
 class AuthorController {
     async createAuthor (req, res, next) {
         try {
-            const { name } = req.body;
-            await authorService.createAuthor(name);
-            return res.status(200);
+            const { name, surname } = req.body;
+            await authorService.createAuthor(name, surname);
+            return res.json({message: 'Author successfully created!'});
         } catch (e) {
             next(e);
         }
@@ -13,9 +13,9 @@ class AuthorController {
 
     async deleteAuthor (req, res, next) {
         try {
-            const { _id } = req.body;
-            await authorService.deleteAuthor(_id);
-            return res.status(200);
+            const { id } = req.params;
+            await authorService.deleteAuthor(id);
+            return res.json({message: 'Author successfully deleted!'});
         } catch (e) {
             next(e);
         }
@@ -24,7 +24,7 @@ class AuthorController {
     async getAllAuthors (req, res, next) {
         try {
             const authors = await authorService.getAllAuthors();
-            return res.json({ authors });
+            return res.json(authors);
         } catch (e) {
             next(e);
         }

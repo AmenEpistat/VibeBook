@@ -3,9 +3,9 @@ import bookService from './services/bookService.js';
 class BookController {
     async createBook (req, res, next) {
         try {
-            const { title, description, author_id, genre_id  } = req.body;
-            await bookService.createBook(title, description, author_id, genre_id);
-            return res.status(200);
+            const { title, description, author_id, genres_id  } = req.body;
+            await bookService.createBook(title, description, author_id, genres_id);
+            return res.json({message: 'Book successfully created!'});
         } catch (e) {
             next(e);
         }
@@ -13,9 +13,9 @@ class BookController {
 
     async deleteBook (req, res, next) {
         try {
-            const { _id } = req.body;
-            await bookService.deleteBook(_id);
-            return res.status(200);
+            const { id } = req.params;
+            await bookService.deleteBook(id);
+            return res.json({message: 'Book successfully deleted!'});
         } catch (e) {
             next(e);
         }
@@ -24,7 +24,7 @@ class BookController {
     async getAllBooks (req, res, next) {
         try {
             const books = await bookService.getAllBooks();
-            return res.json({ books });
+            return res.json(books);
         } catch (e) {
             next(e);
         }

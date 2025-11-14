@@ -5,7 +5,7 @@ class GenreController {
         try {
             const { name } = req.body;
             await GenreService.createGenre(name);
-            return res.status(200);
+            return res.json({message: 'Genre successfully created!'});
         } catch (e) {
             next(e);
         }
@@ -13,9 +13,9 @@ class GenreController {
 
     async deleteGenre (req, res, next) {
         try {
-            const { _id } = req.body;
-            await GenreService.deleteGenre(_id);
-            return res.status(200);
+            const { id } = req.params;
+            await GenreService.deleteGenre(id);
+            return res.json({message: 'Genre successfully deleted!'});
         } catch (e) {
             next(e);
         }
@@ -23,8 +23,8 @@ class GenreController {
 
     async getAllGenres (req, res, next) {
         try {
-            const Genres = await GenreService.getAllGenres();
-            return res.json({ Genres });
+            const genres = await GenreService.getAllGenres();
+            return res.json(genres);
         } catch (e) {
             next(e);
         }
