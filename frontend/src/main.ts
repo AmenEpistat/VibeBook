@@ -11,6 +11,8 @@ import * as directives from 'vuetify/directives';
 
 import { aliases, mdi } from 'vuetify/iconsets/mdi';
 import { MotionPlugin } from '@vueuse/motion';
+import { loadSlim } from '@tsparticles/slim';
+import Particles from '@tsparticles/vue3';
 
 const vuetify = createVuetify({
     components,
@@ -26,7 +28,14 @@ const app = createApp(App);
 
 app.use(createPinia());
 app.use(router);
+
 app.use(vuetify);
+
 app.use(MotionPlugin);
+app.use(Particles, {
+    init: async (engine: any) => {
+        await loadSlim(engine);
+    },
+});
 
 app.mount('#app');

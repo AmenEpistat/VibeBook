@@ -36,6 +36,7 @@
         </div>
     </section>
     <section class="features">
+        <vibe-particles />
         <div class="features__wrapper container">
             <p class="features__text">
                 Мы поможем выбрать следующую книгу, опираясь на <b>ваши интересы</b> и настроение.<br />Давай
@@ -107,6 +108,7 @@
 
 <script setup lang="ts">
 import { inject } from 'vue';
+import VibeParticles from '@/components/VibeParticles.vue';
 
 const isAuth = inject('auth');
 </script>
@@ -214,7 +216,14 @@ const isAuth = inject('auth');
     left: 50%;
 }
 
+.features {
+    position: relative;
+}
+
 .features__text {
+    position: relative;
+    z-index: 100;
+
     max-width: 600px;
     margin: 100px auto;
 
@@ -228,6 +237,11 @@ const isAuth = inject('auth');
         font-size: 18px;
         line-height: 28px;
     }
+}
+
+.features__list {
+    position: relative;
+    z-index: 100;
 }
 
 .features__item {
