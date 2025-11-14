@@ -4,6 +4,9 @@ import os from 'os';
 import mongoose from 'mongoose';
 import 'dotenv/config';
 import { router } from './auth/authRouter.js';
+import { router as genreRouter } from './genre/genreRouter.js';
+import { router as authorRouter } from './author/authorRouter.js';
+import { router as bookRouter } from './book/bookRouter.js';
 import cookieParser from 'cookie-parser';
 import errorMiddleware from './common/middleware/errorMiddleware.js'
 
@@ -17,7 +20,10 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(cookieParser());
-app.use('/auth', router);
+app.use('/api', router);
+app.use('/api', genreRouter);
+app.use('/api', authorRouter);
+app.use('/api', bookRouter);
 app.use(errorMiddleware);
 
 app.get("/", (req, res) => {
