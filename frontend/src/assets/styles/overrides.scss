@@ -55,3 +55,22 @@
 .v-field__append-inner {
     width: 25px !important;
 }
+
+.select {
+    .v-input__control {
+        color: $primary-color !important;
+    }
+
+    .v-field-label {
+        color: $primary-color !important;
+        opacity: 1 !important;
+    }
+
+    .v-field {
+        height: 40px;
+    }
+}
+
+.my-select-menu .v-list-item {
+    color: $primary-color !important;
+}
