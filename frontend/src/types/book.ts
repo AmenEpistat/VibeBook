@@ -6,6 +6,6 @@ export interface Book {
     title: string;
     author: Author;
     image_path?: string;
-    description: string;
+    description?: string;
     genres: Genre[];
 }
