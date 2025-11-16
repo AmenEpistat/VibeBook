@@ -27,4 +27,9 @@ provide('auth', auth);
     margin: 0 auto;
     padding: 20px;
 }
+
+.content-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+}
 </style>
