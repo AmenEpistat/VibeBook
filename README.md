@@ -1,7 +1,11 @@
-### 🎧 VibeBook — Book Recommendation System
-
 **VibeBook** is a web application that recommends books to users based on their preferences (survey) and selected genres.
 The frontend is built with **Vue**, the server is **Node.js + Express**, data is stored in **MongoDB**, and the recommendation logic is implemented using a **ML model prototype** (content-based filtering + learnable preference model).
+
+---
+## 📸 
+<img width="700" height="426" alt="Снимок экрана 2025-11-17 в 7 34 07 PM" src="https://github.com/user-attachments/assets/69ffe97e-a193-4ff0-b723-7f93f0595790" />
+<img width="700" height="426" alt="Снимок экрана 2025-11-17 в 7 34 24 PM" src="https://github.com/user-attachments/assets/837d7106-58b8-49a8-9d34-7d479656d0e2" />
+
 
 ---
 
@@ -85,6 +89,17 @@ npm install
 Create a `.env` file in the `backend` folder:
 
 ```
+PORT=3000
+MONGO_URL=mongo_url
+JWT_ACCESS_KEY=access
+JWT_REFRESH_KEY=refresh
+SMTP_HOST=smtp.mail.ru
+SMTP_PORT=000
+SMTP_USER=example@mail.ru
+SMTP_PASSWORD=password
+API_URL=http://localhost:3000
+CLIENT_URL=http://localhost:5173
+
 ```
 
 ### 4. Start the project
