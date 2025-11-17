@@ -33,6 +33,7 @@ The frontend is built with **Vue**, the server is **Node.js + Express**, data is
 * Composition API
 * Vue Router
 * Pinia
+* Typescript
 * Axios
 
 ### **Backend**
@@ -100,5 +101,59 @@ npm run dev
 npm run dev
 ```
 
+## 📂 Структура проекта
+```bash
+VibeBook/
+├── .idea/
+│
+├── backend/
+│   ├── auth/
+│   ├── author/
+│   ├── book/
+│   ├── common/
+│   ├── genre/
+│   ├── node_modules/          # Backend dependencies
+│   ├── .env                    # Environment variables
+│   ├── .gitignore
+│   ├── index.js                # Backend entry point
+│   ├── package.json
+│   └── package-lock.json
+│
+├── frontend/
+│   ├── .vscode/
+│   ├── dist/                   # Production build output
+│   ├── node_modules/           # Frontend dependencies
+│   ├── public/                 # Static assets
+│   ├── src/
+│   │   ├── assets/             # Images, icons, fonts
+│   │   ├── components/         # Reusable Vue components
+│   │   ├── consts/             # Global constants
+│   │   ├── http/               # Axios instances / API configs
+│   │   ├── router/             # Vue Router setup
+│   │   ├── services/           # API services
+│   │   ├── stores/             # Pinia stores
+│   │   ├── types/              # TypeScript types/interfaces
+│   │   ├── utils/              # Helper functions
+│   │   ├── views/              # Page-level Vue components
+│   │   ├── App.vue             # Root component
+│   │   └── main.ts             # Frontend entry point
+│   │
+│   ├── .editorconfig
+│   ├── .gitattributes
+│   ├── .gitignore
+│   ├── .prettierrc.json
+│   ├── env.d.ts
+│   ├── eslint.config.ts
+│   ├── index.html
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── README.md
+│   ├── tsconfig.app.json
+│   ├── tsconfig.json
+│   ├── tsconfig.node.json
+│   └── vite.config.ts
+│
+└── .gitignore
+```
 ---
 
