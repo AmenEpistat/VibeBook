@@ -171,4 +171,10 @@ VibeBook/
 └── .gitignore
 ```
 ---
+## 📄 License
+This project is licensed under the MIT License — you are free to use, modify, and distribute this project with proper attribution.
+See the full text in the [LICENSE](./LICENSE) file.
+
+
+---
 
