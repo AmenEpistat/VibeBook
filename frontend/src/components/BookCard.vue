@@ -26,17 +26,49 @@
                 </li>
             </ul>
         </div>
-        <div class="book-card__user-actions" />
+        <div class="book-card__user-actions">
+            <v-select
+                class="select"
+                :items="options"
+                label="Выбрать"
+                hide-details
+                single-line
+                :menu-props="{ class: 'my-select-menu' }"
+                density="compact"
+                @input="handleSelect"
+            />
+            <v-btn
+                class="primary-button book-card__button"
+                rounded="0"
+                size="small"
+            >
+                <template #append>
+                    <p class="book-card__button-img">&oplus;</p>
+                </template>
+                Добавить в очередь
+            </v-btn>
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import type { Book } from '@/types/book.ts';
 import GenreItem from '@/components/GenreItem.vue';
+import { STATUS_BOOK } from '@/consts/statusBook.ts';
 
 const props = defineProps<{
     book: Book;
 }>();
+
+const emit = defineEmits<{
+    (e: 'onselect', status: string): void;
+}>();
+
+const options = Object.values(STATUS_BOOK);
+
+const handleSelect = (e) => {
+    emit('onselect', e);
+};
 </script>
 
 <style scoped lang="scss">
@@ -47,10 +79,14 @@ const props = defineProps<{
     display: grid;
     grid-template-columns: auto 5fr 3fr;
     align-items: stretch;
+
+    height: 200px;
 }
 
 .book-card__img {
     @include boundaries;
+
+    border-radius: 5px;
 }
 
 .book-card__info {
@@ -62,6 +98,12 @@ const props = defineProps<{
     border: 1px solid $light-border-color;
     border-right: none;
     border-radius: 5px;
+}
+
+.book-card__title {
+    a:hover {
+        color: $secondary-bg-color;
+    }
 }
 
 .book-card__author {
@@ -76,11 +118,20 @@ const props = defineProps<{
 }
 
 .book-card__user-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    justify-content: flex-start;
+
     padding: 16px;
 
     border: 1px solid $light-border-color;
     border-radius: 5px;
     border-left: none;
+
+    .select {
+        flex-grow: 0;
+    }
 }
 
 .book-card__genres {
@@ -88,5 +139,13 @@ const props = defineProps<{
     gap: 15px;
 
     margin-top: 20px;
+}
+
+.book-card__button-img {
+    font-size: 20px;
+    line-height: 20px;
+    color: $light-color;
+
+    padding: 0 0 2px;
 }
 </style>

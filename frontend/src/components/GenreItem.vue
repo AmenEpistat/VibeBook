@@ -1,11 +1,17 @@
 <template>
-    <div class="genre-item">
+    <div
+        class="genre-item"
+        :class="color"
+    >
         {{ name }}
     </div>
 </template>
 
 <script setup lang="ts">
 import type { Genre } from '@/types/genre.ts';
+import { computed } from 'vue';
+
+const color = computed(() => `genre-item--${Math.floor(Math.random() * (3 - 1 + 1))}`);
 
 const props = defineProps<Genre>();
 </script>
@@ -40,7 +46,7 @@ const props = defineProps<Genre>();
         right: -6px;
 
         width: 1px;
-        height: 13px;
+        height: 12px;
 
         transform: skewX(40deg);
 
@@ -56,11 +62,23 @@ const props = defineProps<Genre>();
         display: block;
 
         width: 1px;
-        height: 13px;
+        height: 12px;
 
         transform: skewX(-40deg);
 
         background-color: $light-border-color;
+    }
+
+    &--0 {
+        color: $primary-color;
+    }
+
+    &--1 {
+        color: $additional-bg-color;
+    }
+
+    &--2 {
+        color: $secondary-bg-color;
     }
 }
 </style>
