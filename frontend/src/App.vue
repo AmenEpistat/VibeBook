@@ -29,7 +29,7 @@ provide('auth', auth);
 }
 
 .content-wrapper {
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
 }
 </style>
