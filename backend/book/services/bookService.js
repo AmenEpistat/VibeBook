@@ -2,6 +2,7 @@ import { Book } from '../model/Book.js';
 import ApiError from '../../common/exceptions/apiError.js';
 import { Author } from '../../author/model/Author.js';
 import { Genre } from '../../genre/model/Genre.js';
+import BookDto from '../dto/bookDto.js';
 
 class BookService {
     async createBook(title, description, author_id, genres_id) {
@@ -27,7 +28,10 @@ class BookService {
     }
 
     async getAllBooks () {
-        return Book.find();
+        const books = await Book.find()
+            .populate('author_id', 'name surname')
+            .populate('genres_id', 'name');
+        return books.map(book => new BookDto(book));
     }
 
 }
