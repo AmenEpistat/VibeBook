@@ -12,4 +12,7 @@ export default class BookService {
         console.log('ff');
         return $api.get('/api/books');
     }
+    static async getBook(id: string) {
+        return $api.get(`/api/books/${id}`);
+    }
 }
