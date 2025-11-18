@@ -38,4 +38,14 @@ onMounted(async () => {
 });
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.common-books__title {
+    margin-bottom: 30px;
+}
+
+.common-books__list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+</style>
