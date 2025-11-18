@@ -9,7 +9,7 @@
         />
         <div class="book-card__info">
             <h3 class="book-card__title">
-                <router-link to="/_id">
+                <router-link :to="`/books/${book._id}`">
                     {{ book.title }}
                 </router-link>
             </h3>
@@ -27,26 +27,7 @@
             </ul>
         </div>
         <div class="book-card__user-actions">
-            <v-select
-                class="select"
-                :items="options"
-                label="Выбрать"
-                hide-details
-                single-line
-                :menu-props="{ class: 'my-select-menu' }"
-                density="compact"
-                @input="handleSelect"
-            />
-            <v-btn
-                class="primary-button book-card__button"
-                rounded="0"
-                size="small"
-            >
-                <template #append>
-                    <p class="book-card__button-img">&oplus;</p>
-                </template>
-                Добавить в очередь
-            </v-btn>
+            <UserActionSelect @onselect="handleSelect" />
         </div>
     </div>
 </template>
@@ -54,20 +35,18 @@
 <script setup lang="ts">
 import type { Book } from '@/types/book.ts';
 import GenreItem from '@/components/GenreItem.vue';
-import { STATUS_BOOK } from '@/consts/statusBook.ts';
+import UserActionSelect from '@/components/UserActionSelect.vue';
 
 const props = defineProps<{
     book: Book;
 }>();
 
 const emit = defineEmits<{
-    (e: 'onselect', status: string): void;
+    (e: 'statusChange', bookId: string | number | undefined, status: string): void;
 }>();
 
-const options = Object.values(STATUS_BOOK);
-
-const handleSelect = (e) => {
-    emit('onselect', e);
+const handleSelect = (status: string) => {
+    emit('statusChange', props.book._id, status);
 };
 </script>
 
@@ -118,11 +97,6 @@ const handleSelect = (e) => {
 }
 
 .book-card__user-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    justify-content: flex-start;
-
     padding: 16px;
 
     border: 1px solid $light-border-color;
@@ -139,13 +113,5 @@ const handleSelect = (e) => {
     gap: 15px;
 
     margin-top: 20px;
-}
-
-.book-card__button-img {
-    font-size: 20px;
-    line-height: 20px;
-    color: $light-color;
-
-    padding: 0 0 2px;
 }
 </style>
