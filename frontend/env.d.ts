@@ -8,3 +8,8 @@ declare module '*.vue' {
     const component: DefineComponent<{}, {}, any>;
     export default component;
 }
+
+declare module 'typewriter-effect/dist/core' {
+    const Typewriter: any;
+    export default Typewriter;
+}

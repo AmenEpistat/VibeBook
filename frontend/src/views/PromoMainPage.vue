@@ -5,7 +5,12 @@
                 <h1 class="promo__title">
                     <span>The <br /></span> VibeBook
                 </h1>
-                <p class="promo__description">Because life's too short for a book you're not in the mood for.</p>
+                <vibe-type-writer
+                    :text="`Because life\n's too short for a book you\n're not in the mood for.`"
+                    :delay="30"
+                    delete-all
+                    class="promo__description"
+                />
             </div>
             <div class="promo__img-wrapper">
                 <img
@@ -52,13 +57,16 @@
                 >
                     <div class="features__text-wrapper">
                         <h2 class="features__title">Discover books by mood</h2>
-                        <p class="features__description">
-                            Вам хочется чего-нибудь авантюрного, веселого и динамичного? Как насчет более мрачного,
+                        <vibe-type-writer
+                            class="features__description"
+                            :text="`Вам хочется чего-нибудь авантюрного, веселого и динамичного? Как насчет более мрачного,
                             медленного и эмоционального чтения?
                             <br />
                             Комбинируйте <b>наш обширный набор фильтров</b>, чтобы выбрать свою следующую идеальную
-                            книгу.
-                        </p>
+                            книгу.`"
+                            :delete-all="false"
+                            :delay="20"
+                        />
                     </div>
                     <img
                         class="features__img"
@@ -93,12 +101,15 @@
                         class="features__text-wrapper"
                     >
                         <h2 class="features__title">Get smart personalised recommendations</h2>
-                        <p class="features__description">
-                            Наш <b>искусственный интеллект</b> с машинным обучением - это ваш надежный друг, к которому
+                        <vibe-type-writer
+                            class="features__description"
+                            :text="`Наш <b>искусственный интеллект</b> с машинным обучением - это ваш надежный друг, к которому
                             можно обратиться за рекомендациями по книгам.
                             <br />
-                            Он поймет ваши предпочтения в чтении и <b>подберет для вас лучшие книги</b>.
-                        </p>
+                            Он поймет ваши предпочтения в чтении и <b>подберет для вас лучшие книги</b>.`"
+                            :delete-all="false"
+                            :delay="40"
+                        />
                     </Motion>
                 </Motion>
             </ul>
@@ -107,9 +118,10 @@
 </template>
 
 <script setup lang="ts">
-import { inject } from 'vue';
+import { inject, onMounted, ref } from 'vue';
 import VibeParticles from '@/components/VibeParticles.vue';
-
+import Typewriter from 'typewriter-effect/dist/core';
+import VibeTypeWriter from '@/components/VibeTypeWriter.vue';
 const isAuth = inject('auth');
 </script>
 
