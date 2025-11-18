@@ -1,4 +1,5 @@
 @use '@/assets/styles/variables' as *;
+@use 'sass:color';
 
 .dark-button {
     color: $light-color !important;
@@ -22,7 +23,7 @@
     transition: all 0.7s ease !important;
 
     &:hover {
-        background: darken($primary-color, 10%) !important;
+        background: color.adjust($primary-color, $lightness: -10%) !important;
     }
 }
 
