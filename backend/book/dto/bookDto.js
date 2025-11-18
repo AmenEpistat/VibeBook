@@ -4,6 +4,7 @@ export default class BookDto {
     description;
     image_path;
     genres;
+    _id;
 
     constructor(model) {
         this.title = model.title;
@@ -14,5 +15,6 @@ export default class BookDto {
         this.description = model.description;
         this.image_path = model.image_path;
         this.genres = model.genres_id?.map(genre => ({ name: genre.name })) || [];
+        this._id = model._id;
     }
 }

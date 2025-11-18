@@ -29,6 +29,17 @@ class BookController {
             next(e);
         }
     }
+
+    async getBookById (req, res, next) {
+        try {
+            console.log(req.params);
+            const { id } = req.params;
+            const book = await bookService.getBookById(id);
+            return res.json(book);
+        } catch (e) {
+            next(e);
+        }
+    }
 }
 
 export default new BookController();

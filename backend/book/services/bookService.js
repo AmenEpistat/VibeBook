@@ -34,6 +34,17 @@ class BookService {
         return books.map(book => new BookDto(book));
     }
 
+    async getBookById (id) {
+        const book = await Book.findById(id)
+            .populate('author_id', 'name surname')
+            .populate('genres_id', 'name');
+
+        if (!book) {
+            ApiError.BadRequest('Книга не найдена' );
+        }
+        return new BookDto(book);
+    }
+
 }
 
 export default new BookService();
