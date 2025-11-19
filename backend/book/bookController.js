@@ -3,9 +3,28 @@ import bookService from './services/bookService.js';
 class BookController {
     async createBook (req, res, next) {
         try {
-            const { title, description, author_id, genres_id  } = req.body;
-            await bookService.createBook(title, description, author_id, genres_id);
-            return res.json({message: 'Book successfully created!'});
+            const { title, description, author_id } = req.body;
+            console.log("FILE:", req.file);
+
+            const cover = req.file ? `/uploads/covers/${req.file.filename}` : null;
+            const genres_id = Array.isArray(req.body.genres_id)
+                ? req.body.genres_id
+                : Object.values(req.body).filter((v, key) => key.startsWith("genres_id"));
+
+            console.log(req.body);
+
+            await bookService.createBook(title, description, author_id, genres_id, cover);
+            return res.json({message: 'Книга создана!'});
+        } catch (e) {
+            next(e);
+        }
+    }
+
+    async updateBook (req, res, next) {
+        try {
+            const { title, description, author_id, genres_id, _id  } = req.body;
+            await bookService.updateBook(title, description, author_id, genres_id, _id);
+            return res.json({message: 'Книга обновлена!'});
         } catch (e) {
             next(e);
         }
@@ -15,7 +34,7 @@ class BookController {
         try {
             const { id } = req.params;
             await bookService.deleteBook(id);
-            return res.json({message: 'Book successfully deleted!'});
+            return res.json({message: 'Книга удалена!'});
         } catch (e) {
             next(e);
         }
@@ -32,7 +51,6 @@ class BookController {
 
     async getBookById (req, res, next) {
         try {
-            console.log(req.params);
             const { id } = req.params;
             const book = await bookService.getBookById(id);
             return res.json(book);

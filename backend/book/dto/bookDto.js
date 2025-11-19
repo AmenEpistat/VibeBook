@@ -2,7 +2,7 @@ export default class BookDto {
     title;
     author;
     description;
-    image_path;
+    cover;
     genres;
     _id;
 
@@ -13,7 +13,7 @@ export default class BookDto {
             surname: model.author_id?.surname || ''
         };
         this.description = model.description;
-        this.image_path = model.image_path;
+        this.cover = model.cover;
         this.genres = model.genres_id?.map(genre => ({ name: genre.name })) || [];
         this._id = model._id;
     }

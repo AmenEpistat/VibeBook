@@ -5,6 +5,7 @@ const BookSchema = new Schema ({
     title: { type: String },
     genres_id: [{ type: Schema.Types.ObjectId, ref: 'Genre' }],
     description: { type: String },
+    cover: { type: String, required: true, unique: true },
 });
 
 export const Book = model('Book', BookSchema);
