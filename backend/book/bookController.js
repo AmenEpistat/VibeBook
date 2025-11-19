@@ -4,14 +4,12 @@ class BookController {
     async createBook (req, res, next) {
         try {
             const { title, description, author_id } = req.body;
-            console.log("FILE:", req.file);
 
             const cover = req.file ? `/uploads/covers/${req.file.filename}` : null;
             const genres_id = Array.isArray(req.body.genres_id)
                 ? req.body.genres_id
                 : Object.values(req.body).filter((v, key) => key.startsWith("genres_id"));
 
-            console.log(req.body);
 
             await bookService.createBook(title, description, author_id, genres_id, cover);
             return res.json({message: 'Книга создана!'});

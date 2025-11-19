@@ -36,4 +36,8 @@ onMounted(async () => {
 });
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.book__title {
+    margin-bottom: 10px;
+}
+</style>
