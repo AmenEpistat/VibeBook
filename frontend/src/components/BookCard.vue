@@ -2,7 +2,7 @@
     <div class="book-card">
         <img
             class="book-card__img"
-            :src="book.image_path"
+            :src="API_URL + book.cover"
             :alt="book.title"
             width="154"
             height=""
@@ -14,8 +14,9 @@
                 </router-link>
             </h3>
             <p class="book-card__author">
-                <router-link to="/_id"> {{ book.author.name }} {{ book.author.surname }} </router-link>
+                <router-link to="/_id"> {{ book.author?.name }} {{ book.author?.surname }} </router-link>
             </p>
+            <p class="book-card__year-publication xs-text">{{ book.year_publication }}</p>
             <ul class="book-card__genres">
                 <li
                     v-for="(genre, index) in book.genres"
@@ -36,6 +37,7 @@
 import type { Book } from '@/types/book.ts';
 import GenreItem from '@/components/GenreItem.vue';
 import UserActionSelect from '@/components/UserActionSelect.vue';
+import { API_URL } from '@/apiConfig.ts';
 
 const props = defineProps<{
     book: Book;
@@ -63,7 +65,8 @@ const handleSelect = (status: string) => {
 }
 
 .book-card__img {
-    @include boundaries;
+    display: flex;
+    align-items: stretch;
 
     border-radius: 5px;
 }
@@ -80,9 +83,16 @@ const handleSelect = (status: string) => {
 }
 
 .book-card__title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+
     a:hover {
         color: $secondary-bg-color;
     }
+}
+
+.book-card__year-publication {
 }
 
 .book-card__author {
