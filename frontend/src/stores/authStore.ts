@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 import type { IAuth, IAuthResponse } from '@/types/auth.ts';
 import AuthService from '@/services/AuthService.ts';
 import axios from 'axios';
-import { API_URL } from '@/http/apiConfig.ts';
+import { API_URL } from '@/apiConfig.ts';
 
 export const useAuthStore = defineStore('auth', () => {
     const user = ref<IAuth>({

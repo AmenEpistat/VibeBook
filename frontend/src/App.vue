@@ -5,8 +5,8 @@
 </template>
 
 <script setup lang="ts">
-import Footer from '@/components/footer/Footer.vue';
-import Header from '@/components/header/Header.vue';
+import Footer from '@/components/Footer.vue';
+import Header from '@/components/Header.vue';
 import { useAuthStore } from '@/stores/authStore.ts';
 import { computed, provide } from 'vue';
 
