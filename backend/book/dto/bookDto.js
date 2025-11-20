@@ -5,6 +5,7 @@ export default class BookDto {
     cover;
     genres;
     _id;
+    year_publication;
 
     constructor(model) {
         this.title = model.title;
@@ -16,5 +17,6 @@ export default class BookDto {
         this.cover = model.cover;
         this.genres = model.genres_id?.map(genre => ({ name: genre.name })) || [];
         this._id = model._id;
+        this.year_publication = new Date(model.year_publication).getFullYear();
     }
 }

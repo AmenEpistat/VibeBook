@@ -4,6 +4,7 @@ class BookController {
     async createBook (req, res, next) {
         try {
             const { title, description, author_id } = req.body;
+            const year_publication = new Date(req.body.year_publication);
 
             const cover = req.file ? `/uploads/covers/${req.file.filename}` : null;
             const genres_id = Array.isArray(req.body.genres_id)
@@ -11,7 +12,7 @@ class BookController {
                 : Object.values(req.body).filter((v, key) => key.startsWith("genres_id"));
 
 
-            await bookService.createBook(title, description, author_id, genres_id, cover);
+            await bookService.createBook(title, description, author_id, genres_id, cover, year_publication);
             return res.json({message: 'Книга создана!'});
         } catch (e) {
             next(e);
@@ -20,8 +21,16 @@ class BookController {
 
     async updateBook (req, res, next) {
         try {
-            const { title, description, author_id, genres_id, _id  } = req.body;
-            await bookService.updateBook(title, description, author_id, genres_id, _id);
+            const { title, description, author_id  } = req.body;
+            const { id } = req.params;
+            const year_publication = new Date(req.body.year_publication);
+            const cover = req.file ? `/uploads/covers/${req.file.filename}` : null;
+
+            const genres_id = Array.isArray(req.body.genres_id)
+                ? req.body.genres_id
+                : Object.values(req.body).filter((v, key) => key.startsWith("genres_id"));
+
+            await bookService.updateBook(title, description, author_id, genres_id, id, cover, year_publication);
             return res.json({message: 'Книга обновлена!'});
         } catch (e) {
             next(e);

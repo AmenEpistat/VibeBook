@@ -20,6 +20,7 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(cookieParser());
+app.use('/uploads', express.static('uploads'));
 app.use('/api', router);
 app.use('/api', genreRouter);
 app.use('/api', authorRouter);
