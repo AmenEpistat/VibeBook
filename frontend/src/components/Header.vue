@@ -11,7 +11,7 @@
                 @click="logout"
             >
                 <img
-                    src="@/assets/img/logout.svg"
+                    src="../assets/img/logout.svg"
                     height="24"
                     width="24"
                     alt="Выйти."
