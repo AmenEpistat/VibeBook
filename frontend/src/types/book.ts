@@ -5,7 +5,8 @@ export interface Book {
     _id?: string | number;
     title: string;
     author: Author;
-    image_path?: string;
+    cover?: string;
     description?: string;
     genres: Genre[];
+    year_publication: Date | null;
 }

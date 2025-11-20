@@ -1,5 +1,5 @@
 import type { Book } from '@/types/book.ts';
-import { $api } from '@/http/apiConfig.ts';
+import { $api } from '@/apiConfig.ts';
 
 export default class BookService {
     static async createBook(book: Book) {
