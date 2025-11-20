@@ -32,7 +32,7 @@ a {
 .container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 80px 60px;
 }
 
 .content-wrapper {
@@ -45,4 +45,18 @@ a {
     color: $primary-color;
     font-size: 24px;
     font-weight: bold;
+}
+
+.s-text {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 300;
+    color: $secondary-color;
+}
+
+.xs-text {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 300;
+    color: $secondary-color;
 }
