@@ -2,28 +2,28 @@
     <div class="book-card">
         <img
             class="book-card__img"
-            :src="API_URL + book.cover"
-            :alt="book.title"
+            :src="API_URL + book?.cover"
+            :alt="book?.title"
             width="154"
             height=""
         />
         <div class="book-card__info">
             <h3 class="book-card__title">
-                <router-link :to="`/books/${book._id}`">
-                    {{ book.title }}
+                <router-link :to="`/books/${book?._id}`">
+                    {{ book?.title }}
                 </router-link>
             </h3>
             <p class="book-card__author">
-                <router-link to="/_id"> {{ book.author?.name }} {{ book.author?.surname }} </router-link>
+                <router-link to="/_id"> {{ book?.author?.name }} {{ book?.author?.surname }} </router-link>
             </p>
-            <p class="book-card__year-publication xs-text">{{ book.year_publication }}</p>
+            <p class="book-card__year-publication xs-text">{{ book?.year_publication }}</p>
             <ul class="book-card__genres">
                 <li
-                    v-for="(genre, index) in book.genres"
+                    v-for="(genre, index) in book?.genres"
                     :key="index"
                     class="book-card__genre"
                 >
-                    <genre-item :name="genre.name" />
+                    <genre-item :name="genre?.name" />
                 </li>
             </ul>
         </div>
@@ -67,6 +67,8 @@ const handleSelect = (status: string) => {
 .book-card__img {
     display: flex;
     align-items: stretch;
+
+    object-fit: cover;
 
     border-radius: 5px;
 }

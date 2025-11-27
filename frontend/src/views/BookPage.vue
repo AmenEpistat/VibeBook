@@ -86,7 +86,7 @@ const handleSelect = (status: string) => {};
 .book__genres {
     display: flex;
     flex-wrap: wrap;
-    gap: 7px;
+    gap: 16px;
 
     margin-bottom: 20px;
 }
