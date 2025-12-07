@@ -152,9 +152,9 @@ const onFormSubmit = async () => {
         rules.isEmail(formData.email),
         rules.minPassword(formData.password),
         rules.required(formData.password),
-        isRegister.value ? rules.required(formData.username) : true,
-        isRegister.value ? rules.required(passwordConfirm.value) : true,
-        isRegister.value ? rules.passwordsMatch(passwordConfirm.value) : true,
+        !isRegister.value ? rules.required(formData.username) : true,
+        !isRegister.value ? rules.required(passwordConfirm.value) : true,
+        !isRegister.value ? rules.passwordsMatch(passwordConfirm.value) : true,
     ].every((r) => r === true);
 
     if (!isValid) {

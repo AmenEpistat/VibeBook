@@ -61,7 +61,7 @@ export const useAuthStore = defineStore('auth', () => {
 
     const checkAuth = async () => {
         try {
-            const response = await axios.post<IAuthResponse>(`${API_URL}/auth/refresh`, {}, { withCredentials: true });
+            const response = await axios.post<IAuthResponse>(`${API_URL}/api/refresh`, {}, { withCredentials: true });
             user.value = response.data?.userDto;
             localStorage.setItem('token', response.data.accessToken);
             isAuth.value = true;
