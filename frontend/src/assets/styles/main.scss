@@ -33,6 +33,10 @@ a {
     max-width: 1400px;
     margin: 0 auto;
     padding: 80px 60px;
+
+    @media (min-width: $laptop) {
+        max-width: 1200px;
+    }
 }
 
 .content-wrapper {
