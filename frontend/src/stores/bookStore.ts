@@ -47,5 +47,18 @@ export const useBookStore = defineStore('book', () => {
         }
     };
 
-    return { books, isLoading, errorMessage, getBooks, getBook };
+    const updateBook = async (book: CreateIBook, id: string) => {
+        try {
+            isLoading.value = true;
+            const response = await BookService.updateBook(book, id);
+            return response.data;
+        } catch (e) {
+            console.log(e.response?.data?.message);
+            errorMessage.value = e.response?.data?.message;
+        } finally {
+            isLoading.value = false;
+        }
+    };
+
+    return { books, isLoading, errorMessage, getBooks, getBook, createBook, updateBook };
 });

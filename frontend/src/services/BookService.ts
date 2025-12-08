@@ -9,6 +9,15 @@ export default class BookService {
             },
         });
     }
+
+    static async updateBook(book: CreateIBook, id: string) {
+        return $api.put(`/api/book/${id}`, book, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
+
     static async deleteBook(id: number) {
         return $api.delete(`/api/book/${id}`);
     }
