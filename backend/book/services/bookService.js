@@ -16,6 +16,10 @@ class BookService {
             throw ApiError.BadRequest('Некоторые жанры не найдены');
         }
 
+        if (year_publication && isNaN(year_publication.valueOf())) {
+            throw ApiError.BadRequest("Некорректная дата публикации");
+        }
+
         await Book.create({ title, description, author_id, genres_id, cover, year_publication });
     }
 

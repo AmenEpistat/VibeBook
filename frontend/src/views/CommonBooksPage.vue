@@ -2,6 +2,7 @@
     <section class="common-books">
         <div class="common-books__wrapper content-wrapper">
             <h2 class="common-books__title subtitle">Все книги</h2>
+            <BookCreateForm />
             <div class="common-books__filter-container" />
             <ul class="common-books__list">
                 <li
@@ -21,6 +22,7 @@ import BookCard from '@/components/BookCard.vue';
 import type { Book } from '@/types/book.ts';
 import { onMounted, ref } from 'vue';
 import { useBookStore } from '@/stores/bookStore.ts';
+import BookCreateForm from '@/components/BookCreateForm.vue';
 
 const books = ref<Book[]>([]);
 
@@ -28,12 +30,10 @@ const bookStore = useBookStore();
 
 const getBooks = async () => {
     await bookStore.getBooks();
-    console.log('ffff');
     books.value = bookStore.books;
 };
 
 onMounted(async () => {
-    console.log('ffff');
     await getBooks();
 });
 </script>
