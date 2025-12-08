@@ -7,11 +7,6 @@ export const $api = axios.create({
     baseURL: API_URL,
 });
 
-export const apiReqistration = axios.create({
-    withCredentials: true,
-    baseURL: API_URL,
-});
-
 $api.interceptors.request.use((config) => {
     config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`;
     return config;
@@ -22,7 +17,6 @@ $api.interceptors.response.use(
         return config;
     },
     async (error) => {
-        console.log(error);
         if (error.response.status === 401 && !error.config._isRetry && error.config) {
             error.config._isRetry = true;
             try {

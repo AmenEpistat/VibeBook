@@ -10,3 +10,7 @@ export interface Book {
     genres: Genre[];
     year_publication: Date | null;
 }
+
+export interface CreateIBook extends Omit<Book, 'genres'> {
+    genres_id?: string | number;
+}

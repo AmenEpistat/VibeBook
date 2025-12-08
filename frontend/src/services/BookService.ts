@@ -1,15 +1,18 @@
-import type { Book } from '@/types/book.ts';
+import type { CreateIBook } from '@/types/book.ts';
 import { $api } from '@/apiConfig.ts';
 
 export default class BookService {
-    static async createBook(book: Book) {
-        return $api.post('/api/book', book);
+    static async createBook(book: CreateIBook) {
+        return $api.post('/api/book', book, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
     }
     static async deleteBook(id: number) {
         return $api.delete(`/api/book/${id}`);
     }
     static async getBooks() {
-        console.log('ff');
         return $api.get('/api/books');
     }
     static async getBook(id: string) {
