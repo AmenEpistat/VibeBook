@@ -16,6 +16,7 @@
     "lint": "eslint . --ext .ts,.js,.vue --fix"
   },
   "dependencies": {
+    "@mdi/font": "^7.4.47",
     "@tsparticles/slim": "^3.9.1",
     "@tsparticles/vue3": "^3.0.1",
     "@vueuse/motion": "^3.0.3",
