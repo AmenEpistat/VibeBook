@@ -58,12 +58,16 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits<{
-    (e: 'statusChange', bookId: string | number | undefined, status: string): void;
-    (e: 'editBook', bookId: string, book: Book): void;
+    (e: 'statusChange', bookId: string, status: string): void;
+    (e: 'editBook'): void;
 }>();
 
 const handleSelect = (status: string) => {
     emit('statusChange', props.book._id, status);
+};
+
+const editBook = () => {
+    emit('editBook');
 };
 
 const isActive = ref(false);
@@ -86,6 +90,7 @@ const isActive = ref(false);
     align-items: stretch;
 
     object-fit: cover;
+    overflow: hidden;
 
     border-radius: 5px;
 }

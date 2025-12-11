@@ -61,8 +61,6 @@ const onCreateBook = async () => {
 };
 
 const onEditBook = async () => {
-    isActive.value = false;
-
     await getBooks();
     books.value = bookStore.books;
 };

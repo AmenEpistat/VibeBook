@@ -131,7 +131,7 @@ onMounted(() => {
         form.value.description = props.book.description || '';
         form.value.author_id = props.book.author._id as string;
         form.value.genres_id = props.book.genres.map((g) => g._id);
-        form.value.year_publication = props.book.year_publication;
+        form.value.year_publication = props.book.year_publication + '-01-01';
     }
 });
 
@@ -170,6 +170,7 @@ const submit = async () => {
         } else {
             await bookStore.createBook(fd);
         }
+        close();
         emit('saved');
     } catch (e) {
         alert(e.message);
