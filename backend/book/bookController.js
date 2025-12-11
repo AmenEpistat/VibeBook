@@ -28,7 +28,9 @@ class BookController {
 
             const genres_id = Array.isArray(req.body.genres_id)
                 ? req.body.genres_id
-                : Object.values(req.body).filter((v, key) => key.startsWith("genres_id"));
+                : Object.entries(req.body)
+                    .filter(([key, value]) => key.startsWith('genres_id'))
+                    .map(([key, value]) => value);
 
             await bookService.updateBook(title, description, author_id, genres_id, id, cover, year_publication);
             return res.json({message: 'Книга обновлена!'});
