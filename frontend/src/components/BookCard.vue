@@ -29,7 +29,19 @@
         </div>
         <div class="book-card__user-actions">
             <UserActionSelect @onselect="handleSelect" />
+            <v-btn
+                class="book-card__edit-button plain-button"
+                variant="plain"
+                @click="isActive = true"
+            >
+                Редактировать
+            </v-btn>
         </div>
+        <BookCreateForm
+            v-model="isActive"
+            :book="book"
+            @saved="editBook"
+        />
     </div>
 </template>
 
@@ -38,6 +50,8 @@ import type { Book } from '@/types/book.ts';
 import GenreItem from '@/components/GenreItem.vue';
 import UserActionSelect from '@/components/UserActionSelect.vue';
 import { API_URL } from '@/apiConfig.ts';
+import { ref } from 'vue';
+import BookCreateForm from '@/components/BookCreateForm.vue';
 
 const props = defineProps<{
     book: Book;
@@ -45,11 +59,14 @@ const props = defineProps<{
 
 const emit = defineEmits<{
     (e: 'statusChange', bookId: string | number | undefined, status: string): void;
+    (e: 'editBook', bookId: string, book: Book): void;
 }>();
 
 const handleSelect = (status: string) => {
     emit('statusChange', props.book._id, status);
 };
+
+const isActive = ref(false);
 </script>
 
 <style scoped lang="scss">
@@ -94,9 +111,6 @@ const handleSelect = (status: string) => {
     }
 }
 
-.book-card__year-publication {
-}
-
 .book-card__author {
     color: $additional-color;
     font-weight: 400;
@@ -109,6 +123,10 @@ const handleSelect = (status: string) => {
 }
 
 .book-card__user-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
     padding: 16px;
 
     border: 1px solid $light-border-color;
@@ -118,6 +136,10 @@ const handleSelect = (status: string) => {
     .select {
         flex-grow: 0;
     }
+}
+
+.book-card__edit-button {
+    font-size: 12px;
 }
 
 .book-card__genres {

@@ -1,76 +1,85 @@
 <template>
-    <h2 class="book-create-title">{{ isEditMode ? 'Редактирование книги' : 'Создание книги' }}</h2>
-    <v-form
-        class="book-form"
-        @submit.prevent="submit"
+    <v-dialog
+        v-model="isActive"
+        max-width="600"
     >
-        <v-text-field
-            v-model="form.title"
-            label="Название книги"
-            required
-            variant="outlined"
-        />
+        <v-card class="book-create">
+            <h2 class="book-create__title">{{ isEditMode ? 'Редактирование книги' : 'Создание книги' }}</h2>
+            <v-form
+                class="book-form"
+                @submit.prevent="submit"
+            >
+                <v-text-field
+                    v-model="form.title"
+                    label="Название книги"
+                    required
+                    variant="outlined"
+                />
 
-        <v-textarea
-            v-model="form.description"
-            label="Описание"
-            auto-grow
-            variant="outlined"
-            required
-        />
+                <v-textarea
+                    v-model="form.description"
+                    label="Описание"
+                    auto-grow
+                    variant="outlined"
+                    required
+                />
 
-        <v-autocomplete
-            v-model="form.author_id"
-            :items="authors"
-            item-title="name"
-            item-value="_id"
-            label="Автор"
-            clearable
-            required
-            variant="outlined"
-        />
+                <v-autocomplete
+                    v-model="form.author_id"
+                    :items="authors"
+                    item-title="name"
+                    item-value="_id"
+                    label="Автор"
+                    clearable
+                    required
+                    variant="outlined"
+                />
 
-        <v-autocomplete
-            v-model="form.genres_id"
-            :items="genres"
-            item-title="name"
-            item-value="_id"
-            label="Жанры"
-            multiple
-            chips
-            clearable
-            variant="outlined"
-            required
-        />
+                <v-autocomplete
+                    v-model="form.genres_id"
+                    :items="genres"
+                    item-title="name"
+                    item-value="_id"
+                    label="Жанры"
+                    multiple
+                    chips
+                    clearable
+                    variant="outlined"
+                    required
+                />
 
-        <v-text-field
-            v-model="form.year_publication"
-            type="date"
-            label="Дата публикации"
-            variant="outlined"
-            required
-        />
+                <v-text-field
+                    v-model="form.year_publication"
+                    type="date"
+                    label="Дата публикации"
+                    variant="outlined"
+                    required
+                />
 
-        <v-file-input
-            v-model="form.cover"
-            accept="image/*"
-            label="Обложка книги"
-            required
-            variant="outlined"
-        />
-
-        <v-btn
-            type="submit"
-            rounded="xs"
-            class="primary-button"
-        >
-            {{ isEditMode ? 'Сохранить изменения' : 'Создать книгу' }}
-        </v-btn>
-    </v-form>
+                <v-file-input
+                    v-model="form.cover"
+                    accept="image/*"
+                    label="Обложка книги"
+                    required
+                    variant="outlined"
+                />
+            </v-form>
+            <v-card-actions>
+                <v-spacer />
+                <v-btn @click="close">Отмена</v-btn>
+                <v-btn
+                    class="primary-button"
+                    @click="submit"
+                >
+                    {{ isEditMode ? 'Сохранить' : 'Создать' }}
+                </v-btn>
+            </v-card-actions>
+        </v-card>
+    </v-dialog>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import { useAuthorStore } from '@/stores/authorStore.ts';
 import { useGenreStore } from '@/stores/genreStore.ts';
 import { useBookStore } from '@/stores/bookStore.ts';
@@ -80,12 +89,20 @@ import type { Book } from '@/types/book.ts';
 
 interface Props {
     book?: Book;
+    modelValue: boolean;
 }
 
 const props = defineProps<Props>();
-const emit = defineEmits<{
-    (e: 'saved'): void;
-}>();
+const emit = defineEmits(['update:modelValue', 'saved']);
+
+const isActive = ref(props.modelValue);
+
+watch(
+    () => props.modelValue,
+    (v) => (isActive.value = v),
+);
+
+watch(isActive, (v) => emit('update:modelValue', v));
 
 const isEditMode = ref(!!props.book);
 
@@ -128,6 +145,10 @@ const loadGenres = async () => {
     genres.value = genreStore.genres;
 };
 
+const close = () => {
+    isActive.value = false;
+};
+
 const submit = async () => {
     const fd = new FormData();
 
@@ -144,6 +165,7 @@ const submit = async () => {
 
     try {
         if (isEditMode.value && props.book?._id) {
+            console.log(fd);
             await bookStore.updateBook(fd, props.book?._id);
         } else {
             await bookStore.createBook(fd);
@@ -156,8 +178,12 @@ const submit = async () => {
 </script>
 
 <style>
-.book-create-title {
+.book-create__title {
     margin-bottom: 16px;
+}
+
+.book-create {
+    padding: 24px;
 }
 
 .v-input__prepend {

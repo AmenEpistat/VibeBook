@@ -5,8 +5,8 @@
             <v-btn
                 v-if="isAdmin"
                 rounded="xs"
-                class="primary-button"
-                @click="dialog = true"
+                class="primary-button common-books__btn"
+                @click="isActive = true"
             >
                 Создать книгу
             </v-btn>
@@ -17,19 +17,17 @@
                     :key="book._id"
                     class="common-books__list-item"
                 >
-                    <BookCard :book="book" />
+                    <BookCard
+                        :book="book"
+                        @edit-book="onEditBook"
+                    />
                 </li>
             </ul>
         </div>
-        <v-dialog
-            v-if="isAdmin"
-            v-model="dialog"
-            max-width="600"
-        >
-            <v-card class="common-books__modal">
-                <BookCreateForm @saved="onCreateBook" />
-            </v-card>
-        </v-dialog>
+        <BookCreateForm
+            v-model="isActive"
+            @saved="onCreateBook"
+        />
     </section>
 </template>
 
@@ -43,7 +41,7 @@ import { useAuthStore } from '@/stores/authStore.ts';
 
 const books = ref<Book[]>([]);
 
-const dialog = ref(false);
+const isActive = ref(false);
 
 const bookStore = useBookStore();
 const authStore = useAuthStore();
@@ -56,7 +54,14 @@ const getBooks = async () => {
 };
 
 const onCreateBook = async () => {
-    dialog.value = false;
+    isActive.value = false;
+
+    await getBooks();
+    books.value = bookStore.books;
+};
+
+const onEditBook = async () => {
+    isActive.value = false;
 
     await getBooks();
     books.value = bookStore.books;
@@ -68,17 +73,23 @@ onMounted(async () => {
 </script>
 
 <style scoped lang="scss">
+.common-books__wrapper {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+}
+
 .common-books__title {
     margin-bottom: 30px;
+}
+
+.common-books__btn {
+    grid-column: 2/-1;
 }
 
 .common-books__list {
     display: flex;
     flex-direction: column;
     gap: 25px;
-}
-
-.common-books__modal {
-    padding: 50px;
+    grid-column: 1/-1;
 }
 </style>
