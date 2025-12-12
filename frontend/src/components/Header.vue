@@ -114,15 +114,15 @@ const adminLinks = [
     },
     {
         title: 'Авторы',
-        href: '#projects',
+        href: '/authors',
     },
     {
         title: 'Жанры',
-        href: '#about-me',
+        href: '/genres',
     },
     {
         title: 'Пользователи',
-        href: '#about-me',
+        href: '/users',
     },
 ];
 
