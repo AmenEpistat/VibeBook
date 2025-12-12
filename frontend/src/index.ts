@@ -6,6 +6,7 @@ import PreferencesPage from '@/views/PreferencesPage.vue';
 import CommonBooksPage from '@/views/CommonBooksPage.vue';
 import BookPage from '@/views/BookPage.vue';
 import AuthorsPage from '@/views/AuthorsPage.vue';
+import GenresPage from '@/views/GenresPage.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -49,6 +50,11 @@ const router = createRouter({
             path: '/authors',
             name: 'authors',
             component: AuthorsPage,
+        },
+        {
+            path: '/genres',
+            name: 'genres',
+            component: GenresPage,
         },
     ],
 });
