@@ -137,7 +137,7 @@ const profileLinks = [
     },
     {
         title: 'Предпочтения',
-        href: '#about-me',
+        href: '/preferences',
     },
 ];
 

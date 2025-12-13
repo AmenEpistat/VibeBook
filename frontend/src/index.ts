@@ -56,6 +56,11 @@ const router = createRouter({
             name: 'genres',
             component: GenresPage,
         },
+        {
+            path: '/preferences',
+            name: 'preferences',
+            component: PreferencesPage,
+        },
     ],
 });
 
