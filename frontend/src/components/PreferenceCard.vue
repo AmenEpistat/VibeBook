@@ -14,9 +14,15 @@
                 v-model="answer"
                 variant="outlined"
             />
-            <v-select
+            <v-autocomplete
                 v-if="question.type === 'select'"
                 v-model="answer"
+                :items="question.options"
+                multiple
+                chips
+                clearable
+                variant="outlined"
+                required
             />
         </div>
         <v-btn
@@ -39,16 +45,16 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits<{
-    (e: 'click', answer: string): void;
+    (e: 'click', answer: string | null): void;
 }>();
 
 const onClick = () => {
-    answer.value = '';
+    answer.value = null;
 
     emit('click', answer.value);
 };
 
-const answer = ref('');
+const answer = ref<string | null>(null);
 </script>
 
 <style scoped lang="scss">

@@ -1,5 +1,5 @@
 <template>
-    <FormCard
+    <PreferenceCard
         v-if="currentQuestion"
         is-required
         :question="currentQuestion"
@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import FormCard from '@/components/FormCard.vue';
+import PreferenceCard from '@/components/PreferenceCard.vue';
 import { computed } from 'vue';
 import type { Question } from '@/types/preference.ts';
 import { usePreferenceStore } from '@/stores/preferenceStore.ts';
