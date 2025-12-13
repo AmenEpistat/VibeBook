@@ -11,7 +11,7 @@ class PreferenceController {
     }
     async sendAnswers (req, res, next) {
         try {
-            const answers = req.body.answers;
+            const answers = req.body;
             console.log(answers);
             const recommend = PreferenceService.recommendBooks();
             res.json(recommend);

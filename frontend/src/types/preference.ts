@@ -3,6 +3,7 @@ export interface Question {
     title: string;
     description: string;
     type: 'input' | 'select';
+    options?: string[];
 }
 
 export interface PreferenceState {

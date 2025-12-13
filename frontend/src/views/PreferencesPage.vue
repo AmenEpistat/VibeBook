@@ -2,7 +2,7 @@
     <section class="preferences">
         <div class="preferences__wrapper content-wrapper">
             <h2 class="preferences__title subtitle" />
-            <FormCardsList
+            <PreferenceCardsList
                 :questions="qs"
                 @complete="submitQuestion"
             />
@@ -12,20 +12,22 @@
 </template>
 
 <script setup lang="ts">
-import FormCardsList from '@/components/FormCardsList.vue';
+import PreferenceCardsList from '@/components/PreferenceCardsList.vue';
 import type { Question } from '@/types/preference.ts';
 import { usePreferenceStore } from '@/stores/preferenceStore.ts';
+import { onMounted, ref } from 'vue';
 
-const preference = usePreferenceStore();
+const preferenceStore = usePreferenceStore();
 
-const qs: Question[] = [
-    { type: 'input', title: 'rrr', description: 'ffff', id: '2345' },
-    { type: 'input', title: 'rrr', description: 'ffff', id: '2445' },
-];
+const qs = ref<Question[]>([]);
 
-const submitQuestion = (): void => {
-    console.log(preference.state.answers);
+const submitQuestion = async () => {
+    console.log(preferenceStore.state.answers);
 };
+
+onMounted(async () => {
+    qs.value = await preferenceStore.getQuestions();
+});
 </script>
 
 <style scoped></style>
