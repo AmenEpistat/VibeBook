@@ -9,25 +9,31 @@
 </template>
 
 <script setup lang="ts">
-import FormCard, { type IQuestion } from '@/components/FormCard.vue';
-import { computed, ref } from 'vue';
+import FormCard from '@/components/FormCard.vue';
+import { computed } from 'vue';
+import type { Question } from '@/types/preference.ts';
+import { usePreferenceStore } from '@/stores/preferenceStore.ts';
 
 const props = defineProps<{
-    questions: IQuestion[];
+    questions: Question[];
 }>();
 
 const emit = defineEmits<{
     (e: 'complete'): void;
 }>();
 
-const currentIndex = ref(0);
+const store = usePreferenceStore();
 
-const currentQuestion = computed(() => props.questions[currentIndex.value]);
-const isLast = computed(() => currentIndex.value === props.questions.length - 1);
+const currentQuestion = computed(() => props.questions[store.state.currentIndex]);
+const isLast = computed(() => store.state.currentIndex === props.questions.length - 1);
 
-const onClick = () => {
+const onClick = async (answer: string) => {
+    if (currentQuestion.value) {
+        store.setAnswer(currentQuestion.value.id, answer);
+    }
+
     if (!isLast.value) {
-        currentIndex.value++;
+        store.setNextIndex(props.questions.length);
     } else {
         emit('complete');
     }

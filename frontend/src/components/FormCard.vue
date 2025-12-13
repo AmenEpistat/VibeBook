@@ -30,16 +30,11 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-
-export interface IQuestion {
-    title: string;
-    description: string;
-    type: 'input' | 'select';
-}
+import type { Question } from '@/types/preference.ts';
 
 const props = defineProps<{
     isRequired: boolean;
-    question: IQuestion;
+    question: Question;
     buttonText: string;
 }>();
 
@@ -48,6 +43,8 @@ const emit = defineEmits<{
 }>();
 
 const onClick = () => {
+    answer.value = '';
+
     emit('click', answer.value);
 };
 
