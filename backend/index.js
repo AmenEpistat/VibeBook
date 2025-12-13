@@ -7,6 +7,7 @@ import { router } from './auth/authRouter.js';
 import { router as genreRouter } from './genre/genreRouter.js';
 import { router as authorRouter } from './author/authorRouter.js';
 import { router as bookRouter } from './book/bookRouter.js';
+import { router as preferenceRouter } from './preference/preferenceRouter.js';
 import cookieParser from 'cookie-parser';
 import errorMiddleware from './common/middleware/errorMiddleware.js'
 
@@ -18,13 +19,18 @@ app.use(cors({
 	origin: 'http://localhost:5173',
 	credentials: true,
 }));
+
 app.use(express.json());
 app.use(cookieParser());
+
 app.use('/uploads', express.static('uploads'));
+
 app.use('/api', router);
 app.use('/api', genreRouter);
 app.use('/api', authorRouter);
 app.use('/api', bookRouter);
+app.use('/api', preferenceRouter);
+
 app.use(errorMiddleware);
 
 app.get("/", (req, res) => {
