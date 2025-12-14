@@ -1,6 +1,6 @@
-import { User } from './model/User.js';
-import authService from './services/authService.js'
-import ApiError from '../common/exceptions/apiError.js'
+import { User } from '../model/User.js';
+import authService from '../services/authService.js'
+import ApiError from '../../common/exceptions/apiError.js'
 import { validationResult } from 'express-validator'
 
 export class authController {
@@ -59,15 +59,6 @@ export class authController {
 			return res.json(userData);
 		} catch (e) {
 			next(e);
-		}
-	}
-
-	async getUser (req, res) {
-		try {
-			const users = await User.find();
-			res.json({ users });
-		} catch (e) {
-			console.log(e)
 		}
 	}
 }
