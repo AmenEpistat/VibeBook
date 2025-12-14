@@ -6,7 +6,9 @@ const UserSchema = new Schema ({
 	password: { type: String, required: true },
 	isActivated: { type: Boolean, default: false },
 	activatedLink: { type: String },
-  roles: [{ type: String, ref: 'Role', default: ['USER'] }]
+    roles: [
+        { type: Schema.Types.ObjectId, ref: 'Role', default: [] }
+    ]
 });
 
 export const User = model('User', UserSchema);

@@ -10,6 +10,6 @@ export default class AuthDto {
 		this.id = model._id;
 		this.username = model.username;
 		this.isActivated = model.isActivated;
-        this.roles = model.roles;
-	}
+        this.roles = model.roles ? model.roles.map(r => r.value) : [];
+    }
 }
