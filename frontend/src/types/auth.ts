@@ -1,12 +1,12 @@
 export const ROLE = {
-    user: 'user',
-    admin: 'admin',
+    USER: 'user',
+    ADMIN: 'admin',
 } as const;
 
 export type Role = keyof typeof ROLE;
 
 export interface IAuth {
-    id?: string;
+    _id?: string;
     email: string;
     password: string;
     username?: string;

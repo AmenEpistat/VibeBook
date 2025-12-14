@@ -19,6 +19,7 @@
                 >
                     <BookCard
                         :book="book"
+                        :is-admin="isAdmin"
                         @edit-book="onEditBook"
                     />
                 </li>
@@ -46,7 +47,7 @@ const isActive = ref(false);
 const bookStore = useBookStore();
 const authStore = useAuthStore();
 
-const isAdmin = computed(() => authStore.user.roles?.[0] ?? 'user');
+const isAdmin = computed(() => authStore.user.roles?.[0] === 'ADMIN');
 
 const getBooks = async () => {
     await bookStore.getBooks();

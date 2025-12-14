@@ -7,7 +7,10 @@
                 :key="i.book._id"
                 class="favorite-books__item"
             >
-                <BookCard :book="i.book" />
+                <BookCard
+                    :book="i.book"
+                    :is-admin="isAdmin"
+                />
             </li>
         </ul>
     </div>
@@ -16,13 +19,17 @@
 <script setup lang="ts">
 import BookCard from '@/components/BookCard.vue';
 import { useUserBookStore } from '@/stores/userBookStore.ts';
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import type { UserBook } from '@/types/user.ts';
+import { useAuthStore } from '@/stores/authStore.ts';
 
 const favBooks = ref<UserBook[]>([]);
 const books = ref<UserBook[]>([]);
 
 const userBookStore = useUserBookStore();
+const authStore = useAuthStore();
+
+const isAdmin = computed(() => authStore.user.roles?.[0] === 'ADMIN');
 
 const getFavoriteBooks = (books: UserBook[]) => {
     return books.filter((i: UserBook) => i.isFavorite);

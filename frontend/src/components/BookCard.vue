@@ -29,6 +29,7 @@
         </div>
         <div class="book-card__user-actions">
             <UserActionSelect @onselect="handleSelect" />
+            <AdminAction v-if="isAdmin" />
             <v-btn
                 class="book-card__edit-button plain-button"
                 variant="plain"
@@ -52,9 +53,11 @@ import UserActionSelect from '@/components/UserActionSelect.vue';
 import { API_URL } from '@/apiConfig.ts';
 import { ref } from 'vue';
 import BookCreateForm from '@/components/BookCreateForm.vue';
+import AdminAction from '@/components/AdminAction.vue';
 
 const props = defineProps<{
     book: Book;
+    isAdmin: boolean;
 }>();
 
 const emit = defineEmits<{
