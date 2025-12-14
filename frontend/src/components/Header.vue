@@ -86,7 +86,7 @@ import { computed, ref } from 'vue';
 const authStore = useAuthStore();
 const router = useRouter();
 
-const isAdmin = computed(() => authStore.user.roles?.[0] ?? 'user');
+const isAdmin = computed(() => authStore.user.roles?.[0] === 'ADMIN');
 
 const userLinks = [
     {
@@ -118,6 +118,10 @@ const adminLinks = [
     },
     {
         title: 'Пользователи',
+        href: '/users',
+    },
+    {
+        title: 'Избранное',
         href: '/favBooks',
     },
 ];
