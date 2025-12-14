@@ -5,6 +5,7 @@ import MailService from './mailService.js'
 import AuthDto from '../dto/authDto.js'
 import tokenService from './tokenService.js'
 import ApiError from '../../common/exceptions/apiError.js'
+import { Role } from '../model/Role.js';
 
 class authService {
 	async reqistration(email, password, username) {
@@ -13,18 +14,21 @@ class authService {
 			throw ApiError.BadRequest('Пользователь с таким email есть');
 		}
 
-    const candidateName = await User.findOne({ username });
-    if (candidateName){
-      throw ApiError.BadRequest('Пользователь с таким username есть');
-    }
+        const candidateName = await User.findOne({ username });
+        if (candidateName){
+            throw ApiError.BadRequest('Пользователь с таким username есть');
+        }
+
+        const defaultRole = await Role.findOne({ value: 'USER' });
 
 		const hashPassword = await bcrypt.hash(password, 7);
 		const activatedLink = uuid.v4();
 
-		const user = await User.create({ email, password: hashPassword, username, activatedLink });
+		const user = await User.create({ email, password: hashPassword, username, activatedLink,  roles: [defaultRole._id]  });
+        const userWithRoles = await user.populate('roles');
 		await MailService.sendActivationMail(email, `${process.env.API_URL}/auth/activate/${activatedLink}`);
 
-		const userDto = new AuthDto(user);
+        const userDto = new AuthDto(userWithRoles);
 		const tokens = tokenService.generateToken({...userDto});
 		await tokenService.saveToken(userDto.id, tokens.refreshToken);
 
@@ -45,7 +49,10 @@ class authService {
 			throw ApiError.BadRequest('Пароль неправильный');
 		}
 
-		const userDto = new AuthDto(user);
+        const userWithRoles = await user.populate('roles');
+
+        const userDto = new AuthDto(userWithRoles);
+
 		const tokens = tokenService.generateToken({...userDto});
 		await tokenService.saveToken(userDto.id, tokens.refreshToken);
 
@@ -71,9 +78,10 @@ class authService {
 			throw ApiError.UnauthorizedError();
 		}
 
-		const user = await User.findById(userData.id);
-		const userDto = new AuthDto(user);
-		const tokens = tokenService.generateToken({...userDto});
+        const user = await User.findById(userData.id).populate('roles');
+        const userDto = new AuthDto(user);
+
+        const tokens = tokenService.generateToken({...userDto});
 		await tokenService.saveToken(userDto.id, tokens.refreshToken);
 
 		return {
