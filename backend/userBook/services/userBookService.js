@@ -2,6 +2,7 @@ import ApiError from '../../common/exceptions/apiError.js';
 import { User } from '../../auth/model/User.js';
 import { Book } from '../../book/model/Book.js';
 import { UserBook } from '../model/UserBook.js';
+import UserBookDto from '../dto/userBookDto.js';
 
 class UserBookService {
     async addUserBook(user_id, book_id, status, isFavorite) {
@@ -27,7 +28,14 @@ class UserBookService {
             throw ApiError.BadRequest('Пользователь не найден');
         }
 
-        return UserBook.find({ user_id }).populate('book_id');
+        const books = await UserBook.find({ user_id }).populate({
+            path: 'book_id',
+            populate: [
+                { path: 'author_id', select: 'name surname' },
+                { path: 'genres_id', select: 'name' },
+            ]
+        });
+        return books.map(book => new UserBookDto(book));
     }
 }
 

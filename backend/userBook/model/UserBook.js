@@ -4,7 +4,7 @@ const UserBookSchema = new Schema(
     {
         user_id: { type: Schema.Types.ObjectId, ref: 'User', required: true, },
         book_id: { type: Schema.Types.ObjectId, ref: 'Book', required: true, },
-        status: { type: String, enum: ['QUEUE', 'READING', 'COMPLETED'], required: true, },
+        status: { type: String, enum: ['QUEUE', 'READING', 'COMPLETED', 'EMPTY'], },
         isFavorite: { type: Boolean, default: false },
     },
     {
