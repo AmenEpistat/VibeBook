@@ -8,6 +8,8 @@ import { router as genreRouter } from './genre/genreRouter.js';
 import { router as authorRouter } from './author/authorRouter.js';
 import { router as bookRouter } from './book/bookRouter.js';
 import { router as preferenceRouter } from './preference/preferenceRouter.js';
+import { router as userBookRouter } from './userBook/userBookRouter.js';
+import { authMiddleware } from './auth/middleware/authMiddleware.js';
 import cookieParser from 'cookie-parser';
 import errorMiddleware from './common/middleware/errorMiddleware.js'
 
@@ -30,6 +32,7 @@ app.use('/api', genreRouter);
 app.use('/api', authorRouter);
 app.use('/api', bookRouter);
 app.use('/api', preferenceRouter);
+app.use('/api', authMiddleware, userBookRouter)
 
 app.use(errorMiddleware);
 

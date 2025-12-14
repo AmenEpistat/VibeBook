@@ -1,7 +1,6 @@
 import { Router } from 'express';
 import { authController } from './authController.js';
 import { check } from 'express-validator';
-import { authMiddleware } from './middleware/authMiddleware.js';
 import { roleMiddleware } from './middleware/roleMiddleware.js';
 
 export const router = new Router();
