@@ -1,6 +1,8 @@
 export const STATUS_BOOK = {
-    FINISHED: 'Прочитана',
-    PROCESS: 'Не закончена',
-    CURRENT_READING: 'Читаю',
+    COMPLETED: 'Прочитана',
+    QUEUE: 'В очередь',
+    READING: 'Читаю',
     REMOVE: 'Удалить',
-};
+} as const;
+
+export type StatusBook = keyof typeof STATUS_BOOK;
