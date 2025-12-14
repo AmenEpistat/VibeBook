@@ -90,19 +90,15 @@ const isAdmin = computed(() => authStore.user.roles?.[0] ?? 'user');
 
 const userLinks = [
     {
-        title: 'Обо мне',
-        href: '#about-me',
+        title: 'Книги',
+        href: '/books',
     },
     {
-        title: 'Мои проекты',
+        title: 'Рекомендации',
         href: '#projects',
     },
     {
-        title: 'Почему я',
-        href: '#about-me',
-    },
-    {
-        title: 'Обсудим',
+        title: 'Избранное',
         href: '#about-me',
     },
 ];
@@ -122,7 +118,7 @@ const adminLinks = [
     },
     {
         title: 'Пользователи',
-        href: '/users',
+        href: '/favBooks',
     },
 ];
 

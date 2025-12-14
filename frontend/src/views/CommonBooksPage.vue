@@ -77,7 +77,7 @@ onMounted(async () => {
 }
 
 .common-books__title {
-    margin-bottom: 30px;
+    margin-bottom: 32px;
 }
 
 .common-books__btn {
@@ -87,7 +87,7 @@ onMounted(async () => {
 .common-books__list {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 24px;
     grid-column: 1/-1;
 }
 </style>
