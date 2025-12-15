@@ -4,7 +4,7 @@
             class="book-card__img"
             :src="API_URL + book?.cover"
             :alt="book?.title"
-            width="154"
+            width="160"
             height=""
         />
         <div class="book-card__info">
@@ -29,7 +29,12 @@
         </div>
         <div class="book-card__user-actions">
             <UserActionSelect @onselect="handleSelect" />
-            <AdminAction v-if="isAdmin" />
+            <AdminAction
+                v-if="isAdmin"
+                item-id="i"
+                @delete="() => {}"
+                @edit="() => {}"
+            />
             <v-btn
                 class="book-card__edit-button plain-button"
                 variant="plain"
@@ -61,12 +66,12 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits<{
-    (e: 'statusChange', bookId: string, status: string): void;
+    (e: 'statusChange'): void;
     (e: 'editBook'): void;
 }>();
 
-const handleSelect = (status: string) => {
-    emit('statusChange', props.book._id, status);
+const handleSelect = () => {
+    emit('statusChange');
 };
 
 const editBook = () => {
@@ -82,10 +87,13 @@ const isActive = ref(false);
 
 .book-card {
     display: grid;
-    grid-template-columns: auto 5fr 3fr;
+    grid-template-columns: 160px 5fr 3fr;
     align-items: stretch;
 
-    height: 200px;
+    min-height: 200px;
+    max-height: 250px;
+
+    overflow: hidden;
 }
 
 .book-card__img {
@@ -152,7 +160,9 @@ const isActive = ref(false);
 
 .book-card__genres {
     display: flex;
-    gap: 15px;
+    flex-wrap: wrap;
+    gap: 16px;
+    row-gap: 8px;
 
     margin-top: 20px;
 }
