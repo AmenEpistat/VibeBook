@@ -34,7 +34,19 @@ class BookService {
         if (genres.length !== genres_id.length) throw ApiError.BadRequest('Некоторые жанры не найдены');
         if (!book) throw ApiError.BadRequest('Книга не найдена');
 
-        await Book.findByIdAndUpdate(_id, { title, description, author_id, genres_id, cover, year_publication }, { new: true });
+        const updateData = {
+            title,
+            description,
+            author_id,
+            genres_id,
+            year_publication,
+        };
+
+        if (cover) {
+            updateData.cover = cover;
+        }
+
+        await Book.findByIdAndUpdate(_id, updateData, { new: true });
     }
 
     async deleteBook(_id) {

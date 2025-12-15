@@ -1,7 +1,6 @@
 export default class BookDto {
     title;
     author;
-    genres_id;
     description;
     cover;
     genres;
