@@ -1,36 +1,24 @@
 import { defineStore } from 'pinia';
-import { ref } from 'vue';
-import AdminService from '@/services/AdminService.ts';
+import AdminService from '@/services/AdminService';
+import { useRequest } from '@/composables/useRequest';
 
 export const useAdminStore = defineStore('adminStore', () => {
-    const errorMessage = ref('');
-    const isLoading = ref(false);
-
+    const { isLoading, errorMessage, data, fetch } = useRequest<any>();
     const getUsers = async () => {
-        try {
-            isLoading.value = true;
-            const response = await AdminService.getUsers();
-            return response.data;
-        } catch (e) {
-            console.log(e.response?.data?.message);
-            errorMessage.value = e.response?.data?.message;
-        } finally {
-            isLoading.value = false;
-        }
+        return await fetch(AdminService.getUsers);
     };
 
     const makeAdmin = async (id: string) => {
-        try {
-            isLoading.value = true;
-            const response = await AdminService.makeAdmin(id);
-            return response.data;
-        } catch (e) {
-            console.log(e.response?.data?.message);
-            errorMessage.value = e.response?.data?.message;
-        } finally {
-            isLoading.value = false;
-        }
+        return await fetch(AdminService.makeAdmin, id);
     };
 
-    return { errorMessage, isLoading, getUsers, makeAdmin };
+    const deleteAdmin = async (id: string) => {
+        return await fetch(AdminService.deleteAdmin, id);
+    };
+
+    const deleteUser = async (id: string) => {
+        return await fetch(AdminService.deleteUser, id);
+    };
+
+    return { isLoading, errorMessage, data, getUsers, makeAdmin, deleteAdmin, deleteUser };
 });
