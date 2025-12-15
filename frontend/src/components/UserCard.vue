@@ -5,8 +5,8 @@
         <p class="user-card__role">{{ user.roles?.[0] }}</p>
         <AdminAction
             :item-id="user.id"
-            @edit="makeAdmin"
-            @delete="() => {}"
+            @edit="editUser"
+            @delete="deleteUser"
         />
     </article>
 </template>
@@ -18,10 +18,14 @@ import AdminAction from '@/components/AdminAction.vue';
 const props = defineProps<{
     user: User;
 }>();
-const emit = defineEmits(['make-admin', 'delete']);
+const emit = defineEmits(['edit-user', 'delete-user']);
 
-const makeAdmin = (id: string) => {
-    emit('make-admin', id);
+const editUser = (id: string) => {
+    emit('edit-user', id);
+};
+
+const deleteUser = (id: string) => {
+    emit('delete-user', id);
 };
 </script>
 

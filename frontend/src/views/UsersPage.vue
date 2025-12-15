@@ -9,8 +9,13 @@
             >
                 <UserCard
                     :user="user"
-                    @make-admin="makeAdmin"
-                    @delete="() => {}"
+                    @delete-user="deleteUser"
+                    @edit-user="openModal"
+                />
+                <UserRoleModal
+                    v-model="isModalOpen"
+                    :user="user"
+                    @updated="refreshUsers"
                 />
             </li>
         </ul>
@@ -22,18 +27,29 @@ import { onMounted, ref } from 'vue';
 import UserCard from '@/components/UserCard.vue';
 import { useAdminStore } from '@/stores/adminStore.ts';
 import type { User } from '@/types/auth.ts';
+import UserRoleModal from '@/components/UserRoleModal.vue';
 
 const users = ref<User[]>([]);
 
+const isModalOpen = ref(false);
+
 const adminStore = useAdminStore();
 
-const makeAdmin = async (id: string) => {
-    await adminStore.makeAdmin(id);
+const refreshUsers = async () => {
     users.value = await adminStore.getUsers();
 };
 
+const deleteUser = async (id: string) => {
+    await adminStore.deleteUser(id);
+    await refreshUsers();
+};
+
+const openModal = () => {
+    isModalOpen.value = true;
+};
+
 onMounted(async () => {
-    users.value = await adminStore.getUsers();
+    await refreshUsers();
 });
 </script>
 
