@@ -14,8 +14,7 @@ class AdminController {
     async getUsers (req, res, next) {
         try {
             const id = req.user.id;
-            const allUsers = await AdminService.getUsers();
-            const users = allUsers.filter(user => user._id !== id);
+            const users = await AdminService.getUsers(id);
             return res.json(users);
         } catch (e) {
             next(e);

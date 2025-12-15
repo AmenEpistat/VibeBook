@@ -44,7 +44,6 @@ class AdminService {
     }
 
     async deleteUser(userId) {
-        console.log(userId);
         const user = await User.findById(userId);
         if (!user) {
             throw ApiError.BadRequest('Пользователь не найден');
@@ -53,8 +52,8 @@ class AdminService {
         await User.deleteOne({ _id: user._id });
     }
 
-    async getUsers () {
-        const users = await User.find().populate('roles');
+    async getUsers (id = null) {
+        const users = await User.find({ _id: { $ne: id } }).populate('roles');
         return users.map(user => new AuthDto(user));
     }
 }
