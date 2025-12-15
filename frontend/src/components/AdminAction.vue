@@ -11,14 +11,18 @@
 </template>
 
 <script setup lang="ts">
+const props = defineProps<{
+    itemId: string;
+}>();
+
 const emit = defineEmits(['edit', 'delete']);
 
 const editItem = () => {
-    emit('edit');
+    emit('edit', props.itemId);
 };
 
 const deleteItem = () => {
-    emit('delete');
+    emit('delete', props.itemId);
 };
 </script>
 

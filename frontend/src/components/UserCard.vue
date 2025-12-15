@@ -4,6 +4,7 @@
         <p class="user-card__email">{{ user.email }}</p>
         <p class="user-card__role">{{ user.roles?.[0] }}</p>
         <AdminAction
+            :item-id="user.id"
             @edit="makeAdmin"
             @delete="() => {}"
         />
@@ -11,16 +12,16 @@
 </template>
 
 <script setup lang="ts">
-import type { IAuth } from '@/types/auth.ts';
+import type { User } from '@/types/auth.ts';
 import AdminAction from '@/components/AdminAction.vue';
 
 const props = defineProps<{
-    user: IAuth;
+    user: User;
 }>();
 const emit = defineEmits(['make-admin', 'delete']);
 
-const makeAdmin = () => {
-    emit('make-admin', props.user._id);
+const makeAdmin = (id: string) => {
+    emit('make-admin', id);
 };
 </script>
 

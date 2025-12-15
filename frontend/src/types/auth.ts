@@ -14,6 +14,10 @@ export interface IAuth {
     roles?: Role[];
 }
 
+export interface User extends Omit<IAuth, '_id'> {
+    id: string;
+}
+
 export interface IToken {
     refreshToken: string;
     accessToken: string;

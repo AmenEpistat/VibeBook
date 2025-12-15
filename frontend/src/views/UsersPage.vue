@@ -4,7 +4,7 @@
         <ul class="users-page__list">
             <li
                 v-for="user in users"
-                :key="user._id"
+                :key="user.id"
                 class="users-page__item"
             >
                 <UserCard
@@ -19,11 +19,11 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import type { IAuth } from '@/types/auth.ts';
 import UserCard from '@/components/UserCard.vue';
 import { useAdminStore } from '@/stores/adminStore.ts';
+import type { User } from '@/types/auth.ts';
 
-const users = ref<IAuth[]>([]);
+const users = ref<User[]>([]);
 
 const adminStore = useAdminStore();
 
