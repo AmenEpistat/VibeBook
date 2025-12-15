@@ -15,12 +15,42 @@ class AdminService {
             throw ApiError.BadRequest('Роль ADMIN не найдена');
         }
 
-        if (!user.roles.includes(adminRole._id)) {
-            user.roles.push(adminRole._id);
+        if (!user.roles.some(roleId => roleId.equals(adminRole._id))) {
+            user.roles.unshift(adminRole._id);
             await user.save();
         }
 
         return user;
+    }
+
+    async deleteAdmin(userId) {
+        const user = await User.findById(userId);
+        console.log(user)
+        if (!user) {
+            throw ApiError.BadRequest('Пользователь не найден');
+        }
+
+        const adminRole = await Role.findOne({ value: 'ADMIN' });
+        if (!adminRole) {
+            throw ApiError.BadRequest('Роль ADMIN не найдена');
+        }
+
+        if (!user.roles.some(roleId => roleId.equals(adminRole._id))) {
+            throw ApiError.BadRequest('Пользователь не имеет роль ADMIN');
+        } else {
+            user.roles.splice(0, 1);
+            await user.save();
+        }
+    }
+
+    async deleteUser(userId) {
+        console.log(userId);
+        const user = await User.findById(userId);
+        if (!user) {
+            throw ApiError.BadRequest('Пользователь не найден');
+        }
+
+        await User.deleteOne({ _id: user._id });
     }
 
     async getUsers () {

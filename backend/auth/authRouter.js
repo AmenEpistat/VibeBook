@@ -20,4 +20,7 @@ router.get('/activate/:link', controller.activate);
 router.post('/refresh', controller.refresh);
 
 router.get('/users', authMiddleware, roleMiddleware(['ADMIN']), AdminController.getUsers);
-router.post('/makeAdmin/:userId', authMiddleware, roleMiddleware(['ADMIN']), AdminController.makeAdmin);
+router.delete('/user/:id', authMiddleware, roleMiddleware(['ADMIN']), AdminController.deleteUser);
+
+router.post('/admin/:id', authMiddleware, roleMiddleware(['ADMIN']), AdminController.makeAdmin);
+router.delete('/admin/:id', authMiddleware, roleMiddleware(['ADMIN']), AdminController.deleteAdmin);
