@@ -3,23 +3,26 @@
         <v-select
             class="select"
             :items="options"
+            item-title="title"
+            item-value="value"
             label="Выбрать"
             hide-details
             single-line
             variant="outlined"
             :menu-props="{ class: 'my-select-menu' }"
             density="compact"
-            @input="handleSelect"
+            @update:model-value="handleSelect"
         />
         <v-btn
             class="primary-button user-actions__button"
             rounded="0"
             size="small"
+            @click="appendQueue"
         >
             <template #append>
                 <p class="user-actions__button-img">&oplus;</p>
             </template>
-            Добавить в очередь
+            {{ statusStateValue?.isQueue ? 'В очереди' : 'Добавить в очередь' }}
         </v-btn>
         <v-btn
             class="user-actions__button"
@@ -27,26 +30,52 @@
             size="small"
             variant="outlined"
             elevation="0"
+            @click="appendFav"
         >
             <template #append>
                 <p class="user-actions__button-img">&#10025;</p>
             </template>
-            Добавить в избранное
+            {{ !statusStateValue?.isFavorite ? 'Добавить в избранное' : 'В избранном' }}
         </v-btn>
     </div>
 </template>
 
 <script setup lang="ts">
-import { STATUS_BOOK } from '@/consts/statusBook.ts';
+import { STATUS_BOOK, type StatusBook } from '@/consts/statusBook.ts';
+import { ref, watch } from 'vue';
+import type { UserStatusBook } from '@/types/user.ts';
 
+const props = defineProps<{
+    statusState?: UserStatusBook;
+}>();
 const emit = defineEmits<{
-    (e: 'onselect', status: string): void;
+    (e: 'select-status', status: StatusBook): void;
+    (e: 'append-fav'): void;
+    (e: 'append-queue'): void;
 }>();
 
-const options = Object.values(STATUS_BOOK);
+const statusStateValue = ref<UserStatusBook>(props.statusState);
 
-const handleSelect = (e) => {
-    emit('onselect', e);
+watch(
+    () => props.statusState,
+    (v) => (statusStateValue.value = v),
+);
+
+const options = Object.entries(STATUS_BOOK).map(([key, label]) => ({
+    title: label,
+    value: key as StatusBook,
+}));
+
+const handleSelect = (status: StatusBook) => {
+    emit('select-status', status);
+};
+
+const appendFav = () => {
+    emit('append-fav');
+};
+
+const appendQueue = () => {
+    emit('append-queue');
 };
 </script>
 

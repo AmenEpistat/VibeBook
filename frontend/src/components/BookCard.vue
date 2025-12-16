@@ -28,12 +28,11 @@
             </ul>
         </div>
         <div class="book-card__user-actions">
-            <UserActionSelect @onselect="handleSelect" />
-            <AdminAction
-                v-if="isAdmin"
-                item-id="i"
-                @delete="() => {}"
-                @edit="() => {}"
+            <UserActionSelect
+                :status-state="bookState"
+                @onselect="handleSelect"
+                @append-fav="appendFav"
+                @append-queue="appendQueue"
             />
             <v-btn
                 class="book-card__edit-button plain-button"
@@ -56,22 +55,35 @@ import type { Book } from '@/types/book.ts';
 import GenreItem from '@/components/GenreItem.vue';
 import UserActionSelect from '@/components/UserActionSelect.vue';
 import { API_URL } from '@/apiConfig.ts';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import BookCreateForm from '@/components/BookCreateForm.vue';
 import AdminAction from '@/components/AdminAction.vue';
+import type { StatusBook } from '@/consts/statusBook.ts';
+import type { UserStatusBook } from '@/types/user.ts';
 
 const props = defineProps<{
     book: Book;
+    bookState?: UserStatusBook;
     isAdmin: boolean;
 }>();
 
 const emit = defineEmits<{
-    (e: 'statusChange'): void;
+    (e: 'statusChange', status: StatusBook, id: string): void;
+    (e: 'append-fav', id: string): void;
+    (e: 'append-queue', id: string): void;
     (e: 'editBook'): void;
 }>();
 
-const handleSelect = () => {
-    emit('statusChange');
+const handleSelect = (status: StatusBook) => {
+    emit('statusChange', status, props.book._id);
+};
+
+const appendFav = () => {
+    emit('append-fav', props.book._id);
+};
+
+const appendQueue = () => {
+    emit('append-queue', props.book._id);
 };
 
 const editBook = () => {
@@ -139,8 +151,8 @@ const isActive = ref(false);
 }
 
 .book-card__user-actions {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     align-items: flex-end;
 
     padding: 16px;
