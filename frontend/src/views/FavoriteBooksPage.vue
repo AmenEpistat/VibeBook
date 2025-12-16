@@ -37,7 +37,7 @@ const getFavoriteBooks = (books: UserBook[]) => {
 
 onMounted(async () => {
     await userBookStore.getBooks();
-    books.value = userBookStore.books;
+    books.value = userBookStore.userBooks;
 
     favBooks.value = getFavoriteBooks(books.value);
 });

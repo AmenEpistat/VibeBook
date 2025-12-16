@@ -1,5 +1,5 @@
 <template>
-    <section class="common-books">
+    <section class="common-allBooks">
         <div class="common-books__wrapper content-wrapper">
             <h2 class="common-books__title subtitle">Все книги</h2>
             <v-btn
@@ -13,14 +13,18 @@
             <div class="common-books__filter-container" />
             <ul class="common-books__list">
                 <li
-                    v-for="book in books"
+                    v-for="book in booksWithState"
                     :key="book._id"
                     class="common-books__list-item"
                 >
                     <BookCard
                         :book="book"
+                        :book-state="book.userState"
                         :is-admin="isAdmin"
                         @edit-book="onEditBook"
+                        @status-change="onStatusChange"
+                        @append-fav="onAppendFav"
+                        @append-queue="onAppendQueue"
                     />
                 </li>
             </ul>
@@ -32,42 +36,45 @@
     </section>
 </template>
 
+x
 <script setup lang="ts">
-import BookCard from '@/components/BookCard.vue';
-import type { Book } from '@/types/book.ts';
 import { computed, onMounted, ref } from 'vue';
-import { useBookStore } from '@/stores/bookStore.ts';
+import BookCard from '@/components/BookCard.vue';
 import BookCreateForm from '@/components/BookCreateForm.vue';
-import { useAuthStore } from '@/stores/authStore.ts';
 
-const books = ref<Book[]>([]);
+import { useBookStore } from '@/stores/bookStore';
+import { useUserBookStore } from '@/stores/userBookStore';
+import { useAuthStore } from '@/stores/authStore';
+
+import type { StatusBook } from '@/consts/statusBook';
 
 const isActive = ref(false);
 
 const bookStore = useBookStore();
+const userBookStore = useUserBookStore();
 const authStore = useAuthStore();
 
 const isAdmin = computed(() => authStore.user.roles?.[0] === 'ADMIN');
 
-const getBooks = async () => {
-    await bookStore.getBooks();
-    books.value = bookStore.books;
-};
+const booksWithState = computed(() => bookStore.booksWithState);
 
 const onCreateBook = async () => {
     isActive.value = false;
-
-    await getBooks();
-    books.value = bookStore.books;
+    await bookStore.getBooks();
 };
 
 const onEditBook = async () => {
-    await getBooks();
-    books.value = bookStore.books;
+    await bookStore.getBooks();
 };
 
+const onStatusChange = (status: StatusBook, bookId: string) => userBookStore.updateStatus(bookId, status);
+
+const onAppendFav = (bookId: string) => userBookStore.toggleFavorite(bookId);
+
+const onAppendQueue = (bookId: string) => userBookStore.toggleQueue(bookId);
+
 onMounted(async () => {
-    await getBooks();
+    await Promise.all([bookStore.getBooks(), userBookStore.getBooks()]);
 });
 </script>
 
