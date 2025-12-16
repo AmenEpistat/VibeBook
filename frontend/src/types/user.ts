@@ -3,10 +3,13 @@ import type { Book } from '@/types/book.ts';
 
 export interface UserActionBook {
     book_id: string;
-    status: StatusBook;
+    status?: StatusBook;
+    isQueue: boolean;
     isFavorite: boolean;
 }
 
 export interface UserBook extends Omit<UserActionBook, 'book_id'> {
     book: Book;
 }
+
+export type UserStatusBook = Omit<UserActionBook, 'book_id'>;
