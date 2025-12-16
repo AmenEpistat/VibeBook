@@ -4,9 +4,9 @@ class UserBookController {
     async addUserBook(req, res, next) {
         try {
             const user_id = req.user.id;
-            const { book_id, status, isFavorite } = req.body;
+            const { book_id, status, isFavorite, isQueue } = req.body;
 
-            await UserBookService.addUserBook(user_id, book_id, status, isFavorite);
+            await UserBookService.addUserBook(user_id, book_id, status, isFavorite, isQueue);
 
             return res.json({message: 'ok'});
         } catch (e) {

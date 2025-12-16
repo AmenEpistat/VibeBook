@@ -5,7 +5,7 @@ import { UserBook } from '../model/UserBook.js';
 import UserBookDto from '../dto/userBookDto.js';
 
 class UserBookService {
-    async addUserBook(user_id, book_id, status, isFavorite) {
+    async addUserBook(user_id, book_id, status, isFavorite, isQueue) {
         const user = await User.findById(user_id);
         if (!user) {
             throw ApiError.BadRequest('Пользователь не найден');
@@ -16,9 +16,18 @@ class UserBookService {
             throw ApiError.BadRequest('Книга не найдена');
         }
 
+        const userBook = {
+            isFavorite,
+            isQueue,
+        }
+
+        if (status) {
+            userBook.status = status;
+        }
+
         await UserBook.findOneAndUpdate(
             { user_id: user_id, book_id: book_id },
-            { status, isFavorite },
+            userBook,
             { upsert: true, new: true }
         );
     }
