@@ -2,7 +2,7 @@ import type { Genre } from '@/types/genre.ts';
 import type { Author } from '@/types/author.ts';
 
 export interface Book {
-    _id?: string | number;
+    _id: string;
     title: string;
     author: Author;
     cover?: File | null | string;
@@ -11,7 +11,7 @@ export interface Book {
     year_publication: Date | null;
 }
 
-export interface CreateIBook extends Omit<Book, 'genres' | 'author'> {
+export interface CreateIBook extends Omit<Book, 'genres' | 'author' | '_id'> {
     author_id: string;
     genres_id: string[];
 }
