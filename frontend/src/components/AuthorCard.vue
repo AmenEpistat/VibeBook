@@ -12,4 +12,13 @@ const props = defineProps<{
 }>();
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+@use '@/assets/styles/variables' as *;
+
+.author-card {
+    padding: 16px;
+
+    border: 1px solid $primary-color;
+    border-radius: 16px;
+}
+</style>
