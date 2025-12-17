@@ -8,12 +8,12 @@
         >
             Добавить жанр
         </v-btn>
-        <ul
-            v-for="genre in genres"
-            :key="genre._id"
-            class="genres-page__list"
-        >
-            <li class="genres-page__item">
+        <ul class="genres-page__list">
+            <li
+                v-for="genre in genres"
+                :key="genre._id"
+                class="genres-page__item"
+            >
                 <GenreCard :genre="genre" />
             </li>
         </ul>
@@ -46,4 +46,17 @@ onMounted(async () => {
 });
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.genres-page {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+}
+
+.genres-page__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    grid-column: 1/-1;
+}
+</style>
