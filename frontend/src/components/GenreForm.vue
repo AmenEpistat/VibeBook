@@ -3,7 +3,7 @@
         v-model="isActive"
         max-width="800"
     >
-        <v-card>
+        <v-card class="genre-form">
             <h3 class="genre-form__title">{{ isEditMode ? 'Редактирование жанра' : 'Добавление жанра' }}</h3>
             <v-form>
                 <v-text-field
@@ -79,4 +79,12 @@ const submit = async () => {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.genre-form {
+    padding: 24px;
+}
+
+.genre-form__title {
+    margin-bottom: 16px;
+}
+</style>

@@ -3,7 +3,7 @@
         v-model="isActive"
         max-width="800"
     >
-        <v-card>
+        <v-card class="author-form">
             <h3 class="author-form__title">{{ isEditMode ? 'Редактирование автора' : 'Добавление автора' }}</h3>
             <v-form>
                 <v-text-field
@@ -88,4 +88,12 @@ const submit = async () => {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.author-form {
+    padding: 24px;
+}
+
+.author-form__title {
+    margin-bottom: 16px;
+}
+</style>
