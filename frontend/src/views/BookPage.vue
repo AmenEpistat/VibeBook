@@ -28,7 +28,12 @@
                     {{ book?.description }}
                 </div>
             </div>
-            <UserActionSelect @onselect="handleSelect" />
+            <UserActionSelect
+                :status-state="userState"
+                @onselect="handleSelect"
+                @append-fav="onAppendFav"
+                @append-queue="onAppendQueue"
+            />
         </div>
     </section>
 </template>
@@ -36,23 +41,33 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 import { computed, onMounted, ref } from 'vue';
-import { useBookStore } from '@/stores/bookStore.ts';
-import type { Book } from '@/types/book.ts';
-import GenreItem from '@/components/GenreItem.vue';
+import { useBookStore } from '@/stores/bookStore';
+import { useUserBookStore } from '@/stores/userBookStore';
+import type { StatusBook } from '@/consts/statusBook';
 import { API_URL } from '@/apiConfig.ts';
+import GenreItem from '@/components/GenreItem.vue';
 import UserActionSelect from '@/components/UserActionSelect.vue';
+import type { Book } from '@/types/book.ts';
 
 const route = useRoute();
 const bookId = computed(() => String(route.params.id));
 
 const bookStore = useBookStore();
+const userBookStore = useUserBookStore();
+
 const book = ref<Book>();
+const userState = computed(() => userBookStore.userBookMap[bookId.value]);
+
+const handleSelect = (status: StatusBook) => userBookStore.updateStatus(bookId.value, status);
+
+const onAppendFav = () => userBookStore.toggleFavorite(bookId.value);
+
+const onAppendQueue = () => userBookStore.toggleQueue(bookId.value);
 
 onMounted(async () => {
+    await userBookStore.getBooks();
     book.value = await bookStore.getBook(bookId.value);
 });
-
-const handleSelect = (status: string) => {};
 </script>
 
 <style scoped lang="scss">
