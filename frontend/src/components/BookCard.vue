@@ -35,6 +35,7 @@
                 @append-queue="appendQueue"
             />
             <v-btn
+                v-if="isAdmin"
                 class="book-card__edit-button plain-button"
                 variant="plain"
                 @click="isActive = true"
@@ -55,9 +56,8 @@ import type { Book } from '@/types/book.ts';
 import GenreItem from '@/components/GenreItem.vue';
 import UserActionSelect from '@/components/UserActionSelect.vue';
 import { API_URL } from '@/apiConfig.ts';
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 import BookCreateForm from '@/components/BookCreateForm.vue';
-import AdminAction from '@/components/AdminAction.vue';
 import type { StatusBook } from '@/consts/statusBook.ts';
 import type { UserStatusBook } from '@/types/user.ts';
 
@@ -99,7 +99,7 @@ const isActive = ref(false);
 
 .book-card {
     display: grid;
-    grid-template-columns: 160px 5fr 3fr;
+    grid-template-columns: 160px 1fr 300px;
     align-items: stretch;
 
     min-height: 200px;
@@ -110,7 +110,7 @@ const isActive = ref(false);
 
 .book-card__img {
     display: flex;
-    align-items: stretch;
+    align-self: stretch;
 
     object-fit: cover;
     overflow: hidden;
@@ -153,7 +153,9 @@ const isActive = ref(false);
 .book-card__user-actions {
     display: grid;
     grid-template-columns: 1fr;
-    align-items: flex-end;
+    grid-template-rows: auto 1fr;
+    gap: 8px;
+    align-items: start;
 
     padding: 16px;
 
