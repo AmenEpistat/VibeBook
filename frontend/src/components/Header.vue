@@ -39,10 +39,12 @@
                             size="40"
                             class="user-avatar"
                         >
-                            <img
-                                src="../assets/img/user-placeholder.jpg"
-                                alt="Профиль"
-                            />
+                            <v-icon
+                                color="cyan-darken-2"
+                                size="50"
+                            >
+                                mdi-account-circle
+                            </v-icon>
                         </v-avatar>
                     </template>
                     <v-list class="nav__profile-list">
@@ -314,5 +316,10 @@ const logout = async () => {
 
 .v-list {
     padding: 0 !important;
+}
+
+.text-cyan-700 {
+    fill: $primary-color;
+    color: $primary-color;
 }
 </style>
