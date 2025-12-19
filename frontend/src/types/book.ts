@@ -1,5 +1,6 @@
 import type { Genre } from '@/types/genre.ts';
 import type { Author } from '@/types/author.ts';
+import type { UserStatusBook } from '@/types/user.ts';
 
 export interface Book {
     _id: string;
@@ -14,4 +15,9 @@ export interface Book {
 export interface CreateIBook extends Omit<Book, 'genres' | 'author' | '_id'> {
     author_id: string;
     genres_id: string[];
+}
+
+export interface BookWithStates {
+    userState: UserStatusBook;
+    book: Book;
 }
