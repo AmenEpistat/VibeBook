@@ -1,0 +1,13 @@
+<svg width="96" height="64" viewBox="0 0 96 64" class="drop-shadow-sm">
+    <!-- Pot (taller) -->
+    <path d="M30 38 L66 38 L63 58 L33 58 Z" fill="#8B4513"></path>
+    <ellipse cx="48" cy="38" rx="18" ry="3.5" fill="#A0522D"></ellipse>
+
+    <!-- Plant leaves -->
+    <ellipse cx="36" cy="26" rx="7" ry="12" fill="#4CAF50" transform="rotate(-20 36 26)"></ellipse>
+    <ellipse cx="48" cy="21" rx="9" ry="15" fill="#66BB6A"></ellipse>
+    <ellipse cx="60" cy="26" rx="7" ry="12" fill="#4CAF50" transform="rotate(20 60 26)"></ellipse>
+
+    <!-- Soil -->
+    <ellipse cx="48" cy="37" rx="15" ry="3" fill="#5D4037"></ellipse>
+</svg>
