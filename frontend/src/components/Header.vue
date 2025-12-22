@@ -317,9 +317,4 @@ const logout = async () => {
 .v-list {
     padding: 0 !important;
 }
-
-.text-cyan-700 {
-    fill: $primary-color;
-    color: $primary-color;
-}
 </style>
