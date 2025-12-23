@@ -12,27 +12,30 @@
             </v-icon>
         </v-avatar>
         <div class="profile__info-wrapper">
-            <h1 class="profile__title">@{{ authStore.user.username }}</h1>
-            <v-btn
-                variant="plain"
-                @click="editProfile"
-            >
-                <v-icon
-                    size="30"
-                    left
-                    color="grey-darken-1"
-                    >mdi-pencil</v-icon
+            <div class="profile__info-icon">
+                <h1 class="profile__title">@{{ authStore.user.username }}</h1>
+                <v-btn
+                    variant="plain"
+                    @click="editProfile"
                 >
-            </v-btn>
+                    <v-icon
+                        size="30"
+                        left
+                        color="grey-darken-1"
+                        >mdi-pencil</v-icon
+                    >
+                </v-btn>
+            </div>
             <p class="profile__email">{{ authStore.user.email }}</p>
         </div>
-        <StatusBooksItem
-            v-if="favoriteBooks.length"
-            class="profile__fav-books"
-            status="Избранное"
-            :books="favoriteBooks"
-            is-favorite
-        />
+        <div class="profile__fav-books">
+            <StatusBooksItem
+                v-if="favoriteBooks.length"
+                status="Избранное"
+                :books="favoriteBooks"
+                is-favorite
+            />
+        </div>
 
         <ul class="profile__books-wrapper">
             <li
@@ -41,7 +44,7 @@
             >
                 <StatusBooksItem
                     :status="STATUS_BOOK[status]"
-                    :books="staBooks"
+                    :books="staBooks.slice(0, 4)"
                 />
             </li>
             <li v-if="queueBooks.length">
@@ -98,7 +101,7 @@ onMounted(async () => {
 
 .profile {
     display: grid;
-    grid-template-columns: auto 2fr 1fr;
+    grid-template-columns: auto 1.5fr 1fr;
     gap: 40px 16px;
 }
 
@@ -108,7 +111,11 @@ onMounted(async () => {
 
 .profile__info-wrapper {
     display: grid;
-    grid-template-columns: min-content min-content;
+    grid-template-columns: 1fr;
+}
+
+.profile__info-icon {
+    display: flex;
     align-items: center;
 }
 
@@ -125,6 +132,7 @@ onMounted(async () => {
     gap: 24px;
 
     padding: 24px;
+    margin-right: 16px;
 
     border-radius: 8px;
     border: 1px solid #ebebeb;
@@ -132,6 +140,6 @@ onMounted(async () => {
 
 .profile__fav-books {
     grid-column: 3/-1;
-    grid-row: 2/3;
+    grid-row: 1/3;
 }
 </style>
