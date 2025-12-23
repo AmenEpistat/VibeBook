@@ -40,30 +40,86 @@
         v-if="isFavorite"
         class="fav-books"
     >
-        <p class="status-item__title status-item__title--fav">⭐ {{ status }} ⭐</p>
-        <ul class="status-item__books">
-            <li
-                v-for="book in books"
-                :key="book._id"
-                class="status-item__book"
-            >
-                <router-link :to="`/books/${book?._id}`">
-                    <img
-                        class="status-item__book-img"
-                        :src="API_URL + book?.cover"
-                        :alt="book?.title"
-                        width="100"
-                        height=""
+        <p class="fav-books__title">⭐ {{ status }} ⭐</p>
+        <div
+            v-for="(row, index) in bookRows"
+            :key="index"
+            class="fav-books__row"
+        >
+            <ul class="fav-books__list">
+                <li
+                    v-for="book in row"
+                    :key="book._id"
+                    class="fav-books__item"
+                >
+                    <router-link :to="`/books/${book._id}`">
+                        <img
+                            class="fav-books__item-img"
+                            :src="API_URL + book.cover"
+                            :alt="book.title"
+                        />
+                    </router-link>
+                </li>
+            </ul>
+            <div class="fav-books__shelf" />
+            <router-link :to="`/favBooks`">
+                <svg
+                    width="96"
+                    height="64"
+                    viewBox="0 0 96 64"
+                    class="drop-shadow-sm"
+                >
+                    <path
+                        d="M30 38 L66 38 L63 58 L33 58 Z"
+                        fill="#8B4513"
                     />
-                </router-link>
-            </li>
-        </ul>
+                    <ellipse
+                        cx="48"
+                        cy="38"
+                        rx="18"
+                        ry="3.5"
+                        fill="#A0522D"
+                    />
+                    <ellipse
+                        cx="36"
+                        cy="26"
+                        rx="7"
+                        ry="12"
+                        fill="#4CAF50"
+                        transform="rotate(-20 36 26)"
+                    />
+                    <ellipse
+                        cx="48"
+                        cy="21"
+                        rx="9"
+                        ry="15"
+                        fill="#66BB6A"
+                    />
+                    <ellipse
+                        cx="60"
+                        cy="26"
+                        rx="7"
+                        ry="12"
+                        fill="#4CAF50"
+                        transform="rotate(20 60 26)"
+                    />
+                    <ellipse
+                        cx="48"
+                        cy="37"
+                        rx="15"
+                        ry="3"
+                        fill="#5D4037"
+                    />
+                </svg>
+            </router-link>
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import type { Book } from '@/types/book.ts';
 import { API_URL } from '@/apiConfig.ts';
+import { computed } from 'vue';
 
 const props = defineProps<{
     books: Book[];
@@ -75,6 +131,16 @@ const emit = defineEmits(['click']);
 const goToPage = () => {
     emit('click');
 };
+
+const bookRows = computed(() => {
+    const rows: Book[][] = [];
+
+    for (let i = 0; i < props.books.length; i += 4) {
+        rows.push(props.books.slice(i, i + 4));
+    }
+
+    return rows;
+});
 </script>
 
 <style scoped lang="scss">
@@ -92,10 +158,6 @@ const goToPage = () => {
     color: $primary-color;
     font-size: 20px;
     font-weight: 600;
-
-    &--fav {
-        color: $secondary-bg-color;
-    }
 }
 
 .status-item__books {
@@ -115,5 +177,62 @@ const goToPage = () => {
     width: 100px;
     height: 150px;
     object-fit: cover;
+}
+
+.fav-books {
+    position: relative;
+}
+
+.fav-books__row {
+    position: relative;
+
+    margin-bottom: 24px;
+}
+
+.fav-books__list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 8px;
+    row-gap: 160px;
+
+    overflow: hidden;
+}
+
+.fav-books__item {
+    width: 60px;
+    height: 80px;
+}
+
+.fav-books__item-img {
+    @include boundaries;
+
+    width: 60px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.fav-books__title {
+    margin-bottom: 16px;
+    text-align: center;
+
+    font-size: 20px;
+    font-weight: 600;
+    color: $secondary-bg-color;
+}
+
+.drop-shadow-sm {
+    position: absolute;
+    top: 21px;
+    right: -20px;
+}
+
+.fav-books__shelf {
+    position: relative;
+    display: block;
+    margin-top: -1px;
+    width: 100%;
+    height: 13px;
+    background-color: #613232;
 }
 </style>
