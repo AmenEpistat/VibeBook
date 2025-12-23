@@ -101,7 +101,7 @@ onMounted(async () => {
 
 .profile {
     display: grid;
-    grid-template-columns: auto 1.5fr 1fr;
+    grid-template-columns: auto 1.3fr 1fr;
     gap: 40px 16px;
 }
 
@@ -132,7 +132,7 @@ onMounted(async () => {
     gap: 24px;
 
     padding: 24px;
-    margin-right: 16px;
+    margin-right: 24px;
 
     border-radius: 8px;
     border: 1px solid #ebebeb;

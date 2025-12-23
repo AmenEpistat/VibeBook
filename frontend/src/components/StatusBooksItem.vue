@@ -200,15 +200,15 @@ const bookRows = computed(() => {
 }
 
 .fav-books__item {
-    width: 60px;
-    height: 80px;
+    width: 65px;
+    height: 100px;
 }
 
 .fav-books__item-img {
     @include boundaries;
 
-    width: 60px;
-    height: 80px;
+    width: 65px;
+    height: 100px;
     object-fit: cover;
 }
 
@@ -223,14 +223,14 @@ const bookRows = computed(() => {
 
 .drop-shadow-sm {
     position: absolute;
-    top: 21px;
+    top: 42px;
     right: -20px;
 }
 
 .fav-books__shelf {
     position: relative;
     display: block;
-    margin-top: -1px;
+    margin-top: 0;
     width: 100%;
     height: 13px;
     background-color: #613232;
