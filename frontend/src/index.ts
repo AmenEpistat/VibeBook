@@ -7,7 +7,7 @@ import CommonBooksPage from '@/views/CommonBooksPage.vue';
 import BookPage from '@/views/BookPage.vue';
 import AuthorsPage from '@/views/AuthorsPage.vue';
 import GenresPage from '@/views/GenresPage.vue';
-import FavoriteBooksPage from '@/views/FavoriteBooksPage.vue';
+import FilteredBooks from '@/views/FilteredBooks.vue';
 import UsersPage from '@/views/UsersPage.vue';
 
 const router = createRouter({
@@ -64,14 +64,14 @@ const router = createRouter({
             component: PreferencesPage,
         },
         {
-            path: '/favBooks',
-            name: 'favBooks',
-            component: FavoriteBooksPage,
-        },
-        {
             path: '/users',
             name: 'users',
             component: UsersPage,
+        },
+        {
+            path: '/books/filter/:filter',
+            name: 'FilteredBooks',
+            component: FilteredBooks,
         },
     ],
 });

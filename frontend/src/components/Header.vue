@@ -124,7 +124,7 @@ const adminLinks = [
     },
     {
         title: 'Избранное',
-        href: '/favBooks',
+        href: '/books/filter/favorite',
     },
 ];
 
