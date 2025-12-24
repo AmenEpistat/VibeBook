@@ -1,11 +1,11 @@
 <template>
-    <div class="favorite-books content-wrapper">
-        <h2 class="favorite-books__title subtitle">Избранное</h2>
-        <ul class="favorite-books__list">
+    <div class="filtered-books content-wrapper">
+        <h2 class="filtered-books__title subtitle">{{ title }}</h2>
+        <ul class="filtered-books__list">
             <li
-                v-for="i in favBooks"
+                v-for="i in filteredBooks"
                 :key="i.book._id"
-                class="favorite-books__item"
+                class="filtered-books__item"
             >
                 <BookCard
                     :book="i.book"
@@ -23,14 +23,34 @@
 <script setup lang="ts">
 import BookCard from '@/components/BookCard.vue';
 import { useUserBookStore } from '@/stores/userBookStore.ts';
-import { computed, onMounted, ref } from 'vue';
-import type { UserBook } from '@/types/user.ts';
-import { useAuthStore } from '@/stores/authStore.ts';
-import { useBookStore } from '@/stores/bookStore.ts';
-import type { BookWithStates } from '@/types/book.ts';
-import type { StatusBook } from '@/consts/statusBook.ts';
+import { computed, onMounted } from 'vue';
+import { STATUS_BOOK, type StatusBook } from '@/consts/statusBook.ts';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+const filter = computed(() => route.params.filter as string);
 
 const userBookStore = useUserBookStore();
+
+const filteredBooks = computed(() => {
+    switch (filter.value) {
+        case 'favorite':
+            return books.value.filter((b) => b.userState.isFavorite);
+
+        case 'queue':
+            return books.value.filter((b) => b.userState.isQueue);
+
+        default:
+            return books.value.filter((b) => b.userState.status === filter.value.toUpperCase());
+    }
+});
+
+const title = computed(() => {
+    if (filter.value === 'favorite') return 'Избранное';
+    if (filter.value === 'queue') return 'В очереди';
+
+    return STATUS_BOOK[filter.value.toUpperCase() as keyof typeof STATUS_BOOK];
+});
 
 const books = computed(() =>
     userBookStore.userBooks.map((b) => ({
@@ -42,8 +62,6 @@ const books = computed(() =>
         },
     })),
 );
-
-const favBooks = computed(() => books.value.filter((b) => b.userState.isFavorite));
 
 const onStatusChange = (status: StatusBook, bookId: string) => userBookStore.updateStatus(bookId, status);
 
@@ -59,11 +77,11 @@ onMounted(async () => {
 </script>
 
 <style scoped lang="scss">
-.favorite-books__title {
+.filtered-books__title {
     margin-bottom: 32px;
 }
 
-.favorite-books__list {
+.filtered-books__list {
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
