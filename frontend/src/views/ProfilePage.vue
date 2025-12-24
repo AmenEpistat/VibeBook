@@ -32,8 +32,10 @@
             <StatusBooksItem
                 v-if="favoriteBooks.length"
                 status="Избранное"
+                status-key="favorite"
                 :books="favoriteBooks"
                 is-favorite
+                @open="goToStatusPage"
             />
         </div>
 
@@ -43,14 +45,18 @@
                 :key="status"
             >
                 <StatusBooksItem
+                    :status-key="status"
                     :status="STATUS_BOOK[status]"
                     :books="staBooks.slice(0, 4)"
+                    @open="goToStatusPage"
                 />
             </li>
             <li v-if="queueBooks.length">
                 <StatusBooksItem
+                    status-key="queue"
                     status="В очереди"
                     :books="queueBooks"
+                    @open="goToStatusPage"
                 />
             </li>
         </ul>
@@ -64,6 +70,9 @@ import { useUserBookStore } from '@/stores/userBookStore.ts';
 import StatusBooksItem from '@/components/StatusBooksItem.vue';
 import { STATUS_BOOK, type StatusBook } from '@/consts/statusBook.ts';
 import type { Book } from '@/types/book.ts';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const authStore = useAuthStore();
 const userBookStore = useUserBookStore();
@@ -94,6 +103,14 @@ const queueBooks = computed<Book[]>(() => userBookStore.userBooks.filter((ub) =>
 onMounted(async () => {
     await userBookStore.getBooks();
 });
+
+const goToStatusPage = (filter: string) => {
+    console.log(filter);
+    router.push({
+        name: 'FilteredBooks',
+        params: { filter },
+    });
+};
 </script>
 
 <style scoped lang="scss">
