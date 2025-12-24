@@ -62,7 +62,10 @@
                 </li>
             </ul>
             <div class="fav-books__shelf" />
-            <router-link :to="`/favBooks`">
+            <div
+                class="fav-books__flower"
+                @click="goToPage"
+            >
                 <svg
                     width="96"
                     height="64"
@@ -111,7 +114,7 @@
                         fill="#5D4037"
                     />
                 </svg>
-            </router-link>
+            </div>
         </div>
     </div>
 </template>
@@ -124,12 +127,16 @@ import { computed } from 'vue';
 const props = defineProps<{
     books: Book[];
     status: string;
+    statusKey: string;
     isFavorite?: boolean;
 }>();
-const emit = defineEmits(['click']);
+
+const emit = defineEmits<{
+    (e: 'open', filter: string): void;
+}>();
 
 const goToPage = () => {
-    emit('click');
+    emit('open', props.statusKey.toLowerCase());
 };
 
 const bookRows = computed(() => {
@@ -177,6 +184,12 @@ const bookRows = computed(() => {
     width: 100px;
     height: 150px;
     object-fit: cover;
+
+    transition: opacity 0.7s ease;
+
+    &:hover {
+        opacity: 0.8;
+    }
 }
 
 .fav-books {
@@ -210,6 +223,12 @@ const bookRows = computed(() => {
     width: 65px;
     height: 100px;
     object-fit: cover;
+
+    transition: opacity 0.7s ease;
+
+    &:hover {
+        opacity: 0.8;
+    }
 }
 
 .fav-books__title {
@@ -234,5 +253,14 @@ const bookRows = computed(() => {
     width: 100%;
     height: 13px;
     background-color: #613232;
+}
+
+.fav-books__flower {
+    cursor: pointer;
+    transition: opacity 0.7s ease;
+
+    &:hover {
+        opacity: 0.7;
+    }
 }
 </style>
