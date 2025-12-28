@@ -9,69 +9,80 @@ import AuthorsPage from '@/views/AuthorsPage.vue';
 import GenresPage from '@/views/GenresPage.vue';
 import FilteredBooks from '@/views/FilteredBooks.vue';
 import UsersPage from '@/views/UsersPage.vue';
+import NotFoundPage from '@/views/NotFoundPage.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
             path: '/',
-            name: 'Promo',
+            name: 'promo',
             component: PromoMainPage,
         },
         {
-            path: '/signIn',
-            name: 'signIn',
+            path: '/sign-in',
+            name: 'sign-in',
             component: LoginPage,
+            meta: { guestOnly: true },
         },
         {
-            path: '/signUp',
-            name: 'signUp',
+            path: '/sign-up',
+            name: 'sign-up',
             component: LoginPage,
+            meta: { guestOnly: true },
         },
         {
             path: '/profile',
             name: 'profile',
             component: ProfilePage,
-        },
-        {
-            path: '/preference',
-            name: 'preference',
-            component: PreferencesPage,
+            meta: { requiresAuth: true },
         },
         {
             path: '/books',
             name: 'books',
             component: CommonBooksPage,
+            meta: { requiresAuth: true },
         },
         {
             path: '/books/:id',
             name: 'book',
             component: BookPage,
+            meta: { requiresAuth: true },
         },
         {
             path: '/authors',
             name: 'authors',
             component: AuthorsPage,
+            meta: { requiresAuth: true, requiresAdmin: true },
         },
         {
             path: '/genres',
             name: 'genres',
             component: GenresPage,
+            meta: { requiresAuth: true, requiresAdmin: true },
         },
         {
             path: '/preferences',
             name: 'preferences',
             component: PreferencesPage,
+            meta: { requiresAuth: true },
         },
         {
             path: '/users',
             name: 'users',
             component: UsersPage,
+            meta: { requiresAuth: true, requiresAdmin: true },
         },
         {
             path: '/books/filter/:filter',
-            name: 'FilteredBooks',
+            name: 'filteredBooks',
             component: FilteredBooks,
+            meta: { requiresAuth: true },
+        },
+        {
+            path: '/:pathMatch(.*)*',
+            name: 'notFound',
+            component: NotFoundPage,
         },
     ],
 });
