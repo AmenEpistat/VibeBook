@@ -122,7 +122,7 @@ const isVisiblePassword = ref(false);
 const route = useRoute();
 const router = useRouter();
 
-const isRegister = computed(() => route.name === 'signIn');
+const isRegister = computed(() => route.name === 'sign-in');
 
 const imgSrc = computed(() => (isVisiblePassword.value ? visibilityOn : visibilityOff));
 const buttonPrimaryText = computed(() => (isRegister.value ? 'Войти' : 'Зарегистрироваться'));
@@ -140,7 +140,7 @@ const authStore = useAuthStore();
 const isErrorModalVisible = computed(() => authStore.errorMessage.length > 0);
 
 const toggleRouterName = () => {
-    router.push({ name: isRegister.value ? 'signUp' : 'signIn' });
+    router.push({ name: isRegister.value ? 'sign-up' : 'sign-in' });
 };
 
 const togglePasswordVisibility = () => {

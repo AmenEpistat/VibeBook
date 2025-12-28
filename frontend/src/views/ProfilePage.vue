@@ -105,9 +105,8 @@ onMounted(async () => {
 });
 
 const goToStatusPage = (filter: string) => {
-    console.log(filter);
     router.push({
-        name: 'FilteredBooks',
+        name: 'filteredBooks',
         params: { filter },
     });
 };

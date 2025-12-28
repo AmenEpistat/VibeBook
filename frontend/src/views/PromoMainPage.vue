@@ -26,14 +26,14 @@
                 <v-btn
                     rounded="lg"
                     class="dark-button"
-                    to="/signIn"
+                    to="/sign-in"
                 >
                     Войти
                 </v-btn>
                 <v-btn
                     rounded="lg"
                     variant="plain"
-                    to="/signUp"
+                    to="/sign-up"
                 >
                     Зарегистрироваться
                 </v-btn>

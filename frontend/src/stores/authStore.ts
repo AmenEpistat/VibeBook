@@ -8,7 +8,7 @@ import { API_URL } from '@/apiConfig.ts';
 export const useAuthStore = defineStore('auth', () => {
     const user = ref<IAuth>({
         email: '',
-        id: '',
+        _id: '',
         password: '',
         username: '',
         isActivated: false,
@@ -19,7 +19,6 @@ export const useAuthStore = defineStore('auth', () => {
     const login = async (userAuth: IAuth) => {
         try {
             const response = await AuthService.login(userAuth);
-            console.log(response.data);
             user.value = response.data.userDto;
             localStorage.setItem('token', response.data.accessToken);
             isAuth.value = true;
@@ -34,7 +33,7 @@ export const useAuthStore = defineStore('auth', () => {
             await AuthService.logout();
             user.value = {
                 email: '',
-                id: '',
+                _id: '',
                 password: '',
                 username: '',
                 isActivated: false,
