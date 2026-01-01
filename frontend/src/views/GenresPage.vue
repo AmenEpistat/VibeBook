@@ -37,8 +37,7 @@ const genres = ref<Genre[]>([]);
 const isActive = ref(false);
 
 const getGenres = async () => {
-    await genreStore.getGenres();
-    genres.value = genreStore.genres;
+    genres.value = await genreStore.getGenres();
 };
 
 onMounted(async () => {
