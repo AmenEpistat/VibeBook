@@ -30,7 +30,7 @@
         <div class="book-card__user-actions">
             <UserActionSelect
                 :status-state="bookState"
-                @onselect="handleSelect"
+                @select-status="handleSelect"
                 @append-fav="appendFav"
                 @append-queue="appendQueue"
             />
@@ -68,14 +68,15 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits<{
-    (e: 'statusChange', status: StatusBook, id: string): void;
+    (e: 'status-change', status: StatusBook, id: string): void;
     (e: 'append-fav', id: string): void;
     (e: 'append-queue', id: string): void;
-    (e: 'editBook'): void;
+    (e: 'edit-book'): void;
 }>();
 
 const handleSelect = (status: StatusBook) => {
-    emit('statusChange', status, props.book._id);
+    console.log(status);
+    emit('status-change', status, props.book._id);
 };
 
 const appendFav = () => {
@@ -87,7 +88,7 @@ const appendQueue = () => {
 };
 
 const editBook = () => {
-    emit('editBook');
+    emit('edit-book');
 };
 
 const isActive = ref(false);

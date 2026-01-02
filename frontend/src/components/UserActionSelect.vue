@@ -67,6 +67,7 @@ const options = Object.entries(STATUS_BOOK).map(([key, label]) => ({
 }));
 
 const handleSelect = (status: StatusBook) => {
+    console.log(status);
     emit('select-status', status);
 };
 
