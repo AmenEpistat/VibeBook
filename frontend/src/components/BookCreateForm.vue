@@ -141,8 +141,7 @@ const loadAuthors = async () => {
 };
 
 const loadGenres = async () => {
-    await genreStore.getGenres();
-    genres.value = genreStore.genres;
+    genres.value = await genreStore.getGenres();
 };
 
 const close = () => {
