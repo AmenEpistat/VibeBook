@@ -136,8 +136,7 @@ onMounted(() => {
 });
 
 const loadAuthors = async () => {
-    await authorStore.getAuthors();
-    authors.value = authorStore.authors;
+    authors.value = await authorStore.getAuthors();
 };
 
 const loadGenres = async () => {

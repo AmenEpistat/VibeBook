@@ -42,13 +42,11 @@ const authors = ref<Author[]>([]);
 const isActive = ref(false);
 
 const onCreateAuthor = async () => {
-    await authorStore.getAuthors();
-    authors.value = authorStore.authors;
+    authors.value = await authorStore.getAuthors();
 };
 
 onMounted(async () => {
-    await authorStore.getAuthors();
-    authors.value = authorStore.authors;
+    await onCreateAuthor();
 });
 </script>
 
