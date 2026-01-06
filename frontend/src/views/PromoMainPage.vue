@@ -42,7 +42,7 @@
     </section>
     <section class="features">
         <vibe-particles />
-        <div class="features__wrapper container">
+        <div class="features__wrapper">
             <p class="features__text">
                 Мы поможем выбрать следующую книгу, опираясь на <b>ваши интересы</b> и настроение.<br />Давай
                 <b>искусственный интеллект</b> сделает это.
