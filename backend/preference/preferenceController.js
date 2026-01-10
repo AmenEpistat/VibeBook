@@ -9,16 +9,17 @@ class PreferenceController {
             next(err);
         }
     }
-    async sendAnswers (req, res, next) {
+
+    async sendAnswers(req, res, next) {
         try {
-            const answers = req.body;
-            console.log(answers);
-            const recommend = PreferenceService.recommendBooks();
-            res.json(recommend);
-        } catch (err) {
-            next(err);
+            const answers = req.body.answers;
+            const books = await PreferenceService.recommendBooks(answers);
+            res.json(books);
+        } catch (e) {
+          next(e);
         }
     }
+
 }
 
 export default new PreferenceController();
