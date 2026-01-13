@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "books": "node scripts/generateBooks.js",
+    "dataset": "node scripts/generateDataset.js"
   },
   "keywords": [],
   "author": "",
