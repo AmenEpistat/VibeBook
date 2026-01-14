@@ -12,8 +12,20 @@ class PreferenceController {
 
     async sendAnswers(req, res, next) {
         try {
-            const answers = req.body.answers;
-            const books = await PreferenceService.recommendBooks(answers);
+            const answers = req.body;
+             const userId = req.user.id;
+
+            const books = await PreferenceService.recommendBooks(userId, answers);
+            res.json(books);
+        } catch (e) {
+          next(e);
+        }
+    }
+
+    async getBooks(req, res, next) {
+        try {
+             const userId = req.user.id;
+            const books = await PreferenceService.getRecommendedBooks(userId);
             res.json(books);
         } catch (e) {
           next(e);

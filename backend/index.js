@@ -31,7 +31,7 @@ app.use('/api', router);
 app.use('/api', genreRouter);
 app.use('/api', authorRouter);
 app.use('/api', bookRouter);
-app.use('/api', preferenceRouter);
+app.use('/api',authMiddleware ,preferenceRouter);
 app.use('/api', authMiddleware, userBookRouter)
 
 app.use(errorMiddleware);
