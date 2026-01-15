@@ -1,9 +1,17 @@
+import type { UserStatusBook } from '@/types/user.ts';
+import type { Book } from '@/types/book.ts';
+
+export interface Option {
+    value: string;
+    weight: number;
+}
+
 export interface Question {
-    id: string;
+    questionId: string;
     title: string;
     description: string;
     type: 'input' | 'select';
-    options?: string[];
+    options?: Option[];
 }
 
 export interface PreferenceState {
@@ -12,6 +20,15 @@ export interface PreferenceState {
 }
 
 export interface Answer {
-    answer: string;
+    answer: string[];
     questionId: string;
+}
+
+export interface RecommendBook extends Book {
+    score: number;
+}
+
+export interface UserRecommendBook extends Pick<RecommendBook, 'score'> {
+    userState: UserStatusBook;
+    book: Book;
 }
