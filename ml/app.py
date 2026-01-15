@@ -2,8 +2,10 @@ from flask import Flask, request, jsonify
 import torch
 from model import BookModel
 import json
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 with open("../backend/preference/all_books.json", "r") as f:
     all_books = json.load(f)
