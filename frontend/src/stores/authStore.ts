@@ -15,20 +15,25 @@ export const useAuthStore = defineStore('auth', () => {
     });
     const isAuth = computed(() => !!user.value?.id);
     const errorMessage = ref('');
+    const isLoading = ref(false);
 
     const login = async (userAuth: IAuth) => {
         try {
+            isLoading.value = true;
             const response = await AuthService.login(userAuth);
             user.value = response.data.userDto;
             localStorage.setItem('token', response.data.accessToken);
         } catch (e) {
             console.log(e.response?.data?.message);
             errorMessage.value = e.response?.data?.message;
+        } finally {
+            isLoading.value = false;
         }
     };
 
     const logout = async () => {
         try {
+            isLoading.value = true;
             await AuthService.logout();
             user.value = {
                 email: '',
@@ -41,29 +46,37 @@ export const useAuthStore = defineStore('auth', () => {
         } catch (e) {
             console.log(e.response?.data?.message);
             errorMessage.value = e.response?.data?.message;
+        } finally {
+            isLoading.value = false;
         }
     };
 
     const registration = async (newUser: IAuth) => {
         try {
+            isLoading.value = true;
             const response = await AuthService.registration(newUser);
             user.value = response.data.userDto;
             localStorage.setItem('token', response.data.accessToken);
         } catch (e) {
             console.log(e.response?.data?.message);
             errorMessage.value = e.response?.data?.message;
+        } finally {
+            isLoading.value = false;
         }
     };
 
     const checkAuth = async () => {
         try {
+            isLoading.value = true;
             const response = await axios.post<IAuthResponse>(`${API_URL}/api/refresh`, {}, { withCredentials: true });
             user.value = response.data?.userDto;
             localStorage.setItem('token', response.data.accessToken);
         } catch (e) {
             console.log(e.response?.data?.message);
+        } finally {
+            isLoading.value = false;
         }
     };
 
-    return { user, login, logout, registration, checkAuth, isAuth, errorMessage };
+    return { user, login, logout, registration, checkAuth, isAuth, errorMessage, isLoading };
 });
