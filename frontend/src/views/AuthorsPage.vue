@@ -23,6 +23,7 @@
             @saved="onCreateAuthor"
         />
     </div>
+    <Loader v-if="isLoading" />
 </template>
 
 <script setup lang="ts">
@@ -32,6 +33,7 @@ import type { Author } from '@/types/author.ts';
 import { computed, onMounted, ref } from 'vue';
 import AuthorForm from '@/components/AuthorForm.vue';
 import { useAuthStore } from '@/stores/authStore.ts';
+import Loader from '@/components/Loader.vue';
 
 const authorStore = useAuthorStore();
 const authStore = useAuthStore();
@@ -40,6 +42,7 @@ const isAdmin = computed(() => authStore.user.roles?.[0] === 'ADMIN');
 
 const authors = ref<Author[]>([]);
 const isActive = ref(false);
+const isLoading = computed(() => authorStore.isLoading);
 
 const onCreateAuthor = async () => {
     authors.value = await authorStore.getAuthors();

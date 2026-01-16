@@ -20,20 +20,24 @@
             </li>
         </ul>
     </div>
+    <Loader v-if="isLoading" />
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import UserCard from '@/components/UserCard.vue';
 import { useAdminStore } from '@/stores/adminStore.ts';
 import type { User } from '@/types/auth.ts';
 import UserRoleModal from '@/components/UserRoleModal.vue';
+import Loader from '@/components/Loader.vue';
 
 const users = ref<User[]>([]);
 
 const isModalOpen = ref(false);
 
 const adminStore = useAdminStore();
+
+const isLoading = computed(() => adminStore.isLoading);
 
 const refreshUsers = async () => {
     users.value = await adminStore.getUsers();

@@ -36,6 +36,7 @@
             />
         </div>
     </section>
+    <Loader v-if="isLoading" />
 </template>
 
 <script setup lang="ts">
@@ -48,6 +49,7 @@ import { API_URL } from '@/apiConfig.ts';
 import GenreItem from '@/components/GenreItem.vue';
 import UserActionSelect from '@/components/UserActionSelect.vue';
 import type { Book } from '@/types/book.ts';
+import Loader from '@/components/Loader.vue';
 
 const route = useRoute();
 const bookId = computed(() => String(route.params.id));
@@ -57,6 +59,9 @@ const userBookStore = useUserBookStore();
 
 const book = ref<Book>();
 const userState = computed(() => userBookStore.userBookMap[bookId.value]);
+const isLoading = computed(() => {
+    return bookStore.isLoading || userBookStore.isLoading;
+});
 
 const handleSelect = (status: StatusBook) => userBookStore.updateStatus(bookId.value, status);
 

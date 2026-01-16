@@ -34,6 +34,7 @@
             @saved="onCreateBook"
         />
     </section>
+    <Loader v-if="isLoading" />
 </template>
 
 x
@@ -47,6 +48,7 @@ import { useUserBookStore } from '@/stores/userBookStore';
 import { useAuthStore } from '@/stores/authStore';
 
 import type { StatusBook } from '@/consts/statusBook';
+import Loader from '@/components/Loader.vue';
 
 const isActive = ref(false);
 
@@ -55,7 +57,9 @@ const userBookStore = useUserBookStore();
 const authStore = useAuthStore();
 
 const isAdmin = computed(() => authStore.user.roles?.[0] === 'ADMIN');
-
+const isLoading = computed(() => {
+    return bookStore.isLoading || userBookStore.isLoading;
+});
 const booksWithState = computed(() => bookStore.booksWithState);
 
 const onCreateBook = async () => {

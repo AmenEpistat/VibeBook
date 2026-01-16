@@ -99,6 +99,7 @@
             </v-card>
         </v-dialog>
     </section>
+    <Loader v-if="isLoading" />
 </template>
 
 <script setup lang="ts">
@@ -109,6 +110,7 @@ import { useRoute, useRouter } from 'vue-router';
 import type { IAuth } from '@/types/auth.ts';
 import { useAuthStore } from '@/stores/authStore.ts';
 import Logo from '@/components/Logo.vue';
+import Loader from '@/components/Loader.vue';
 
 const formData = reactive<IAuth>({
     email: '',
@@ -138,6 +140,7 @@ const rules = {
 const authStore = useAuthStore();
 
 const isErrorModalVisible = computed(() => authStore.errorMessage.length > 0);
+const isLoading = computed(() => authStore.isLoading);
 
 const toggleRouterName = () => {
     router.push({ name: isRegister.value ? 'sign-up' : 'sign-in' });

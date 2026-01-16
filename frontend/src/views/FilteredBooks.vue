@@ -18,6 +18,7 @@
             </li>
         </ul>
     </div>
+    <Loader v-if="isLoading" />
 </template>
 
 <script setup lang="ts">
@@ -26,9 +27,11 @@ import { useUserBookStore } from '@/stores/userBookStore.ts';
 import { computed, onMounted } from 'vue';
 import { STATUS_BOOK, type StatusBook } from '@/consts/statusBook.ts';
 import { useRoute } from 'vue-router';
+import Loader from '@/components/Loader.vue';
 
 const route = useRoute();
 const filter = computed(() => route.params.filter as string);
+const isLoading = computed(() => userBookStore.isLoading);
 
 const userBookStore = useUserBookStore();
 

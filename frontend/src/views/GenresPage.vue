@@ -22,19 +22,22 @@
             @saved="getGenres"
         />
     </div>
+    <Loader v-if="isLoading" />
 </template>
 
 <script setup lang="ts">
 import GenreCard from '@/components/GenreCard.vue';
 import { useGenreStore } from '@/stores/genreStore.ts';
 import type { Genre } from '@/types/genre.ts';
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import GenreForm from '@/components/GenreForm.vue';
+import Loader from '@/components/Loader.vue';
 
 const genreStore = useGenreStore();
 
 const genres = ref<Genre[]>([]);
 const isActive = ref(false);
+const isLoading = computed(() => genreStore.isLoading);
 
 const getGenres = async () => {
     genres.value = await genreStore.getGenres();

@@ -61,6 +61,7 @@
             </li>
         </ul>
     </div>
+    <Loader v-if="isLoading" />
 </template>
 
 <script setup lang="ts">
@@ -71,11 +72,16 @@ import StatusBooksItem from '@/components/StatusBooksItem.vue';
 import { STATUS_BOOK, type StatusBook } from '@/consts/statusBook.ts';
 import type { Book } from '@/types/book.ts';
 import { useRouter } from 'vue-router';
+import Loader from '@/components/Loader.vue';
 
 const router = useRouter();
 
 const authStore = useAuthStore();
 const userBookStore = useUserBookStore();
+
+const isLoading = computed(() => {
+    return authStore.isLoading || userBookStore.isLoading;
+});
 
 const books = computed(() => userBookStore.userBooks);
 const booksByStatus = computed<Record<StatusBook, Book[]>>(() => {
