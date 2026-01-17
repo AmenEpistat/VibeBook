@@ -2,79 +2,40 @@ import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
 import type { IAuth, IAuthResponse } from '@/types/auth.ts';
 import AuthService from '@/services/AuthService.ts';
-import axios from 'axios';
-import { API_URL } from '@/apiConfig.ts';
+import { useRequest } from '@/composables/useRequest.ts';
 
 export const useAuthStore = defineStore('auth', () => {
-    const user = ref<IAuth>({
-        email: '',
-        id: '',
-        password: '',
-        username: '',
-        isActivated: false,
-    });
+    const user = ref<IAuth | null>(null);
+
+    const { fetch, isLoading, errorMessage } = useRequest<IAuthResponse>();
+
     const isAuth = computed(() => !!user.value?.id);
-    const errorMessage = ref('');
-    const isLoading = ref(false);
 
     const login = async (userAuth: IAuth) => {
-        try {
-            isLoading.value = true;
-            const response = await AuthService.login(userAuth);
-            user.value = response.data.userDto;
-            localStorage.setItem('token', response.data.accessToken);
-        } catch (e) {
-            console.log(e.response?.data?.message);
-            errorMessage.value = e.response?.data?.message;
-        } finally {
-            isLoading.value = false;
-        }
+        const response = await fetch(AuthService.login, userAuth);
+        user.value = response.userDto;
+        localStorage.setItem('token', response.accessToken);
     };
 
     const logout = async () => {
-        try {
-            isLoading.value = true;
-            await AuthService.logout();
-            user.value = {
-                email: '',
-                _id: '',
-                password: '',
-                username: '',
-                isActivated: false,
-            };
-            localStorage.removeItem('token');
-        } catch (e) {
-            console.log(e.response?.data?.message);
-            errorMessage.value = e.response?.data?.message;
-        } finally {
-            isLoading.value = false;
-        }
+        await fetch(AuthService.logout);
+        user.value = null;
+        localStorage.removeItem('token');
     };
 
     const registration = async (newUser: IAuth) => {
-        try {
-            isLoading.value = true;
-            const response = await AuthService.registration(newUser);
-            user.value = response.data.userDto;
-            localStorage.setItem('token', response.data.accessToken);
-        } catch (e) {
-            console.log(e.response?.data?.message);
-            errorMessage.value = e.response?.data?.message;
-        } finally {
-            isLoading.value = false;
-        }
+        const response = await fetch(AuthService.registration, newUser);
+        user.value = response.userDto;
+        localStorage.setItem('token', response.accessToken);
     };
 
     const checkAuth = async () => {
         try {
-            isLoading.value = true;
-            const response = await axios.post<IAuthResponse>(`${API_URL}/api/refresh`, {}, { withCredentials: true });
+            const response = await AuthService.refresh();
             user.value = response.data?.userDto;
             localStorage.setItem('token', response.data.accessToken);
         } catch (e) {
             console.log(e.response?.data?.message);
-        } finally {
-            isLoading.value = false;
         }
     };
 
