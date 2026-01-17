@@ -1,5 +1,6 @@
 import type { IAuth, IAuthResponse } from '@/types/auth.ts';
-import { $api } from '@/apiConfig.ts';
+import { $api, API_URL } from '@/apiConfig.ts';
+import axios from 'axios';
 
 export default class AuthService {
     static async login(user: IAuth) {
@@ -19,5 +20,9 @@ export default class AuthService {
 
     static async logout(): Promise<void> {
         return $api.get('/api/logout');
+    }
+
+    static async refresh(): Promise<any> {
+        return axios.post<IAuthResponse>(`${API_URL}/api/refresh`, {}, { withCredentials: true });
     }
 }
