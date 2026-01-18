@@ -1,13 +1,13 @@
 import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
-import type { IAuth, IAuthResponse } from '@/types/auth.ts';
+import type { IAuth, IAuthResponse, User } from '@/types/auth.ts';
 import AuthService from '@/services/AuthService.ts';
 import { useRequest } from '@/composables/useRequest.ts';
 
 export const useAuthStore = defineStore('auth', () => {
-    const user = ref<IAuth | null>(null);
+    const user = ref<User | null>(null);
 
-    const { fetch, isLoading, errorMessage } = useRequest<IAuthResponse>();
+    const { fetch, isLoading } = useRequest<IAuthResponse>();
 
     const isAuth = computed(() => !!user.value?.id);
 
@@ -34,10 +34,10 @@ export const useAuthStore = defineStore('auth', () => {
             const response = await AuthService.refresh();
             user.value = response.data?.userDto;
             localStorage.setItem('token', response.data.accessToken);
-        } catch (e) {
+        } catch (e: any) {
             console.log(e.response?.data?.message);
         }
     };
 
-    return { user, login, logout, registration, checkAuth, isAuth, errorMessage, isLoading };
+    return { user, login, logout, registration, checkAuth, isAuth, isLoading };
 });

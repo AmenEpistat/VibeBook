@@ -3,9 +3,13 @@ import { useAuthStore } from '@/stores/authStore';
 import { computed } from 'vue';
 
 export const setupGuards = (router: Router) => {
-    router.beforeEach((to) => {
+    router.beforeEach(async (to) => {
         const authStore = useAuthStore();
-        const isAdmin = computed(() => authStore.user.roles?.[0] === 'ADMIN');
+        const isAdmin = computed(() => authStore.user?.roles?.[0] === 'ADMIN');
+
+        if (!authStore.isAuth) {
+            await authStore.checkAuth();
+        }
 
         if (to.meta.requiresAuth && !authStore.isAuth) {
             return {
