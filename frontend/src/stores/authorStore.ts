@@ -4,7 +4,7 @@ import AuthorService from '@/services/AuthorService.ts';
 import { useRequest } from '@/composables/useRequest.ts';
 
 export const useAuthorStore = defineStore('author', () => {
-    const { isLoading, errorMessage, data, fetch } = useRequest<any>();
+    const { isLoading, data, fetch } = useRequest<any>();
 
     const getAuthors = async () => {
         return await fetch(AuthorService.getAuthors);
@@ -14,5 +14,5 @@ export const useAuthorStore = defineStore('author', () => {
         return await fetch(AuthorService.createAuthor, author);
     };
 
-    return { isLoading, errorMessage, getAuthors, createAuthor };
+    return { isLoading, getAuthors, createAuthor };
 });

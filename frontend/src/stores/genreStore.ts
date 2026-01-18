@@ -4,7 +4,7 @@ import GenreService from '@/services/GenreService.ts';
 import { useRequest } from '@/composables/useRequest.ts';
 
 export const useGenreStore = defineStore('genre', () => {
-    const { isLoading, errorMessage, data, fetch } = useRequest<any>();
+    const { isLoading, data, fetch } = useRequest<any>();
 
     const getGenres = async () => {
         return await fetch(GenreService.getGenres);
@@ -14,5 +14,5 @@ export const useGenreStore = defineStore('genre', () => {
         return await fetch(GenreService.createGenre, genre);
     };
 
-    return { isLoading, errorMessage, getGenres, createGenre };
+    return { isLoading, getGenres, createGenre };
 });

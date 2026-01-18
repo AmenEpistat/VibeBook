@@ -8,7 +8,7 @@ import type { UserBook } from '@/types/user.ts';
 
 export const useBookStore = defineStore('book', () => {
     const books = ref<Book[]>([]);
-    const { isLoading, errorMessage, fetch } = useRequest<UserBook[]>();
+    const { isLoading, fetch } = useRequest<UserBook[]>();
 
     const userBookStore = useUserBookStore();
 
@@ -35,5 +35,5 @@ export const useBookStore = defineStore('book', () => {
         return await fetch(BookService.updateBook, book, id);
     };
 
-    return { books, booksWithState, isLoading, errorMessage, getBooks, getBook, createBook, updateBook };
+    return { books, booksWithState, isLoading, getBooks, getBook, createBook, updateBook };
 });

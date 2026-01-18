@@ -3,7 +3,7 @@ import AdminService from '@/services/AdminService';
 import { useRequest } from '@/composables/useRequest';
 
 export const useAdminStore = defineStore('adminStore', () => {
-    const { isLoading, errorMessage, data, fetch } = useRequest<any>();
+    const { isLoading, data, fetch } = useRequest<any>();
     const getUsers = async () => {
         return await fetch(AdminService.getUsers);
     };
@@ -20,5 +20,5 @@ export const useAdminStore = defineStore('adminStore', () => {
         return await fetch(AdminService.deleteUser, id);
     };
 
-    return { isLoading, errorMessage, data, getUsers, makeAdmin, deleteAdmin, deleteUser };
+    return { isLoading, data, getUsers, makeAdmin, deleteAdmin, deleteUser };
 });
