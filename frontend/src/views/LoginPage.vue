@@ -1,5 +1,5 @@
 <template>
-    <section class="login container">
+    <section class="login">
         <Logo
             size="l"
             is-visible-text
@@ -74,30 +74,6 @@
                 </v-btn>
             </div>
         </form>
-        <v-dialog
-            v-model="isErrorModalVisible"
-            max-width="400"
-            persistent
-            transition="dialog-bottom-transition"
-        >
-            <v-card>
-                <v-card-title class="text-h6 text-center"> Ошибка </v-card-title>
-
-                <v-card-text class="text-center">
-                    {{ authStore.errorMessage }}
-                </v-card-text>
-
-                <v-card-actions class="justify-center">
-                    <v-btn
-                        color="primary"
-                        rounded="xs"
-                        @click="authStore.errorMessage = ''"
-                    >
-                        извини меня, пожалуйста
-                    </v-btn>
-                </v-card-actions>
-            </v-card>
-        </v-dialog>
     </section>
     <Loader v-if="isLoading" />
 </template>
@@ -139,7 +115,6 @@ const rules = {
 
 const authStore = useAuthStore();
 
-const isErrorModalVisible = computed(() => authStore.errorMessage.length > 0);
 const isLoading = computed(() => authStore.isLoading);
 
 const toggleRouterName = () => {
@@ -186,6 +161,8 @@ watch(
     display: flex;
     flex-direction: column;
     gap: 30px;
+
+    padding: 20px;
 }
 
 .login__form {
