@@ -17,7 +17,7 @@
             <v-autocomplete
                 v-if="question.type === 'select'"
                 v-model="answer"
-                :items="question.options"
+                :items="options"
                 multiple
                 chips
                 clearable
@@ -35,8 +35,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import type { Question } from '@/types/preference.ts';
+import { computed, ref } from 'vue';
+import type { Option, Question } from '@/types/preference.ts';
 
 const props = defineProps<{
     isRequired: boolean;
@@ -45,16 +45,17 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits<{
-    (e: 'click', answer: string | null): void;
+    (e: 'click', answer: string | string[] | null): void;
 }>();
 
-const onClick = () => {
-    answer.value = null;
+const options = computed(() => props.question.options?.map((option: Option) => option.value));
 
+const onClick = () => {
     emit('click', answer.value);
+    answer.value = null;
 };
 
-const answer = ref<string | null>(null);
+const answer = ref<string | string[] | null>(null);
 </script>
 
 <style scoped lang="scss">
