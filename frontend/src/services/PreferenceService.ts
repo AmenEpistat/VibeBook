@@ -8,4 +8,7 @@ export default class PreferenceService {
     static async sendAnswers(answers: Answer[]) {
         return $api.post('/api/answers', answers);
     }
+    static async getRecommnedBooks() {
+        return $api.get('/api/recommend-books');
+    }
 }
