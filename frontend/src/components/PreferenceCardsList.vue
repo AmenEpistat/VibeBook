@@ -27,9 +27,9 @@ const store = usePreferenceStore();
 const currentQuestion = computed(() => props.questions[store.state.currentIndex]);
 const isLast = computed(() => store.state.currentIndex === props.questions.length - 1);
 
-const onClick = async (answer: string) => {
+const onClick = async (answer: string[]) => {
     if (currentQuestion.value) {
-        store.setAnswer(currentQuestion.value.id, answer);
+        store.setAnswer(currentQuestion.value.questionId, answer);
     }
 
     if (!isLast.value) {
