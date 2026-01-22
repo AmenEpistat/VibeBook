@@ -230,7 +230,8 @@ const isAuth = inject('auth');
     z-index: 100;
 
     max-width: 600px;
-    margin: 100px auto;
+    margin: 0 auto;
+    padding: 100px 0;
 
     text-align: center;
     font-size: 24px;
