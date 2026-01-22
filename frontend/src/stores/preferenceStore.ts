@@ -9,9 +9,9 @@ export const usePreferenceStore = defineStore('preferences', () => {
         currentIndex: 0,
         answers: [],
     });
-    const { isLoading, errorMessage, data, fetch } = useRequest<any>();
+    const { isLoading, data, fetch } = useRequest<any>();
 
-    const setAnswer = (index: string, answer: string) => {
+    const setAnswer = (index: string, answer: string[]) => {
         state.value.answers.push({
             questionId: index,
             answer: answer,
@@ -32,5 +32,9 @@ export const usePreferenceStore = defineStore('preferences', () => {
         return await fetch(PreferenceService.getQuestions);
     };
 
-    return { state, setAnswer, setNextIndex, submitAnswers, errorMessage, isLoading, getQuestions };
+    const getRecommendBooks = async () => {
+        return await fetch(PreferenceService.getRecommnedBooks);
+    };
+
+    return { state, setAnswer, setNextIndex, submitAnswers, isLoading, getQuestions, getRecommendBooks };
 });
