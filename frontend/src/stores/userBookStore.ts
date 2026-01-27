@@ -4,11 +4,12 @@ import type { UserActionBook, UserBook, UserStatusBook } from '@/types/user';
 import UserBookService from '@/services/UserBookService';
 import { useRequest } from '@/composables/useRequest';
 import type { StatusBook } from '@/consts/statusBook.ts';
+import type { RecommendBook } from '@/types/preference.ts';
 
 export const useUserBookStore = defineStore('userBook', () => {
     const userBooks = ref<UserBook[]>([]);
 
-    const { isLoading, errorMessage, fetch } = useRequest<UserBook[]>();
+    const { isLoading, fetch } = useRequest<UserBook[]>();
 
     const userBookMap = computed<Record<string, UserStatusBook>>(() => {
         return userBooks.value.reduce(
@@ -26,6 +27,21 @@ export const useUserBookStore = defineStore('userBook', () => {
 
     const getBooks = async () => {
         userBooks.value = await fetch(UserBookService.getUserBook);
+    };
+
+    const getRecommendedWithStatus = async (recommended: RecommendBook[]) => {
+        await getBooks();
+
+        return recommended.map((r) => {
+            const state = getCurrentState(r._id);
+            const { score, ...bookWithoutScore } = r;
+
+            return {
+                book: { ...bookWithoutScore },
+                userState: { ...state },
+                score,
+            };
+        });
     };
 
     const getCurrentState = (id: string): UserStatusBook =>
@@ -76,11 +92,11 @@ export const useUserBookStore = defineStore('userBook', () => {
         userBooks,
         userBookMap,
         isLoading,
-        errorMessage,
         getBooks,
         addBook,
         toggleQueue,
         toggleFavorite,
         updateStatus,
+        getRecommendedWithStatus,
     };
 });
