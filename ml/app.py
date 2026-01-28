@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify
 import torch
 from model import BookModel
@@ -7,7 +8,9 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-with open("../backend/preference/all_books.json", "r") as f:
+data_dir = os.getenv("DATA_PATH", ".")
+
+with open(os.path.join(data_dir, "all_books.json"), "r") as f:
     all_books = json.load(f)
 
 NUM_BOOKS = len(all_books)
@@ -45,4 +48,4 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(port=5000)
+    app.run(host="0.0.0.0", port=8000)

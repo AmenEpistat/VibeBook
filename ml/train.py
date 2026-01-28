@@ -1,17 +1,24 @@
 import json
+import os
+
 import torch
 import torch.nn as nn
 
 from model import BookModel
 
-with open("../backend/preference/all_books.json", "r") as f:
+data_dir = os.getenv("DATA_PATH", ".")
+
+all_books_path = os.path.join(data_dir, "all_books.json")
+dataset_path = os.path.join(data_dir, "synthetic_dataset.json")
+
+with open(all_books_path, "r") as f:
     all_books = json.load(f)
 book2idx = {book_id: i for i, book_id in enumerate(all_books)}
 
 NUM_BOOKS = len(all_books)
 NUM_TESTS = 10
 
-with open("../backend/preference/synthetic_dataset.json", "r") as f:
+with open(dataset_path, "r") as f:
     dataset = json.load(f)
 
 X_list = []

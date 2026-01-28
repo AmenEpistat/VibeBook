@@ -30,7 +30,7 @@ class PreferenceService {
     async recommendBooks(userId, userAnswers) {
         const answers = encodeAnswers(userAnswers);
 
-        const { data } = await axios.post('http://127.0.0.1:5000/predict', { answers });
+        const { data } = await axios.post('http://python-app:8000/predict', { answers });
 
         const bookIds = data.topBooks.map(b => b.bookId);
 

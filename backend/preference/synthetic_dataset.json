@@ -1,427 +1,119 @@
 [
   {
     "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": 0
+      "undefined": 2
     },
     "books": [
-      "69174562d727715b157fe286"
+      "691efea0b33f2e7f0830bedb",
+      "691e138d6885c1f9fb28cb3e"
     ]
   },
   {
     "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 0
+      "undefined": -1
     },
     "books": [
-      "69174525d727715b157fe27a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 1
-    },
-    "books": [
-      "691e134b6885c1f9fb28cb3a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": 1
-    },
-    "books": [
+      "69388a864d8bc44a0b473241",
       "691efe36b33f2e7f0830bed7"
     ]
   },
   {
     "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": -1
+      "undefined": 2
     },
     "books": [
-      "6917454fd727715b157fe282",
-      "691efea0b33f2e7f0830bedb"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": 1
-    },
-    "books": [
-      "691e134b6885c1f9fb28cb3a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": -1
-    },
-    "books": [
-      "69174528d727715b157fe27e",
-      "691efea0b33f2e7f0830bedb"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 1
-    },
-    "books": [
-      "6917454fd727715b157fe282",
-      "69174525d727715b157fe27a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 1
-    },
-    "books": [
-      "69174528d727715b157fe27e",
-      "691efea0b33f2e7f0830bedb"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 0
-    },
-    "books": [
-      "69174562d727715b157fe286"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 1
-    },
-    "books": [
-      "691e138d6885c1f9fb28cb3e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": -1
-    },
-    "books": [
-      "691efe36b33f2e7f0830bed7",
-      "69372ad61f68199ce1efcb4c"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 1
-    },
-    "books": [
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 0
-    },
-    "books": [
-      "69372ad61f68199ce1efcb4c",
-      "69174528d727715b157fe27e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": 1
-    },
-    "books": [
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 1
-    },
-    "books": [
-      "69372ad61f68199ce1efcb4c"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": -1
-    },
-    "books": [
-      "6917451dd727715b157fe276",
-      "69174525d727715b157fe27a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 1
-    },
-    "books": [
-      "69174525d727715b157fe27a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 0
-    },
-    "books": [
-      "6917451dd727715b157fe276",
-      "69372ad61f68199ce1efcb4c"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": 0
-    },
-    "books": [
-      "69372ad61f68199ce1efcb4c"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": -1
-    },
-    "books": [
-      "69372ad61f68199ce1efcb4c"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 1
-    },
-    "books": [
-      "6917451dd727715b157fe276",
-      "69174525d727715b157fe27a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": 0
-    },
-    "books": [
-      "69174562d727715b157fe286"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 0
-    },
-    "books": [
-      "69388a864d8bc44a0b473241",
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": 1
-    },
-    "books": [
-      "691efea0b33f2e7f0830bedb"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 1
-    },
-    "books": [
-      "691e134b6885c1f9fb28cb3a",
-      "69174525d727715b157fe27a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 0
-    },
-    "books": [
-      "69174528d727715b157fe27e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 1
-    },
-    "books": [
-      "691e134b6885c1f9fb28cb3a",
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": 1
-    },
-    "books": [
-      "69174562d727715b157fe286",
-      "691efe36b33f2e7f0830bed7"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": -1
-    },
-    "books": [
-      "691e138d6885c1f9fb28cb3e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": -1
-    },
-    "books": [
-      "69174528d727715b157fe27e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": -1
-    },
-    "books": [
-      "69174525d727715b157fe27a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 0
-    },
-    "books": [
-      "691e134b6885c1f9fb28cb3a",
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": 1
-    },
-    "books": [
-      "691e138d6885c1f9fb28cb3e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": -1
-    },
-    "books": [
-      "691e134b6885c1f9fb28cb3a",
-      "69174562d727715b157fe286"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": -1
-    },
-    "books": [
-      "69174562d727715b157fe286"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 0
-    },
-    "books": [
-      "69388a864d8bc44a0b473241",
-      "691e134b6885c1f9fb28cb3a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 1
-    },
-    "books": [
-      "691efea0b33f2e7f0830bedb"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 1
-    },
-    "books": [
-      "69174562d727715b157fe286",
       "6917451dd727715b157fe276"
     ]
   },
   {
     "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 0
+      "undefined": -1
     },
     "books": [
-      "691e138d6885c1f9fb28cb3e",
+      "691efe36b33f2e7f0830bed7",
       "69174525d727715b157fe27a"
     ]
   },
   {
     "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": 1
+      "undefined": 1
+    },
+    "books": [
+      "69174562d727715b157fe286"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69388a864d8bc44a0b473241",
+      "6917451dd727715b157fe276"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69174528d727715b157fe27e",
+      "6917454fd727715b157fe282"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "691e134b6885c1f9fb28cb3a",
+      "691efe36b33f2e7f0830bed7"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "691efe36b33f2e7f0830bed7"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69388a864d8bc44a0b473241",
+      "69174528d727715b157fe27e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "6917451dd727715b157fe276"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "691e134b6885c1f9fb28cb3a",
+      "6917451dd727715b157fe276"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69372ad61f68199ce1efcb4c"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
     },
     "books": [
       "69388a864d8bc44a0b473241"
@@ -429,200 +121,51 @@
   },
   {
     "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": -1
+      "undefined": 2
     },
     "books": [
-      "6917454fd727715b157fe282",
-      "69174525d727715b157fe27a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": -1
-    },
-    "books": [
-      "691efe36b33f2e7f0830bed7",
-      "691e138d6885c1f9fb28cb3e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 1
-    },
-    "books": [
-      "6917451dd727715b157fe276"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": 0
-    },
-    "books": [
-      "69174528d727715b157fe27e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": 0
-    },
-    "books": [
-      "69388a864d8bc44a0b473241",
-      "691e138d6885c1f9fb28cb3e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": 0
-    },
-    "books": [
-      "69174562d727715b157fe286"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 0
-    },
-    "books": [
-      "6917451dd727715b157fe276"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": -1
-    },
-    "books": [
-      "691efea0b33f2e7f0830bedb"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": 1
-    },
-    "books": [
-      "691e134b6885c1f9fb28cb3a",
-      "6917451dd727715b157fe276"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 1
-    },
-    "books": [
-      "6917451dd727715b157fe276",
-      "69174528d727715b157fe27e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 0
-    },
-    "books": [
-      "691e134b6885c1f9fb28cb3a",
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": -1
-    },
-    "books": [
-      "69388a864d8bc44a0b473241",
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 0
-    },
-    "books": [
-      "69388a864d8bc44a0b473241",
-      "69174562d727715b157fe286"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 0
-    },
-    "books": [
-      "691e138d6885c1f9fb28cb3e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 1
-    },
-    "books": [
-      "69174528d727715b157fe27e",
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": -1
-    },
-    "books": [
-      "69388a864d8bc44a0b473241",
+      "691efea0b33f2e7f0830bedb",
       "691e134b6885c1f9fb28cb3a"
     ]
   },
   {
     "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 0
+      "undefined": -1
+    },
+    "books": [
+      "69174562d727715b157fe286",
+      "691e134b6885c1f9fb28cb3a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "691e134b6885c1f9fb28cb3a",
+      "69372ad61f68199ce1efcb4c"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "6917451dd727715b157fe276"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
     },
     "books": [
       "69174525d727715b157fe27a",
-      "691e134b6885c1f9fb28cb3a"
+      "691efe36b33f2e7f0830bed7"
     ]
   },
   {
     "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": 1
-    },
-    "books": [
-      "69174528d727715b157fe27e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": -1
+      "undefined": 2
     },
     "books": [
       "691e134b6885c1f9fb28cb3a"
@@ -630,666 +173,51 @@
   },
   {
     "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": -1
-    },
-    "books": [
-      "69174528d727715b157fe27e",
-      "6917451dd727715b157fe276"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": -1
-    },
-    "books": [
-      "691e138d6885c1f9fb28cb3e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": -1
-    },
-    "books": [
-      "691efea0b33f2e7f0830bedb",
-      "6917451dd727715b157fe276"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": 1
-    },
-    "books": [
-      "691e138d6885c1f9fb28cb3e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 0
-    },
-    "books": [
-      "6917451dd727715b157fe276",
-      "691efea0b33f2e7f0830bedb"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": -1
+      "undefined": 2
     },
     "books": [
       "6917454fd727715b157fe282",
-      "69174528d727715b157fe27e"
+      "6917451dd727715b157fe276"
     ]
   },
   {
     "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 0
-    },
-    "books": [
-      "69372ad61f68199ce1efcb4c",
-      "691e134b6885c1f9fb28cb3a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": 0
-    },
-    "books": [
-      "691efe36b33f2e7f0830bed7",
-      "69388a864d8bc44a0b473241"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": 1
-    },
-    "books": [
-      "691efe36b33f2e7f0830bed7",
-      "691e138d6885c1f9fb28cb3e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 1
-    },
-    "books": [
-      "691e134b6885c1f9fb28cb3a",
-      "691e138d6885c1f9fb28cb3e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": 1
-    },
-    "books": [
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 1
-    },
-    "books": [
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 0
-    },
-    "books": [
-      "69388a864d8bc44a0b473241",
-      "691e138d6885c1f9fb28cb3e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": 0
-    },
-    "books": [
-      "69388a864d8bc44a0b473241",
-      "69174562d727715b157fe286"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": -1
-    },
-    "books": [
-      "691e138d6885c1f9fb28cb3e",
-      "691efe36b33f2e7f0830bed7"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": -1
-    },
-    "books": [
-      "691efea0b33f2e7f0830bedb"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": 0
-    },
-    "books": [
-      "69388a864d8bc44a0b473241",
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": 1
-    },
-    "books": [
-      "69174525d727715b157fe27a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 1
-    },
-    "books": [
-      "69372ad61f68199ce1efcb4c",
-      "691efe36b33f2e7f0830bed7"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": -1
-    },
-    "books": [
-      "69174528d727715b157fe27e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": 0
+      "undefined": 1
     },
     "books": [
       "691efea0b33f2e7f0830bedb",
-      "69372ad61f68199ce1efcb4c"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": 0
-    },
-    "books": [
-      "69388a864d8bc44a0b473241",
-      "69174528d727715b157fe27e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": 1
-    },
-    "books": [
-      "691e138d6885c1f9fb28cb3e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": 0
-    },
-    "books": [
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": -1
-    },
-    "books": [
-      "691efe36b33f2e7f0830bed7"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": -1
-    },
-    "books": [
-      "69174562d727715b157fe286"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": 1
-    },
-    "books": [
       "691e134b6885c1f9fb28cb3a"
     ]
   },
   {
     "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 0
+      "undefined": 1
     },
     "books": [
-      "691e138d6885c1f9fb28cb3e",
-      "69174562d727715b157fe286"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 0
-    },
-    "books": [
-      "691e134b6885c1f9fb28cb3a",
-      "69174562d727715b157fe286"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": -1
-    },
-    "books": [
-      "69174525d727715b157fe27a",
-      "69388a864d8bc44a0b473241"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": -1
-    },
-    "books": [
-      "69174528d727715b157fe27e",
-      "69174562d727715b157fe286"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 1
-    },
-    "books": [
-      "691efe36b33f2e7f0830bed7",
-      "691e138d6885c1f9fb28cb3e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 0
-    },
-    "books": [
-      "691e134b6885c1f9fb28cb3a",
-      "691e138d6885c1f9fb28cb3e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 0
-    },
-    "books": [
-      "691efe36b33f2e7f0830bed7"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 1
-    },
-    "books": [
-      "691e134b6885c1f9fb28cb3a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": -1
-    },
-    "books": [
-      "69372ad61f68199ce1efcb4c"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": 0
-    },
-    "books": [
-      "69372ad61f68199ce1efcb4c"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": 1
-    },
-    "books": [
-      "691efea0b33f2e7f0830bedb"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": -1
-    },
-    "books": [
-      "69174528d727715b157fe27e",
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": -1
-    },
-    "books": [
-      "69388a864d8bc44a0b473241"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 1
-    },
-    "books": [
-      "69372ad61f68199ce1efcb4c"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 0
-    },
-    "books": [
-      "69372ad61f68199ce1efcb4c"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": -1
-    },
-    "books": [
-      "691e134b6885c1f9fb28cb3a",
-      "691efea0b33f2e7f0830bedb"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 1
-    },
-    "books": [
-      "69388a864d8bc44a0b473241",
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": -1
-    },
-    "books": [
-      "69174562d727715b157fe286",
-      "69174528d727715b157fe27e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 0
-    },
-    "books": [
-      "691efe36b33f2e7f0830bed7"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 1
-    },
-    "books": [
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": 0
-    },
-    "books": [
-      "69388a864d8bc44a0b473241"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 0
-    },
-    "books": [
-      "69372ad61f68199ce1efcb4c"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 1
-    },
-    "books": [
-      "691efe36b33f2e7f0830bed7"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": -1
-    },
-    "books": [
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 0
-    },
-    "books": [
-      "691e138d6885c1f9fb28cb3e",
+      "691efea0b33f2e7f0830bedb",
       "69174525d727715b157fe27a"
     ]
   },
   {
     "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": 0
+      "undefined": -1
     },
     "books": [
-      "691efea0b33f2e7f0830bedb"
+      "69372ad61f68199ce1efcb4c"
     ]
   },
   {
     "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 0
+      "undefined": 2
     },
     "books": [
-      "69174528d727715b157fe27e",
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": -1
-    },
-    "books": [
-      "69174528d727715b157fe27e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": 1
-    },
-    "books": [
+      "69372ad61f68199ce1efcb4c",
       "69174525d727715b157fe27a"
     ]
   },
   {
     "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": -1
-    },
-    "books": [
-      "69174562d727715b157fe286"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 0
-    },
-    "books": [
-      "69388a864d8bc44a0b473241"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": -1
-    },
-    "books": [
-      "691e134b6885c1f9fb28cb3a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 1
-    },
-    "books": [
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": 0
-    },
-    "books": [
-      "69174528d727715b157fe27e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": -1
-    },
-    "books": [
-      "69174562d727715b157fe286"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 0
-    },
-    "books": [
-      "691efea0b33f2e7f0830bedb"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": -1
+      "undefined": 2
     },
     "books": [
       "69174528d727715b157fe27e",
@@ -1298,329 +226,16 @@
   },
   {
     "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": -1
+      "undefined": -1
     },
     "books": [
-      "691efea0b33f2e7f0830bedb"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": 0
-    },
-    "books": [
-      "6917451dd727715b157fe276"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": 0
-    },
-    "books": [
-      "691efea0b33f2e7f0830bedb",
-      "69174525d727715b157fe27a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": -1
-    },
-    "books": [
-      "6917451dd727715b157fe276",
+      "6917454fd727715b157fe282",
       "69174562d727715b157fe286"
     ]
   },
   {
     "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": 1
-    },
-    "books": [
-      "69174528d727715b157fe27e",
-      "69174562d727715b157fe286"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 0
-    },
-    "books": [
-      "691e134b6885c1f9fb28cb3a",
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": 1
-    },
-    "books": [
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": 0
-    },
-    "books": [
-      "691efea0b33f2e7f0830bedb",
-      "691efe36b33f2e7f0830bed7"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": -1
-    },
-    "books": [
-      "691e138d6885c1f9fb28cb3e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 1
-    },
-    "books": [
-      "691e134b6885c1f9fb28cb3a",
-      "6917451dd727715b157fe276"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": 0
-    },
-    "books": [
-      "69388a864d8bc44a0b473241",
-      "69174562d727715b157fe286"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": -1
-    },
-    "books": [
-      "69174528d727715b157fe27e",
-      "691efea0b33f2e7f0830bedb"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 0
-    },
-    "books": [
-      "69174528d727715b157fe27e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": 0
-    },
-    "books": [
-      "69174562d727715b157fe286"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": 1
-    },
-    "books": [
-      "691e138d6885c1f9fb28cb3e",
-      "691e134b6885c1f9fb28cb3a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": -1
-    },
-    "books": [
-      "69372ad61f68199ce1efcb4c",
-      "69174528d727715b157fe27e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": 1
-    },
-    "books": [
-      "69388a864d8bc44a0b473241",
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": -1
-    },
-    "books": [
-      "69174528d727715b157fe27e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": -1
-    },
-    "books": [
-      "691e134b6885c1f9fb28cb3a",
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 0
-    },
-    "books": [
-      "69388a864d8bc44a0b473241"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 1
-    },
-    "books": [
-      "691e134b6885c1f9fb28cb3a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": 0
-    },
-    "books": [
-      "6917451dd727715b157fe276",
-      "691e134b6885c1f9fb28cb3a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 0
-    },
-    "books": [
-      "691efe36b33f2e7f0830bed7",
-      "691e138d6885c1f9fb28cb3e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 1
-    },
-    "books": [
-      "69174562d727715b157fe286",
-      "69372ad61f68199ce1efcb4c"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 1
-    },
-    "books": [
-      "69174562d727715b157fe286",
-      "69174528d727715b157fe27e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 0
-    },
-    "books": [
-      "69372ad61f68199ce1efcb4c",
-      "691e138d6885c1f9fb28cb3e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": -1
-    },
-    "books": [
-      "691efea0b33f2e7f0830bedb",
-      "69174525d727715b157fe27a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": -1
-    },
-    "books": [
-      "69372ad61f68199ce1efcb4c"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": 1
-    },
-    "books": [
-      "69174562d727715b157fe286",
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": -1
-    },
-    "books": [
-      "691e134b6885c1f9fb28cb3a",
-      "691e138d6885c1f9fb28cb3e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": -1
+      "undefined": 2
     },
     "books": [
       "69174525d727715b157fe27a",
@@ -1629,142 +244,16 @@
   },
   {
     "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 1
+      "undefined": -1
     },
     "books": [
+      "691efe36b33f2e7f0830bed7",
       "69388a864d8bc44a0b473241"
     ]
   },
   {
     "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": -1
-    },
-    "books": [
-      "691efea0b33f2e7f0830bedb"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": -1
-    },
-    "books": [
-      "691efe36b33f2e7f0830bed7"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": 0
-    },
-    "books": [
-      "69372ad61f68199ce1efcb4c"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": -1
-    },
-    "books": [
-      "69372ad61f68199ce1efcb4c"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 1
-    },
-    "books": [
-      "691efe36b33f2e7f0830bed7",
-      "6917451dd727715b157fe276"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": -1
-    },
-    "books": [
-      "69174525d727715b157fe27a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": -1
-    },
-    "books": [
-      "691e134b6885c1f9fb28cb3a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": 0
-    },
-    "books": [
-      "6917454fd727715b157fe282",
-      "6917451dd727715b157fe276"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 0
-    },
-    "books": [
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 0
-    },
-    "books": [
-      "691efe36b33f2e7f0830bed7",
-      "691e134b6885c1f9fb28cb3a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 0
-    },
-    "books": [
-      "69174528d727715b157fe27e"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": 0
-    },
-    "books": [
-      "691e134b6885c1f9fb28cb3a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": 0
+      "undefined": 1
     },
     "books": [
       "69174562d727715b157fe286"
@@ -1772,113 +261,108 @@
   },
   {
     "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": -1
+      "undefined": 1
     },
     "books": [
-      "691efea0b33f2e7f0830bedb"
+      "6917451dd727715b157fe276"
     ]
   },
   {
     "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 1
+      "undefined": 2
     },
     "books": [
-      "691efe36b33f2e7f0830bed7"
+      "69174525d727715b157fe27a"
     ]
   },
   {
     "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": -1
+      "undefined": 2
     },
     "books": [
-      "69174562d727715b157fe286",
-      "69174528d727715b157fe27e"
+      "6917451dd727715b157fe276"
     ]
   },
   {
     "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": -1
+      "undefined": 1
     },
     "books": [
-      "6917454fd727715b157fe282",
+      "69174525d727715b157fe27a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69372ad61f68199ce1efcb4c",
+      "691e134b6885c1f9fb28cb3a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69174525d727715b157fe27a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "691efe36b33f2e7f0830bed7",
       "691e138d6885c1f9fb28cb3e"
     ]
   },
   {
     "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": 0
+      "undefined": 1
     },
     "books": [
+      "6917451dd727715b157fe276",
+      "691efea0b33f2e7f0830bedb"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "6917451dd727715b157fe276"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69372ad61f68199ce1efcb4c",
+      "6917451dd727715b157fe276"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "691e138d6885c1f9fb28cb3e",
       "691efe36b33f2e7f0830bed7"
     ]
   },
   {
     "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 0
+      "undefined": 2
     },
     "books": [
-      "69174562d727715b157fe286",
-      "6917454fd727715b157fe282"
+      "69372ad61f68199ce1efcb4c"
     ]
   },
   {
     "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 1
-    },
-    "books": [
-      "691e134b6885c1f9fb28cb3a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 1
-    },
-    "books": [
-      "691e134b6885c1f9fb28cb3a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": 1
-    },
-    "books": [
-      "691efe36b33f2e7f0830bed7"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": -1
-    },
-    "books": [
-      "691efea0b33f2e7f0830bedb",
-      "6917454fd727715b157fe282"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": 0
+      "undefined": -1
     },
     "books": [
       "69174528d727715b157fe27e",
@@ -1887,20 +371,7 @@
   },
   {
     "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": 1
-    },
-    "books": [
-      "691e134b6885c1f9fb28cb3a",
-      "6917451dd727715b157fe276"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 1
+      "undefined": 2
     },
     "books": [
       "69174528d727715b157fe27e"
@@ -1908,19 +379,25 @@
   },
   {
     "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": -1
+      "undefined": 2
     },
     "books": [
-      "691efea0b33f2e7f0830bedb"
+      "691e134b6885c1f9fb28cb3a",
+      "69388a864d8bc44a0b473241"
     ]
   },
   {
     "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": 1
+      "undefined": -1
+    },
+    "books": [
+      "69174562d727715b157fe286",
+      "6917451dd727715b157fe276"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
     },
     "books": [
       "6917454fd727715b157fe282"
@@ -1928,61 +405,50 @@
   },
   {
     "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 1
+      "undefined": 2
     },
     "books": [
-      "691efe36b33f2e7f0830bed7"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": -1
-    },
-    "books": [
+      "691efe36b33f2e7f0830bed7",
       "691e138d6885c1f9fb28cb3e"
     ]
   },
   {
     "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": 1
+      "undefined": 2
+    },
+    "books": [
+      "6917454fd727715b157fe282"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "6917454fd727715b157fe282"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "691efe36b33f2e7f0830bed7",
+      "69388a864d8bc44a0b473241"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
     },
     "books": [
       "691e134b6885c1f9fb28cb3a",
-      "6917451dd727715b157fe276"
+      "691efea0b33f2e7f0830bedb"
     ]
   },
   {
     "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 0
-    },
-    "books": [
-      "691efe36b33f2e7f0830bed7"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 1,
-      "length": 0
-    },
-    "books": [
-      "69174562d727715b157fe286",
-      "69174525d727715b157fe27a"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": 0
+      "undefined": -1
     },
     "books": [
       "69174562d727715b157fe286"
@@ -1990,9 +456,100 @@
   },
   {
     "answers": {
-      "genre": 2,
-      "mood": -1,
-      "length": 1
+      "undefined": 2
+    },
+    "books": [
+      "691e134b6885c1f9fb28cb3a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "691e138d6885c1f9fb28cb3e",
+      "691efe36b33f2e7f0830bed7"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69388a864d8bc44a0b473241"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "691e138d6885c1f9fb28cb3e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69372ad61f68199ce1efcb4c"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "6917451dd727715b157fe276",
+      "69388a864d8bc44a0b473241"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69174562d727715b157fe286",
+      "69372ad61f68199ce1efcb4c"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69174525d727715b157fe27a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69388a864d8bc44a0b473241",
+      "6917451dd727715b157fe276"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69372ad61f68199ce1efcb4c"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69174528d727715b157fe27e",
+      "691e134b6885c1f9fb28cb3a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
     },
     "books": [
       "6917451dd727715b157fe276",
@@ -2001,61 +558,32 @@
   },
   {
     "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 0
+      "undefined": -1
     },
     "books": [
-      "69174562d727715b157fe286"
+      "691efea0b33f2e7f0830bedb",
+      "6917454fd727715b157fe282"
     ]
   },
   {
     "answers": {
-      "genre": 2,
-      "mood": 0,
-      "length": 1
+      "undefined": 1
     },
     "books": [
-      "691efe36b33f2e7f0830bed7"
+      "6917454fd727715b157fe282"
     ]
   },
   {
     "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 1
+      "undefined": 2
     },
     "books": [
-      "69174525d727715b157fe27a"
+      "69372ad61f68199ce1efcb4c"
     ]
   },
   {
     "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": 0
-    },
-    "books": [
-      "69388a864d8bc44a0b473241",
-      "69174562d727715b157fe286"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": 1
-    },
-    "books": [
-      "69174528d727715b157fe27e",
-      "69174562d727715b157fe286"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": 0
+      "undefined": 2
     },
     "books": [
       "691e134b6885c1f9fb28cb3a"
@@ -2063,33 +591,1115 @@
   },
   {
     "answers": {
-      "genre": 1,
-      "mood": -1,
-      "length": 1
+      "undefined": 1
     },
     "books": [
-      "69174562d727715b157fe286"
-    ]
-  },
-  {
-    "answers": {
-      "genre": 2,
-      "mood": 1,
-      "length": 1
-    },
-    "books": [
-      "69174525d727715b157fe27a",
+      "691efea0b33f2e7f0830bedb",
       "6917451dd727715b157fe276"
     ]
   },
   {
     "answers": {
-      "genre": 1,
-      "mood": 0,
-      "length": -1
+      "undefined": 1
+    },
+    "books": [
+      "69174528d727715b157fe27e",
+      "691e134b6885c1f9fb28cb3a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69174562d727715b157fe286",
+      "69372ad61f68199ce1efcb4c"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "6917454fd727715b157fe282"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69174525d727715b157fe27a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "691e134b6885c1f9fb28cb3a",
+      "69174525d727715b157fe27a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
     },
     "books": [
       "69174562d727715b157fe286"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "6917454fd727715b157fe282",
+      "691efea0b33f2e7f0830bedb"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "691efe36b33f2e7f0830bed7"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "691efea0b33f2e7f0830bedb",
+      "69372ad61f68199ce1efcb4c"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "691efe36b33f2e7f0830bed7",
+      "6917451dd727715b157fe276"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69372ad61f68199ce1efcb4c"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "691efea0b33f2e7f0830bedb",
+      "6917454fd727715b157fe282"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69388a864d8bc44a0b473241"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "691efea0b33f2e7f0830bedb"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69174525d727715b157fe27a",
+      "691e138d6885c1f9fb28cb3e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69372ad61f68199ce1efcb4c",
+      "6917454fd727715b157fe282"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69174562d727715b157fe286"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69174528d727715b157fe27e",
+      "69372ad61f68199ce1efcb4c"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "6917454fd727715b157fe282",
+      "6917451dd727715b157fe276"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "691e134b6885c1f9fb28cb3a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69174528d727715b157fe27e",
+      "69372ad61f68199ce1efcb4c"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69388a864d8bc44a0b473241",
+      "69174528d727715b157fe27e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "691e138d6885c1f9fb28cb3e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "691e138d6885c1f9fb28cb3e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69174562d727715b157fe286"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "691e138d6885c1f9fb28cb3e",
+      "6917451dd727715b157fe276"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69372ad61f68199ce1efcb4c"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69388a864d8bc44a0b473241"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "691efea0b33f2e7f0830bedb",
+      "69174562d727715b157fe286"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69174562d727715b157fe286",
+      "69372ad61f68199ce1efcb4c"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69388a864d8bc44a0b473241",
+      "69174528d727715b157fe27e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "6917454fd727715b157fe282",
+      "691efea0b33f2e7f0830bedb"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "6917454fd727715b157fe282",
+      "691e134b6885c1f9fb28cb3a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69174528d727715b157fe27e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "691e134b6885c1f9fb28cb3a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "6917451dd727715b157fe276",
+      "69388a864d8bc44a0b473241"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "6917454fd727715b157fe282"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "691efea0b33f2e7f0830bedb",
+      "6917454fd727715b157fe282"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69388a864d8bc44a0b473241"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69174525d727715b157fe27a",
+      "691e138d6885c1f9fb28cb3e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69174525d727715b157fe27a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69174525d727715b157fe27a",
+      "691e138d6885c1f9fb28cb3e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "691efe36b33f2e7f0830bed7"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69388a864d8bc44a0b473241",
+      "691e134b6885c1f9fb28cb3a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "691e134b6885c1f9fb28cb3a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69174525d727715b157fe27a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "6917454fd727715b157fe282"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69388a864d8bc44a0b473241",
+      "69372ad61f68199ce1efcb4c"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "691e134b6885c1f9fb28cb3a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "6917454fd727715b157fe282",
+      "691e138d6885c1f9fb28cb3e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69174528d727715b157fe27e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69174562d727715b157fe286"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "691e138d6885c1f9fb28cb3e",
+      "6917451dd727715b157fe276"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "6917451dd727715b157fe276"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "691efea0b33f2e7f0830bedb",
+      "69174525d727715b157fe27a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "691efe36b33f2e7f0830bed7",
+      "691e134b6885c1f9fb28cb3a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69174528d727715b157fe27e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "691e138d6885c1f9fb28cb3e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69174562d727715b157fe286",
+      "6917454fd727715b157fe282"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69174525d727715b157fe27a",
+      "691efe36b33f2e7f0830bed7"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69174528d727715b157fe27e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "691efea0b33f2e7f0830bedb"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69372ad61f68199ce1efcb4c"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69174562d727715b157fe286",
+      "691e138d6885c1f9fb28cb3e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69174528d727715b157fe27e",
+      "69388a864d8bc44a0b473241"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69174562d727715b157fe286"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69372ad61f68199ce1efcb4c",
+      "6917451dd727715b157fe276"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69174525d727715b157fe27a",
+      "69174528d727715b157fe27e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69388a864d8bc44a0b473241",
+      "6917454fd727715b157fe282"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69174562d727715b157fe286"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "691efe36b33f2e7f0830bed7"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "691e138d6885c1f9fb28cb3e",
+      "691e134b6885c1f9fb28cb3a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "691efe36b33f2e7f0830bed7",
+      "69174562d727715b157fe286"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "691e134b6885c1f9fb28cb3a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69174525d727715b157fe27a",
+      "691efe36b33f2e7f0830bed7"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69174525d727715b157fe27a",
+      "6917454fd727715b157fe282"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "6917454fd727715b157fe282"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69174528d727715b157fe27e",
+      "69372ad61f68199ce1efcb4c"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69174525d727715b157fe27a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "691efea0b33f2e7f0830bedb",
+      "6917451dd727715b157fe276"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69372ad61f68199ce1efcb4c"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "691e138d6885c1f9fb28cb3e",
+      "69388a864d8bc44a0b473241"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69174528d727715b157fe27e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "691efe36b33f2e7f0830bed7",
+      "691e138d6885c1f9fb28cb3e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "691efea0b33f2e7f0830bedb",
+      "6917454fd727715b157fe282"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "691efea0b33f2e7f0830bedb"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69174562d727715b157fe286"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69174528d727715b157fe27e",
+      "691efe36b33f2e7f0830bed7"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "691e134b6885c1f9fb28cb3a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69174562d727715b157fe286"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "691e138d6885c1f9fb28cb3e",
+      "69372ad61f68199ce1efcb4c"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69388a864d8bc44a0b473241"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "691efea0b33f2e7f0830bedb",
+      "691e134b6885c1f9fb28cb3a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "691efea0b33f2e7f0830bedb",
+      "69388a864d8bc44a0b473241"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "691e138d6885c1f9fb28cb3e",
+      "69174562d727715b157fe286"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69174528d727715b157fe27e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69174525d727715b157fe27a",
+      "691efea0b33f2e7f0830bedb"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69174528d727715b157fe27e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "691e134b6885c1f9fb28cb3a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69174562d727715b157fe286",
+      "69174528d727715b157fe27e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "691efe36b33f2e7f0830bed7"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "6917451dd727715b157fe276"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "691e134b6885c1f9fb28cb3a",
+      "6917451dd727715b157fe276"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "6917451dd727715b157fe276"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69174562d727715b157fe286"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "691e134b6885c1f9fb28cb3a",
+      "691e138d6885c1f9fb28cb3e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "6917454fd727715b157fe282"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69174562d727715b157fe286",
+      "691efe36b33f2e7f0830bed7"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69388a864d8bc44a0b473241"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69174528d727715b157fe27e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "691efe36b33f2e7f0830bed7",
+      "6917451dd727715b157fe276"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69372ad61f68199ce1efcb4c"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69174525d727715b157fe27a",
+      "69388a864d8bc44a0b473241"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "691e138d6885c1f9fb28cb3e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69174528d727715b157fe27e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69174562d727715b157fe286",
+      "69174528d727715b157fe27e"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69174525d727715b157fe27a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "691efe36b33f2e7f0830bed7"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "6917454fd727715b157fe282"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69174525d727715b157fe27a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "6917451dd727715b157fe276",
+      "691efea0b33f2e7f0830bedb"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "69174562d727715b157fe286",
+      "691e134b6885c1f9fb28cb3a"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "6917454fd727715b157fe282",
+      "691efea0b33f2e7f0830bedb"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "691e138d6885c1f9fb28cb3e",
+      "69388a864d8bc44a0b473241"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69372ad61f68199ce1efcb4c"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69174562d727715b157fe286"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69174525d727715b157fe27a",
+      "6917454fd727715b157fe282"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": -1
+    },
+    "books": [
+      "69372ad61f68199ce1efcb4c"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 1
+    },
+    "books": [
+      "6917451dd727715b157fe276",
+      "6917454fd727715b157fe282"
+    ]
+  },
+  {
+    "answers": {
+      "undefined": 2
+    },
+    "books": [
+      "69372ad61f68199ce1efcb4c"
     ]
   }
 ]
