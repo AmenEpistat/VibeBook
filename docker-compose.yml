@@ -1,0 +1,22 @@
+services:
+  frontend:
+    build: ./frontend
+    command: npm run preview -- --host --port 5173
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - python-app
+    environment:
+      PYTHON_SERVICE_URL: "http://python-app:8000"
+
+  python-app:
+    build: ./ml
+    ports:
+      - "8000:8000"
