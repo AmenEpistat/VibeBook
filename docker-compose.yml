@@ -1,9 +1,12 @@
 services:
   frontend:
     build: ./frontend
-    command: npm run preview -- --host --port 5173
+    command: npm run dev -- --host --port 5173
     ports:
       - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
     depends_on:
       - backend
 
@@ -11,6 +14,9 @@ services:
     build: ./backend
     ports:
       - "3000:3000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
     depends_on:
       - python-app
     environment:
@@ -20,3 +26,5 @@ services:
     build: ./ml
     ports:
       - "8000:8000"
+    volumes:
+      - ./ml:/app
