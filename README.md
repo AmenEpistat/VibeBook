@@ -4,9 +4,11 @@ The project is fully containerized using **Docker**, which allows you to run the
 
 ---
 ## 📸 
-<img width="700" height="426" alt="Снимок экрана 2025-11-17 в 7 34 07 PM" src="https://github.com/user-attachments/assets/69ffe97e-a193-4ff0-b723-7f93f0595790" />
-<img width="700" height="426" alt="Снимок экрана 2025-11-17 в 7 34 24 PM" src="https://github.com/user-attachments/assets/837d7106-58b8-49a8-9d34-7d479656d0e2" />
 
+
+https://github.com/user-attachments/assets/dbd9ec37-1aef-4eeb-ae62-4fc04c205a6a
+
+<img width="900" height="747" alt="Снимок экрана 2026-01-30 в 9 44 16 PM" src="https://github.com/user-attachments/assets/1baf0220-cf5d-4c10-9756-2abfac9ef702" />
 
 ---
 
