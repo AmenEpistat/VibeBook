@@ -1,5 +1,6 @@
 **VibeBook** is a web application that recommends books to users based on their preferences (survey) and selected genres.
-The frontend is built with **Vue**, the server is **Node.js + Express**, data is stored in **MongoDB**, and the recommendation logic is implemented using a **ML model prototype** (content-based filtering + learnable preference model).
+The frontend is built with **Vue**, the server is **Node.js + Express**, data is stored in **MongoDB**, and the recommendation logic is implemented using a **ML model prototype** using a neural network on PyTorch.
+The project is fully containerized using **Docker**, which allows you to run the entire infrastructure (Frontend, Backend, ML service) with a single command.
 
 ---
 ## 📸 
@@ -13,10 +14,9 @@ The frontend is built with **Vue**, the server is **Node.js + Express**, data is
 
 ### For Users
 
+* Registration
 * Browse the book catalog
-* Filter by genres and authors
 * View book details
-* Rate books (like / rating)
 * Receive personalized recommendations
 * Profile with books in different statuses (read, want to read, etc.)
 
@@ -25,6 +25,7 @@ The frontend is built with **Vue**, the server is **Node.js + Express**, data is
 * Add new books to the catalog
 * Edit book descriptions
 * Manage genres
+* Manage authors
 * Add admins
 
 ---
@@ -46,6 +47,7 @@ The frontend is built with **Vue**, the server is **Node.js + Express**, data is
 * Express
 * REST API
 * JWT Authentication
+* Axios
 
 ### **Database**
 
@@ -53,9 +55,10 @@ The frontend is built with **Vue**, the server is **Node.js + Express**, data is
 
 ### **ML / Recommendation Engine**
 
-* Content-based filtering
-* Simple learnable preference model
-* Genre vectorization
+* Python 3.11
+* PyTorch
+* Flask
+* Flask-CORS
 
 ---
 
@@ -67,24 +70,7 @@ The frontend is built with **Vue**, the server is **Node.js + Express**, data is
 git clone https://github.com/AmenEpistat/VibeBook.git
 cd VibeBook
 ```
-
-### 2. Install dependencies
-
-#### Frontend:
-
-```bash
-cd frontend
-npm install
-```
-
-#### Backend:
-
-```bash
-cd backend
-npm install
-```
-
-### 3. Configure environment variables
+### 2. Configure environment variables
 
 Create a `.env` file in the `backend` folder:
 
@@ -102,75 +88,56 @@ CLIENT_URL=http://localhost:5173
 
 ```
 
-### 4. Start the project
+### 3. Project Launch
 
-#### Backend:
-
-```bash
-npm run dev
-```
-
-#### Frontend:
+Make sure that you have **Docker** and **Docker Compose** installed.
 
 ```bash
-npm run dev
+docker compose up -d --build
+```
+Проект будет доступен по адресу: `http://localhost:5173`
+
+## 🧠 Model training and data
+The system uses **Shared Volumes** to synchronize data between **Nodes.js** and **Python**.
+
+#### Data collection: 
+The backend generates `all_books.json` and `synthetic_dataset.json` to a shared folder.
+
+#### Training: 
+To update the weights of the model without reassembling the container, do:
+```bash
+docker compose exec python-app python train.py
+```
+#### Application: 
+The Flask server automatically picks up the model.pth after training.
+
+## 🛠 Problem solving (Troubleshooting)
+1. `ENOTFOUND python-app error (in the Backend logs)`
+
+Reason: The backend cannot find the ML service on the Docker network.
+
+Solution: Check what's in the PreferenceService.the js URL is specified http://python-app:8000 , not localhost. Make sure that the python-app container is running (docker compose ps).
+
+2. `Error FileNotFoundError: all_books.json (in ML logs)`
+
+Reason: The data files have not yet been created by the backend or sent through the volumes.
+
+Solution: Log into the container with the docker compose exec python-app ls /app/data command. If the folder is empty, check the paths in docker-compose.yml.
+
+3. TLS handshake timeout error during build
+
+Reason: Problems with the Internet or proxy when downloading images (Node/Python).
+
+Solution: Check the proxy settings in Docker Desktop (Settings -> Resources -> Proxies) or try to change the Wi-Fi and turn off the VPN
+
+4. Changes in the code are not displayed
+
+Solution: If you have added new dependencies to the package.json or requirements.txt , be sure to run:
+
+```bash
+docker compose up -d --build
 ```
 
-## 📂 Структура проекта
-```bash
-VibeBook/
-├── .idea/
-│
-├── backend/
-│   ├── auth/
-│   ├── author/
-│   ├── book/
-│   ├── common/
-│   ├── genre/
-│   ├── node_modules/          # Backend dependencies
-│   ├── .env                    # Environment variables
-│   ├── .gitignore
-│   ├── index.js                # Backend entry point
-│   ├── package.json
-│   └── package-lock.json
-│
-├── frontend/
-│   ├── .vscode/
-│   ├── dist/                   # Production build output
-│   ├── node_modules/           # Frontend dependencies
-│   ├── public/                 # Static assets
-│   ├── src/
-│   │   ├── assets/             # Images, icons, fonts
-│   │   ├── components/         # Reusable Vue components
-│   │   ├── consts/             # Global constants
-│   │   ├── http/               # Axios instances / API configs
-│   │   ├── router/             # Vue Router setup
-│   │   ├── services/           # API services
-│   │   ├── stores/             # Pinia stores
-│   │   ├── types/              # TypeScript types/interfaces
-│   │   ├── utils/              # Helper functions
-│   │   ├── views/              # Page-level Vue components
-│   │   ├── App.vue             # Root component
-│   │   └── main.ts             # Frontend entry point
-│   │
-│   ├── .editorconfig
-│   ├── .gitattributes
-│   ├── .gitignore
-│   ├── .prettierrc.json
-│   ├── env.d.ts
-│   ├── eslint.config.ts
-│   ├── index.html
-│   ├── package.json
-│   ├── package-lock.json
-│   ├── README.md
-│   ├── tsconfig.app.json
-│   ├── tsconfig.json
-│   ├── tsconfig.node.json
-│   └── vite.config.ts
-│
-└── .gitignore
-```
----
 ## 📄 License
 This project is licensed under the MIT License — you are free to use, modify, and distribute this project with proper attribution.
 See the full text in the [LICENSE](./LICENSE) file.
